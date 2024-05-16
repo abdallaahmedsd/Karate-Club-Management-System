@@ -1,0 +1,16 @@
+P:\Projects\Karate Club\Karate_Club\bin\Debug\Karate_Club.exe.config
+P:\Projects\Karate Club\Karate_Club\bin\Debug\Karate_Club.exe
+P:\Projects\Karate Club\Karate_Club\bin\Debug\Karate_Club.pdb
+P:\Projects\Karate Club\Karate_Club\bin\Debug\Karate_Club_Business.dll
+P:\Projects\Karate Club\Karate_Club\bin\Debug\Karate_Club_Data_Access.dll
+P:\Projects\Karate Club\Karate_Club\bin\Debug\Karate_Club_Business.pdb
+P:\Projects\Karate Club\Karate_Club\bin\Debug\Karate_Club_Data_Access.pdb
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.csproj.AssemblyReference.cache
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.Properties.Resources.resources
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.Test.resources
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.csproj.GenerateResource.cache
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.csproj.CoreCompileInputs.cache
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_C.5B2D85FD.Up2Date
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.exe
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.pdb
+P:\Projects\Karate Club\Karate_Club\obj\Debug\Karate_Club.Karate_Club.resources
