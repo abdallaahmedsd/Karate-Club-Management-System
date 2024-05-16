@@ -1,0 +1,6 @@
+P:\Projects\Karate Club\Karate_Club_Data_Access\bin\Debug\Karate_Club_Data_Access.dll
+P:\Projects\Karate Club\Karate_Club_Data_Access\bin\Debug\Karate_Club_Data_Access.pdb
+P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.csproj.AssemblyReference.cache
+P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.csproj.CoreCompileInputs.cache
+P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.dll
+P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.pdb
