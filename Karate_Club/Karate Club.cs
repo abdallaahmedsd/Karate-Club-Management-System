@@ -90,5 +90,9 @@ namespace Karate_Club
             ActiveButton((Button)sender);
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

@@ -101,5 +101,29 @@
   <ItemGroup>
     <None Include="Resources\logo_2.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dashboard_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\members_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\instructors_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subscribtions_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\belt_test_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\belt_ranks_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\users_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout_24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
