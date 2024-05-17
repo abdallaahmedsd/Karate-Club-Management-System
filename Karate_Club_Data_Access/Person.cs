@@ -62,7 +62,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // log the errors later on
+                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
             return newPersonID;
         }
@@ -101,7 +101,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // log the exception later on
+                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return success;
@@ -148,7 +148,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // log it later
+                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return isFound;
@@ -157,7 +157,7 @@ namespace Karate_Club_Data_Access
         public static bool DeletePerson(int personID)
         {
             int rowsAffected = 0;
-
+            
             try
             {
                 using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
@@ -188,7 +188,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Handle exceptions/log errors
+                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return rowsAffected > 0;
@@ -228,7 +228,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Handle exceptions/log errors
+                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return personExists;
@@ -262,7 +262,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Handle any exceptions, log, or throw them as needed later on
+                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return dtPeople;

@@ -2,9 +2,6 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Karate_Club_Data_Access
 {
@@ -41,7 +38,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Log errors
+                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return newUserID;
@@ -74,7 +71,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Log errors
+                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return success;
@@ -113,7 +110,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Log errors
+                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return isFound;
@@ -148,7 +145,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Log errors
+                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return rowsAffected > 0;
@@ -183,7 +180,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Log errors
+                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return userExists;
@@ -212,7 +209,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                // Log errors
+                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return dtUsers;
