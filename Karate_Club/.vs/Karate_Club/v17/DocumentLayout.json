@@ -1,12 +1,36 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EF07E2EF-0B8B-49D2-957E-81CF4D531E96}|..\\Karate_Club_Data_Access\\Karate_Club_Data_Access.csproj|p:\\github\\karate-club-management-system\\karate_club_data_access\\errorslogger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ErrorsLogger.cs",
+              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Data_Access\\ErrorsLogger.cs",
+              "RelativeDocumentMoniker": "..\\Karate_Club_Data_Access\\ErrorsLogger.cs",
+              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Data_Access\\ErrorsLogger.cs",
+              "RelativeToolTip": "..\\Karate_Club_Data_Access\\ErrorsLogger.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T20:43:57.772Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }
