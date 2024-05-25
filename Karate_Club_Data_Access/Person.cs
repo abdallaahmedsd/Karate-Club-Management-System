@@ -88,8 +88,8 @@ namespace Karate_Club_Data_Access
 
                         // Handle nullable fields
                         command.Parameters.AddWithValue("@Birthdate", birthdate.HasValue ? (object)birthdate : DBNull.Value);
-                        command.Parameters.AddWithValue("@Email", string.IsNullOrWhiteSpace(email) ? (object)email : DBNull.Value);
-                        command.Parameters.AddWithValue("@ImagePath", !string.IsNullOrWhiteSpace(imagePath) ? (object)imagePath : DBNull.Value);
+                        command.Parameters.AddWithValue("@Email", string.IsNullOrWhiteSpace(email) ? DBNull.Value : (object)email);
+                        command.Parameters.AddWithValue("@ImagePath", string.IsNullOrWhiteSpace(imagePath) ? DBNull.Value : (object)imagePath);
 
                         connection.Open();
                         int rowsAffected = command.ExecuteNonQuery();

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Data;
 
@@ -7,7 +6,7 @@ namespace Karate_Club_Data_Access
 {
     public static class clsUserDataAccess
     {
-        public static int AddUser(int personID, string userName, string password, bool isActive, int createdByUserID)
+        public static int AddUser(int personID, string userName, string password, bool isActive)
         {
             int newUserID = -1;
 
@@ -23,7 +22,6 @@ namespace Karate_Club_Data_Access
                         command.Parameters.AddWithValue("@UserName", userName);
                         command.Parameters.AddWithValue("@Password", password);
                         command.Parameters.AddWithValue("@IsActive", isActive);
-                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID);
 
                         SqlParameter newUserIDParameter = new SqlParameter("@NewUserID", SqlDbType.Int);
                         newUserIDParameter.Direction = ParameterDirection.Output;
@@ -77,7 +75,7 @@ namespace Karate_Club_Data_Access
             return success;
         }
 
-        public static bool GetUserByID(int userID, ref int personID, ref string userName, ref string password, ref bool isActive, ref int createdByUserID)
+        public static bool GetUserByID(int userID, ref int personID, ref string userName, ref string password, ref bool isActive)
         {
             bool isFound = false;
 
@@ -100,7 +98,6 @@ namespace Karate_Club_Data_Access
                                 userName = reader["UserName"].ToString();
                                 password = reader["Password"].ToString();
                                 isActive = (bool)reader["IsActive"];
-                                createdByUserID = (int)reader["CreatedByUserID"];
 
                                 isFound = true;
                             }

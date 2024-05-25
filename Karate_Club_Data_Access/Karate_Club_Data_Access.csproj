@@ -42,8 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BeltRank.cs" />
     <Compile Include="DataAccessSettings.cs" />
+    <Compile Include="EmergencyContact.cs" />
     <Compile Include="ErrorsLogger.cs" />
+    <Compile Include="Member.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="User.cs" />

@@ -20,10 +20,11 @@ namespace Karate_Club_Business
         public string Address { get; set; }
         public string ImagePath { get; set; }
         public int? CreatedByUserID { get; set; }
-        public enum enMode { add_new_mode, update_mode }
+        public clsUser UserInfo { get; set; }
+        public enum enMode : byte { add_new_mode, update_mode }
         public enMode Mode {get; set;}
 
-        private clsPerson(int personID, string firstName, string lastName, char gender, DateTime? birthdate, string phone, string email, string address, string imagePath, int? createdByUserID)
+        protected clsPerson(int personID, string firstName, string lastName, char gender, DateTime? birthdate, string phone, string email, string address, string imagePath, int? createdByUserID)
         {
             PersonID = personID;
             FirstName = firstName;
@@ -35,6 +36,7 @@ namespace Karate_Club_Business
             Address = address;
             ImagePath = imagePath;
             CreatedByUserID = createdByUserID;
+            if (createdByUserID.HasValue) UserInfo = clsUser.Find(createdByUserID.Value);
             Mode = enMode.update_mode;
         }
 
@@ -58,14 +60,14 @@ namespace Karate_Club_Business
             switch (Mode)
             {
                 case enMode.add_new_mode:
-                    if (_AddPerson())
+                    if (_Add())
                     {
                         this.Mode = enMode.update_mode;
                         return true;
                     }
                     return false;
                 case enMode.update_mode:
-                    return _UpdatePerson();
+                    return _Update();
                 default:
                     return false;
             }
@@ -100,13 +102,13 @@ namespace Karate_Club_Business
             return clsPersonDataAccess.GetAllPeople();
         }
 
-        private bool _AddPerson()
+        private bool _Add()
         {
             this.PersonID = clsPersonDataAccess.AddPerson(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath, CreatedByUserID);
             return this.PersonID != -1;
         }
 
-        private bool _UpdatePerson() 
+        private bool _Update() 
         {
             return clsPersonDataAccess.UpdatePerson(PersonID, FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath);
         }

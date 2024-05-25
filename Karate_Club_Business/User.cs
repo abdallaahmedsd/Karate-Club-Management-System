@@ -1,9 +1,4 @@
 ﻿using Karate_Club_Data_Access;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Karate_Club_Business
 {
@@ -14,19 +9,17 @@ namespace Karate_Club_Business
         public string UserName { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
-        public int CreatedByUserID { get; set; }
 
-        public enum enMode { AddNew, Update }
+        public enum enMode : byte { AddNew, Update }
         public enMode Mode { get; set; }
 
-        private clsUser(int userID, int personID, string userName, string password, bool isActive, int createdByUserID)
+        private clsUser(int userID, int personID, string userName, string password, bool isActive)
         {
             UserID = userID;
             PersonID = personID;
             UserName = userName;
             Password = password;
             IsActive = isActive;
-            CreatedByUserID = createdByUserID;
             Mode = enMode.Update;
         }
 
@@ -37,7 +30,6 @@ namespace Karate_Club_Business
             UserName = null;
             Password = null;
             IsActive = true;
-            CreatedByUserID = -1;
             Mode = enMode.AddNew;
         }
 
@@ -65,8 +57,8 @@ namespace Karate_Club_Business
             string userName = null, password = null;
             bool isActive = false;
 
-            if (clsUserDataAccess.GetUserByID(userID, ref personID, ref userName, ref password, ref isActive, ref createdByUserID))
-                return new clsUser(userID, personID, userName, password, isActive, createdByUserID);
+            if (clsUserDataAccess.GetUserByID(userID, ref personID, ref userName, ref password, ref isActive))
+                return new clsUser(userID, personID, userName, password, isActive);
             else
                 return null;
         }
@@ -83,7 +75,7 @@ namespace Karate_Club_Business
 
         private bool _AddUser()
         {
-            this.UserID = clsUserDataAccess.AddUser(PersonID, UserName, Password, IsActive, CreatedByUserID);
+            this.UserID = clsUserDataAccess.AddUser(PersonID, UserName, Password, IsActive);
             return this.UserID != -1;
         }
 
