@@ -76,7 +76,7 @@ namespace Karate_Club
 
             // Select the first page to to load its data if any
             cbPage.SelectedIndex = 0;
-            _pageNumber = int.Parse(cbPage.Text);
+            _pageNumber = int.TryParse(cbPage.Text, out int result) == true ? result : 0;
         }
 
         private void _Filter()
@@ -122,7 +122,7 @@ namespace Karate_Club
                     //in this case we deal with integer not string.
                     _dtMembers.DefaultView.RowFilter = string.Format("[{0}] = {1}", filterColumn, filterValue);
                 else
-                    _dtMembers.DefaultView.RowFilter = string.Format("[{0}] LIKE '{1}%'", filterColumn, filterValue);
+                    _dtMembers.DefaultView.RowFilter = string.Format("[{0}] LIKE '%{1}%'", filterColumn, filterValue);
             }
 
             // Updates the total records count label
@@ -173,7 +173,7 @@ namespace Karate_Club
         private void cbPage_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected page number
-            _pageNumber = int.Parse(cbPage.Text);
+            _pageNumber = int.TryParse(cbPage.Text, out int result) == true ? result : 0;
 
             // Load members data from the database and view it in the DataGridView
             _dtMembers = clsMember.GetMembersPerPage(_pageNumber, clsUtilities.RowsPerPage);
