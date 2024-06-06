@@ -242,6 +242,5 @@ namespace Karate_Club_Data_Access
 
             return (uint)totalMembers;
         }
-
     }
 }

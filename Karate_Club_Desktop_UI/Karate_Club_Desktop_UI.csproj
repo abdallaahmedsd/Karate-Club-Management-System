@@ -46,10 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmListMembers.cs">
+    <Compile Include="Emergency Contacts\ctrAddEditEmergencyContact.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Emergency Contacts\ctrAddEditEmergencyContact.Designer.cs">
+      <DependentUpon>ctrAddEditEmergencyContact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\frmAddMember.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmListMembers.Designer.cs">
+    <Compile Include="Members\frmAddMember.Designer.cs">
+      <DependentUpon>frmAddMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\frmListMembers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\frmListMembers.Designer.cs">
       <DependentUpon>frmListMembers.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\Utilities.cs" />
@@ -58,6 +70,12 @@
     </Compile>
     <Compile Include="Main Menu\frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\Controls\ctrAddEditPerson.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrAddEditPerson.Designer.cs">
+      <DependentUpon>ctrAddEditPerson.cs</DependentUpon>
     </Compile>
     <Compile Include="People\frmAddEditPeron.cs">
       <SubType>Form</SubType>
@@ -72,17 +90,32 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <Compile Include="Subscriptions\ctrAddEditSubscription.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Subscriptions\ctrAddEditSubscription.Designer.cs">
+      <DependentUpon>ctrAddEditSubscription.cs</DependentUpon>
+    </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Test.Designer.cs">
       <DependentUpon>Test.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="frmListMembers.resx">
+    <EmbeddedResource Include="Emergency Contacts\ctrAddEditEmergencyContact.resx">
+      <DependentUpon>ctrAddEditEmergencyContact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\frmAddMember.resx">
+      <DependentUpon>frmAddMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\frmListMembers.resx">
       <DependentUpon>frmListMembers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Main Menu\frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrAddEditPerson.resx">
+      <DependentUpon>ctrAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="People\frmAddEditPeron.resx">
       <DependentUpon>frmAddEditPeron.cs</DependentUpon>
@@ -91,6 +124,9 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subscriptions\ctrAddEditSubscription.resx">
+      <DependentUpon>ctrAddEditSubscription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -155,6 +191,48 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add_641.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\name_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\phone-call_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mail_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\location-pin_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calendar_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\female_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\profile-picture_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\female_512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\male_512.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fees_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\subscription_type_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

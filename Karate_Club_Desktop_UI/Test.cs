@@ -20,7 +20,17 @@ namespace Karate_Club
 
         private void Test_Load(object sender, EventArgs e)
         {
-            dataGridView1.DataSource = clsPerson.GetAllPeople();
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //ctrAddEditPerson1.LoadPersonInfo(1);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            ctrAddEditSubscription1.LoadSubscriptionInfo(1);
         }
     }
 }

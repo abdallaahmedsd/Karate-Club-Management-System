@@ -12,10 +12,12 @@ namespace Karate_Club_Business
         public int EmergencyContactID { get; set; }
         public clsEmergencyContact EmergencyContactInfo { get; set; }
         public bool IsActive { get; set; }
+        public clsSubscription SubscriptionInfo { get; set; }
+
         public new enum enMode : byte { add_new_mode, update_mode }
         public new enMode Mode { get; set; }
-
-        private clsMember(int personID, string firstName, string lastName, char gender, DateTime? birthdate, string phone, string email, string address,
+        
+        private clsMember(int personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address,
                 string imagePath, int? createdByUserID, int memberID, int currentBeltRankID, int emergencyContactID, bool isActive)
                 :base(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath, createdByUserID)
         {
@@ -64,7 +66,7 @@ namespace Karate_Club_Business
             if (clsMemberDataAccess.FindMemberByID(memberID, ref personID, ref currentBeltRankID, ref emergencyContactID, ref isActive))
             {
                 clsPerson person = clsPerson.Find(personID);
-                //clsEmergencyContact emergencyContact = clsEmergencyContact.Find(emergencyContactID);
+                
                 if(person == null) return null;
 
                 return new clsMember(person.PersonID, person.FirstName, person.LastName, person.Gender, person.Birthdate, person.Phone, person.Email, 
@@ -106,16 +108,5 @@ namespace Karate_Club_Business
         {
             return clsMemberDataAccess.UpdateMember(MemberID, PersonID, CurrentBeltRankID, EmergencyContactID, IsActive);
         }
-
-    }
-
-    public class x
-    {
-        clsMember member = new clsMember();
-
-        //public string st()
-        //{
-        //    member.MemberID
-        //}
     }
 }

@@ -14,7 +14,7 @@ namespace Karate_Club_Business
             get { return FirstName + ' ' + LastName; }
         }
         public char Gender { get; set; }
-        public DateTime? Birthdate { get; set; }
+        public DateTime Birthdate { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
         public string Address { get; set; }
@@ -24,7 +24,7 @@ namespace Karate_Club_Business
         public enum enMode : byte { add_new_mode, update_mode }
         public enMode Mode {get; set;}
 
-        protected clsPerson(int personID, string firstName, string lastName, char gender, DateTime? birthdate, string phone, string email, string address, string imagePath, int? createdByUserID)
+        protected clsPerson(int personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address, string imagePath, int? createdByUserID)
         {
             PersonID = personID;
             FirstName = firstName;
@@ -46,7 +46,7 @@ namespace Karate_Club_Business
             FirstName = null;
             LastName = null;
             Gender = ' ';
-            Birthdate = null;
+            Birthdate = DateTime.Today;
             Phone = null;
             Email = null;
             Address = null;
@@ -77,7 +77,7 @@ namespace Karate_Club_Business
         {
             string firstName = null,lastName = null, phone = null, email = null, address = null, imagePath = null;
             char gender = ' ';
-            DateTime? birthdate = null;
+            DateTime birthdate = DateTime.Today;
             int? createdByUserID = null;
 
             if (clsPersonDataAccess.GetPersonByID(personID, ref firstName, ref lastName, ref gender, ref birthdate, ref phone, ref email, ref address, ref imagePath, ref createdByUserID))

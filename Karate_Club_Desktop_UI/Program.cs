@@ -16,6 +16,7 @@ namespace Karate_Club
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new Test());
             Application.Run(new frmMain());
+            //Application.Run(new frmAddMember());
             //Application.Run(new frmAddEditPeron());
         }
     }

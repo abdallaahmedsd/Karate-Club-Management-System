@@ -6,7 +6,7 @@ namespace Karate_Club_Data_Access
 {
     public static class clsPersonDataAccess
     {
-        public static int AddPerson(string firstName, string lastName, char gender, DateTime? birthdate,
+        public static int AddPerson(string firstName, string lastName, char gender, DateTime birthdate,
                                         string phone, string email, string address, string imagePath, int? createdByUserID)
         {
             int newPersonID = -1;
@@ -28,9 +28,9 @@ namespace Karate_Club_Data_Access
                         command.Parameters.AddWithValue("@Gender", gender);
                         command.Parameters.AddWithValue("@Address", address);
                         command.Parameters.AddWithValue("@Phone", phone);
+                        command.Parameters.AddWithValue("@Birthdate", birthdate);
 
                         // Handle nullable fields
-                        command.Parameters.AddWithValue("@Birthdate", birthdate.HasValue ? (object)birthdate : DBNull.Value);
                         if (!string.IsNullOrWhiteSpace(email))
                             command.Parameters.AddWithValue("@Email", email);
                         else
@@ -64,10 +64,11 @@ namespace Karate_Club_Data_Access
             {
                 clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
+
             return newPersonID;
         }
 
-        public static bool UpdatePerson(int personID, string firstName, string lastName, char gender, DateTime? birthdate,
+        public static bool UpdatePerson(int personID, string firstName, string lastName, char gender, DateTime birthdate,
                                             string phone, string email, string address, string imagePath)
         {
             bool success = false;
@@ -85,9 +86,9 @@ namespace Karate_Club_Data_Access
                         command.Parameters.AddWithValue("@Address", address);
                         command.Parameters.AddWithValue("@Gender", gender);
                         command.Parameters.AddWithValue("@Phone", phone);
+                        command.Parameters.AddWithValue("@Birthdate", birthdate);
 
                         // Handle nullable fields
-                        command.Parameters.AddWithValue("@Birthdate", birthdate.HasValue ? (object)birthdate : DBNull.Value);
                         command.Parameters.AddWithValue("@Email", string.IsNullOrWhiteSpace(email) ? DBNull.Value : (object)email);
                         command.Parameters.AddWithValue("@ImagePath", string.IsNullOrWhiteSpace(imagePath) ? DBNull.Value : (object)imagePath);
 
@@ -107,7 +108,7 @@ namespace Karate_Club_Data_Access
             return success;
         }
 
-        public static bool GetPersonByID(int personID, ref string firstName, ref string lastName, ref char gender, ref DateTime? birthdate,
+        public static bool GetPersonByID(int personID, ref string firstName, ref string lastName, ref char gender, ref DateTime birthdate,
                                     ref string phone, ref string email, ref string address, ref string imagePath, ref int? createdByUserID)
         {
             bool isFound = false;
@@ -133,7 +134,7 @@ namespace Karate_Club_Data_Access
                                 firstName = reader["FirstName"].ToString();
                                 lastName = reader["LastName"].ToString();
                                 gender = reader["Gender"].ToString()[0];
-                                birthdate = reader["Birthdate"] as DateTime?;
+                                birthdate = (DateTime)reader["Birthdate"];
                                 phone = reader["Phone"].ToString();
                                 email = reader["Email"].ToString();
                                 address = reader["Address"].ToString();
