@@ -63,6 +63,16 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap add_32 {
+            get {
+                object obj = ResourceManager.GetObject("add_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_64 {
             get {
                 object obj = ResourceManager.GetObject("add_64", resourceCulture);
@@ -116,6 +126,36 @@ namespace Karate_Club.Properties {
         internal static System.Drawing.Bitmap dashboard_24 {
             get {
                 object obj = ResourceManager.GetObject("dashboard_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap delete_32 {
+            get {
+                object obj = ResourceManager.GetObject("delete_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap edit_32 {
+            get {
+                object obj = ResourceManager.GetObject("edit_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap emergency_contact_32 {
+            get {
+                object obj = ResourceManager.GetObject("emergency_contact_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -263,6 +303,16 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap personal_info_32 {
+            get {
+                object obj = ResourceManager.GetObject("personal_info_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap phone_call_24 {
             get {
                 object obj = ResourceManager.GetObject("phone-call_24", resourceCulture);
@@ -306,6 +356,16 @@ namespace Karate_Club.Properties {
         internal static System.Drawing.Bitmap subscription_type_24 {
             get {
                 object obj = ResourceManager.GetObject("subscription_type_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap take_test_32 {
+            get {
+                object obj = ResourceManager.GetObject("take_test_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

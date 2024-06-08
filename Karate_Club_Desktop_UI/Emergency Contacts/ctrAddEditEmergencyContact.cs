@@ -7,6 +7,9 @@ namespace Karate_Club.Emergency_Contacts
 {
     public partial class ctrAddEditEmergencyContact : UserControl
     {
+        public enum enMode { add_new, update}
+        public enMode Mode = enMode.add_new;
+
         public ctrAddEditEmergencyContact()
         {
             InitializeComponent();
@@ -18,7 +21,9 @@ namespace Karate_Club.Emergency_Contacts
 
         private void _FillEmergencyContactObject()
         {
-            _emergencyContact = new clsEmergencyContact();
+            if(Mode == enMode.add_new)
+                _emergencyContact = new clsEmergencyContact();
+
             _emergencyContact.Name = txtFullName.Text.Trim();
             _emergencyContact.Phone = txtPhone.Text.Trim();
             _emergencyContact.Email = txtEmail.Text.Trim();
@@ -106,7 +111,32 @@ namespace Karate_Club.Emergency_Contacts
             return result;
         }
 
-        public void LoadEmergencyContactInfo(int emergencyContactID)
+        public bool UpdateEmergencyContactInfo()
+        {
+            if (!AreAllFieldsValid())
+            {
+                MessageBox.Show("Some fields are not valid. Hover over the red icons to see the message provided.", "Not Valid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (MessageBox.Show("Are you sure you want to update emergency contact info?", "Confirm Updating", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (_emergencyContact.Save())
+                {
+                    MessageBox.Show($"Emergency contact info updated successfully", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot updated emergency contact info, some thing went wrong.", "Falied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            return false;
+        }
+
+        public bool LoadEmergencyContactInfo(int emergencyContactID)
         {
             _emergencyContact = clsEmergencyContact.Find(emergencyContactID);
 
@@ -114,10 +144,12 @@ namespace Karate_Club.Emergency_Contacts
             {
                 MessageBox.Show($"There's no emergency contact with ID ({emergencyContactID})", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //Reset();
-                return;
+                return false;
             }
 
+            Mode = enMode.update;
             _FillFormWithEmergencyContactInfo();
+            return true;
         }
 
         public new void Focus()

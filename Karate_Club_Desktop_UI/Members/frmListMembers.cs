@@ -1,4 +1,6 @@
-﻿using Karate_Club.Global_Classes;
+﻿using Karate_Club.Emergency_Contacts;
+using Karate_Club.Global_Classes;
+using Karate_Club.Members;
 using Karate_Club_Business;
 using System;
 using System.Data;
@@ -14,9 +16,6 @@ namespace Karate_Club
         public frmListMembers()
         {
             InitializeComponent();
-
-            // Cusomize the appearance of the DataGridView
-            clsUtilities.CustomizeDataGridView(dgvMembers);
         }
 
         // this function will subscribe to an event in frmAddMember form.
@@ -145,6 +144,9 @@ namespace Karate_Club
 
         private void frmListMembers_Load(object sender, EventArgs e)
         {
+            // Cusomize the appearance of the DataGridView
+            clsUtilities.CustomizeDataGridView(dgvMembers);
+
             _LoadRefreshMembersPerPage();
             cbFilterBy.SelectedItem = "None";
         }
@@ -194,6 +196,48 @@ namespace Karate_Club
             // Load members data from the database and view it in the DataGridView
             _dtMembers = clsMember.GetMembersPerPage(_pageNumber, clsUtilities.RowsPerPage);
             _FillDataGridView(_dtMembers);
+        }
+
+        private void updatePersonalInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int personID = (int)dgvMembers.CurrentRow.Cells["PersonID"].Value;
+
+            frmEditPersonalInfo frm = new frmEditPersonalInfo(personID);
+            frm.ShowDialog();
+            _LoadRefreshMembersPerPage();
+        }
+
+        private void updateEmegencyContactInformationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
+            clsMember member = clsMember.Find(memberID);
+
+            if(member != null)
+            {
+                frmEditEmergencyContactInfo frm = new frmEditEmergencyContactInfo(member.EmergencyContactID);
+                frm.ShowDialog();
+            }
+        }
+
+        private void dgvMembers_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+                // Check if there are any rows and columns in the DataGridView
+                if (dgvMembers.Rows.Count == 0 || dgvMembers.Columns.Count == 0)
+                {
+                    // Suppress the ContextMenuStrip
+                    return;
+                }
+
+                // Check if the clicked cell is valid
+                if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+                {
+                    // Show the ContextMenuStrip
+                    dgvMembers.CurrentCell = dgvMembers[e.ColumnIndex, e.RowIndex];
+                    cmsMembers.Show(Cursor.Position);
+                }
+            }
         }
     }
 }

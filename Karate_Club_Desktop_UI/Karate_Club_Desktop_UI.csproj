@@ -52,11 +52,23 @@
     <Compile Include="Emergency Contacts\ctrAddEditEmergencyContact.Designer.cs">
       <DependentUpon>ctrAddEditEmergencyContact.cs</DependentUpon>
     </Compile>
+    <Compile Include="Emergency Contacts\frmEditEmergencyContactInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Emergency Contacts\frmEditEmergencyContactInfo.Designer.cs">
+      <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Members\frmAddMember.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Members\frmAddMember.Designer.cs">
       <DependentUpon>frmAddMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Members\frmEditPersonalInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Members\frmEditPersonalInfo.Designer.cs">
+      <DependentUpon>frmEditPersonalInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Members\frmListMembers.cs">
       <SubType>Form</SubType>
@@ -105,8 +117,14 @@
     <EmbeddedResource Include="Emergency Contacts\ctrAddEditEmergencyContact.resx">
       <DependentUpon>ctrAddEditEmergencyContact.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Emergency Contacts\frmEditEmergencyContactInfo.resx">
+      <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Members\frmAddMember.resx">
       <DependentUpon>frmAddMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Members\frmEditPersonalInfo.resx">
+      <DependentUpon>frmEditPersonalInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Members\frmListMembers.resx">
       <DependentUpon>frmListMembers.cs</DependentUpon>
@@ -233,6 +251,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\save_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\edit_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\delete_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\take_test_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\personal_info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\emergency_contact_32.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

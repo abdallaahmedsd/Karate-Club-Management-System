@@ -9,17 +9,23 @@ namespace Karate_Club.People.Controls
 {
     public partial class ctrAddEditPerson : UserControl
     {
+        public enum enMode { add_new, update }
+        public enMode Mode = enMode.add_new;
+
         public ctrAddEditPerson()
         {
             InitializeComponent();
         }
 
-        private clsPerson _person = new clsPerson();
+        private clsPerson _person;
 
         public clsPerson PersonalInfo => _person;
 
         private void _FillPersonObject()
         {
+            if(Mode == enMode.add_new)
+                _person = new clsPerson();
+
             _person.FirstName = txtFirstName.Text.Trim();
             _person.LastName = txtLastName.Text.Trim();
             _person.Phone = txtPhone.Text.Trim();
@@ -195,7 +201,7 @@ namespace Karate_Club.People.Controls
             return result;
         }
 
-        public void LoadPersonInfo(int personId)
+        public bool LoadPersonInfo(int personId)
         {
             _person = clsPerson.Find(personId);
 
@@ -203,10 +209,37 @@ namespace Karate_Club.People.Controls
             {
                 MessageBox.Show($"There's no person with ID ({personId})", "Not Found!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 //Reset();
-                return;
+                return false;
             }
 
+            Mode = enMode.update;
             _FillFormWithPersonInfo();
+            return true;
+        }
+
+        public bool UpdatePersonInfo()
+        {
+            if (!AreAllFieldsValid())
+            {
+                MessageBox.Show("Some fields are not valid. Hover over the red icons to see the message provided.", "Not Valid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (MessageBox.Show("Are you sure you want to update personal info?", "Confirm Updating", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (_person.Save())
+                {
+                    MessageBox.Show($"Personal info updated successfully", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot updated personal info, some thing went wrong.", "Falied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            return false;
         }
 
         public void Foucs()
