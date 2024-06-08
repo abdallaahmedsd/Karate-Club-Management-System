@@ -131,5 +131,10 @@ namespace Karate_Club.Emergency_Contacts
             txtPhone.Clear();
             txtEmail.Clear();
         }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsUtilities.IsNumber(e);
+        }
     }
 }

@@ -62,6 +62,13 @@ namespace Karate_Club.Global_Classes
             return Regex.IsMatch(email, pattern);
         }
 
+        public static void IsNumber(KeyPressEventArgs e)
+        {
+            // Check if the key pressed is a control key (like Backspace)
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+                e.Handled = true; // Suppress the character
+        }
+
         public static string GenerateGUID()
         {
             // Generate a new GUID

@@ -183,9 +183,7 @@ namespace Karate_Club
         private void txtFilterValue_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (cbFilterBy.Text == "Member ID" || cbFilterBy.Text == "Person ID")
-                // Check if the key pressed is a control key (like Backspace)
-                if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-                    e.Handled = true; // Suppress the character
+                clsUtilities.IsNumber(e);
         }
 
         private void cbPage_SelectedIndexChanged(object sender, EventArgs e)

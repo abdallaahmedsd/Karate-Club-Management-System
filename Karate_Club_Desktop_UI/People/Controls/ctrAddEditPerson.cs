@@ -259,5 +259,10 @@ namespace Karate_Club.People.Controls
             else
                 pbPersonImage.Image = Resources.female_512;
         }
+
+        private void txtPhone_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            clsUtilities.IsNumber(e);
+        }
     }
 }

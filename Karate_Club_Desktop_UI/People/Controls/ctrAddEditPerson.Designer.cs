@@ -236,6 +236,7 @@
             this.txtPhone.TabIndex = 2;
             this.txtPhone.Tag = "Phone number";
             this.txtPhone.TextChanged += new System.EventHandler(this._ValidateEmptyTextBox_TextChanged);
+            this.txtPhone.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPhone_KeyPress);
             // 
             // lblPhone
             // 
