@@ -184,7 +184,7 @@ namespace Karate_Club_Data_Access
             return dtMembers;
         }
 
-        public static DataTable GetMembersPerPage(int pageNumber, int rowsPerPage)
+        public static DataTable GetMembersPerPage(ushort pageNumber, uint rowsPerPage)
         {
             DataTable dataTable = new DataTable();
 

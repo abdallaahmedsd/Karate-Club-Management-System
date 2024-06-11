@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Configuration;
 
 namespace Karate_Club.Global_Classes
 {
@@ -10,7 +11,7 @@ namespace Karate_Club.Global_Classes
     {
         public static Color MainColor = Color.FromArgb(44, 54, 79);
 
-        public static int RowsPerPage = 10;
+        public static uint RowsPerPage = uint.TryParse(ConfigurationManager.AppSettings["RowsPerPage"] ?? "", out uint result) ? result : 15;
 
         public static DateTime MinimumValidAge = DateTime.Today.AddYears(-102);
        

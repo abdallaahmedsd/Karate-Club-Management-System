@@ -86,7 +86,7 @@ namespace Karate_Club_Business
             return clsMemberDataAccess.GetAllMembers();
         }
 
-        public static DataTable GetMembersPerPage(int pageNumber, int rowsPerPage)
+        public static DataTable GetMembersPerPage(ushort pageNumber, uint rowsPerPage)
         {
             return clsMemberDataAccess.GetMembersPerPage(pageNumber, rowsPerPage);
         }

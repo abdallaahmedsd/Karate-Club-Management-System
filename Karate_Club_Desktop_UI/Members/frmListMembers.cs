@@ -6,13 +6,15 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 
+using static System.Math;
+
 namespace Karate_Club
 {
     public partial class frmListMembers : Form
     {
         private enum enMode { add, update, delete}
         private enMode _mode = enMode.add;
-        int _pageNumber = 0; 
+        private ushort _pageNumber = 0; 
         private DataTable _dtMembers;
 
         public frmListMembers()
@@ -74,7 +76,7 @@ namespace Karate_Club
             uint totalMembersCount = clsMember.GetTotalMemberCount();
 
             // Calculate the number of pages depending on "totalMembersCount"
-            uint numberOfPages = totalMembersCount > 0 ? (uint)Math.Ceiling((double)totalMembersCount / clsUtilities.RowsPerPage) : 0;
+            uint numberOfPages = totalMembersCount > 0 ? (uint)Ceiling((double)totalMembersCount / clsUtilities.RowsPerPage) : 0;
 
             cbPage.Items.Clear();
 
@@ -93,7 +95,7 @@ namespace Karate_Club
 
             // Select the first page to to load its data if any
             cbPage.SelectedIndex = 0;
-            _pageNumber = int.TryParse(cbPage.Text, out int result) == true ? result : 0;
+            _pageNumber = ushort.TryParse(cbPage.Text, out ushort result) == true ? result : (ushort)0;
         }
 
         private void _Filter()
@@ -197,7 +199,7 @@ namespace Karate_Club
         private void cbPage_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected page number
-            _pageNumber = int.TryParse(cbPage.Text, out int result) == true ? result : 0;
+            _pageNumber = ushort.TryParse(cbPage.Text, out ushort result) == true ? result : (ushort)0;
 
             // Load members data from the database and view it in the DataGridView
             _dtMembers = clsMember.GetMembersPerPage(_pageNumber, clsUtilities.RowsPerPage);

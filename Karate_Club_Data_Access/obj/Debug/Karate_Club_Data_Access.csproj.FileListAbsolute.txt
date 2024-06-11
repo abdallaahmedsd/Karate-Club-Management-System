@@ -4,3 +4,9 @@ P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Acces
 P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.csproj.CoreCompileInputs.cache
 P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.dll
 P:\Projects\Karate Club\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.pdb
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Data_Access\bin\Debug\Karate_Club_Data_Access.dll
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Data_Access\bin\Debug\Karate_Club_Data_Access.pdb
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.csproj.AssemblyReference.cache
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.csproj.CoreCompileInputs.cache
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.dll
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Data_Access\obj\Debug\Karate_Club_Data_Access.pdb
