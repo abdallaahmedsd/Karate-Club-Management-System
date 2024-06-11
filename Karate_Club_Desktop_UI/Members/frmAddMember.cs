@@ -7,18 +7,19 @@ namespace Karate_Club
 {
     public partial class frmAddMember : Form
     {
-        // This event will be raised when a new member has been added successfully
-        public EventHandler<MemberAddedEventArgs> NewMemberAddedEvent;
+        // This event will be raised when a new member added successfully
+        // Apply Publisher Subscriber Desgin Pattern => Observer Design Pattern
+        public event EventHandler<MemberAddedEventArgs> NewMemberAdded;
 
-        private void OnMemberAdded(int memberID)
+        private void OnNewMemberAdded(int memberID)
         {
-            OnMemberAdded(this, new MemberAddedEventArgs(memberID));
+            OnNewMemberAdded(this, new MemberAddedEventArgs(memberID));
         }
 
-        // Raise the event when needed or when subscribing from a different place 
-        protected virtual void OnMemberAdded(object sender, MemberAddedEventArgs e) 
+        // Raise the event and call all subscribers from different places
+        protected virtual void OnNewMemberAdded(object sender, MemberAddedEventArgs e) 
         {
-            NewMemberAddedEvent?.Invoke(this, e);
+            NewMemberAdded?.Invoke(this, e);
         }
 
         clsMember _member;
@@ -204,7 +205,7 @@ namespace Karate_Club
                     btnSave.Enabled = false;
 
                     // Raise the MemberAddedEvent
-                    OnMemberAdded(_member.MemberID);
+                    OnNewMemberAdded(_member.MemberID);
                 }
                 else
                 {

@@ -31,15 +31,12 @@
             this.tcMemberInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnGoToEmergencyContactfo = new System.Windows.Forms.Button();
-            this.ctrAddEditPerson1 = new Karate_Club.People.Controls.ctrAddEditPerson();
             this.tpEmergencyContactInfo = new System.Windows.Forms.TabPage();
             this.btnBackToPersonalInfo = new System.Windows.Forms.Button();
             this.btnGoToSubscriptionInfo = new System.Windows.Forms.Button();
-            this.ctrAddEditEmergencyContact1 = new Karate_Club.Emergency_Contacts.ctrAddEditEmergencyContact();
             this.tpSubscriptionInfo = new System.Windows.Forms.TabPage();
             this.btnGoToCurrentBelt = new System.Windows.Forms.Button();
             this.btnBackToEmergencyContactInfo = new System.Windows.Forms.Button();
-            this.ctrAddEditSubscription1 = new Karate_Club.Subscriptions.ctrAddEditSubscription();
             this.tpCurrentBelt = new System.Windows.Forms.TabPage();
             this.btnBackToSubscriptionInfo = new System.Windows.Forms.Button();
             this.cbCurrentBelt = new System.Windows.Forms.ComboBox();
@@ -48,6 +45,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.ctrAddEditPerson1 = new Karate_Club.People.Controls.ctrAddEditPerson();
+            this.ctrAddEditEmergencyContact1 = new Karate_Club.Emergency_Contacts.ctrAddEditEmergencyContact();
+            this.ctrAddEditSubscription1 = new Karate_Club.Subscriptions.ctrAddEditSubscription();
             this.tcMemberInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpEmergencyContactInfo.SuspendLayout();
@@ -104,15 +104,6 @@
             this.btnGoToEmergencyContactfo.UseVisualStyleBackColor = false;
             this.btnGoToEmergencyContactfo.Click += new System.EventHandler(this.btnGoToEmergencyContactfo_Click);
             // 
-            // ctrAddEditPerson1
-            // 
-            this.ctrAddEditPerson1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrAddEditPerson1.BackColor = System.Drawing.Color.White;
-            this.ctrAddEditPerson1.Location = new System.Drawing.Point(16, 19);
-            this.ctrAddEditPerson1.Name = "ctrAddEditPerson1";
-            this.ctrAddEditPerson1.Size = new System.Drawing.Size(983, 340);
-            this.ctrAddEditPerson1.TabIndex = 0;
-            // 
             // tpEmergencyContactInfo
             // 
             this.tpEmergencyContactInfo.BackColor = System.Drawing.Color.White;
@@ -161,14 +152,6 @@
             this.btnGoToSubscriptionInfo.UseVisualStyleBackColor = false;
             this.btnGoToSubscriptionInfo.Click += new System.EventHandler(this.btnGoToSubscriptionInfo_Click);
             // 
-            // ctrAddEditEmergencyContact1
-            // 
-            this.ctrAddEditEmergencyContact1.BackColor = System.Drawing.Color.White;
-            this.ctrAddEditEmergencyContact1.Location = new System.Drawing.Point(16, 17);
-            this.ctrAddEditEmergencyContact1.Name = "ctrAddEditEmergencyContact1";
-            this.ctrAddEditEmergencyContact1.Size = new System.Drawing.Size(511, 176);
-            this.ctrAddEditEmergencyContact1.TabIndex = 0;
-            // 
             // tpSubscriptionInfo
             // 
             this.tpSubscriptionInfo.BackColor = System.Drawing.Color.White;
@@ -215,15 +198,6 @@
             this.btnBackToEmergencyContactInfo.Text = "Back";
             this.btnBackToEmergencyContactInfo.UseVisualStyleBackColor = false;
             this.btnBackToEmergencyContactInfo.Click += new System.EventHandler(this.btnBackToEmergencyContactInfo_Click);
-            // 
-            // ctrAddEditSubscription1
-            // 
-            this.ctrAddEditSubscription1.BackColor = System.Drawing.Color.White;
-            this.ctrAddEditSubscription1.Location = new System.Drawing.Point(16, 17);
-            this.ctrAddEditSubscription1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrAddEditSubscription1.Name = "ctrAddEditSubscription1";
-            this.ctrAddEditSubscription1.Size = new System.Drawing.Size(594, 196);
-            this.ctrAddEditSubscription1.TabIndex = 0;
             // 
             // tpCurrentBelt
             // 
@@ -336,6 +310,32 @@
             this.btnSave.Text = "       Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
+            // ctrAddEditPerson1
+            // 
+            this.ctrAddEditPerson1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrAddEditPerson1.BackColor = System.Drawing.Color.White;
+            this.ctrAddEditPerson1.Location = new System.Drawing.Point(16, 19);
+            this.ctrAddEditPerson1.Name = "ctrAddEditPerson1";
+            this.ctrAddEditPerson1.Size = new System.Drawing.Size(983, 340);
+            this.ctrAddEditPerson1.TabIndex = 0;
+            // 
+            // ctrAddEditEmergencyContact1
+            // 
+            this.ctrAddEditEmergencyContact1.BackColor = System.Drawing.Color.White;
+            this.ctrAddEditEmergencyContact1.Location = new System.Drawing.Point(16, 17);
+            this.ctrAddEditEmergencyContact1.Name = "ctrAddEditEmergencyContact1";
+            this.ctrAddEditEmergencyContact1.Size = new System.Drawing.Size(511, 176);
+            this.ctrAddEditEmergencyContact1.TabIndex = 0;
+            // 
+            // ctrAddEditSubscription1
+            // 
+            this.ctrAddEditSubscription1.BackColor = System.Drawing.Color.White;
+            this.ctrAddEditSubscription1.Location = new System.Drawing.Point(16, 17);
+            this.ctrAddEditSubscription1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrAddEditSubscription1.Name = "ctrAddEditSubscription1";
+            this.ctrAddEditSubscription1.Size = new System.Drawing.Size(594, 196);
+            this.ctrAddEditSubscription1.TabIndex = 0;
             // 
             // frmAddMember
             // 
