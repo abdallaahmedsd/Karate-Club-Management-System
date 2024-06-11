@@ -1,38 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|p:\\github\\karate-club-management-system\\karate_club_desktop_ui\\members\\frmaddmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|solutionrelative:members\\frmaddmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\members\\frmeditpersonalinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|solutionrelative:members\\frmeditpersonalinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\members\\frmaddmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|solutionrelative:members\\frmaddmember.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\members\\frmeditpersonalinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|solutionrelative:members\\frmeditpersonalinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\members\\frmlistmembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|solutionrelative:members\\frmlistmembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC1B82F6-C14B-431E-B1D7-3ECC2565D6E0}|..\\Karate_Club_Business\\Karate_Club_Business.csproj|p:\\github\\karate-club-management-system\\karate_club_business\\person.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{DC1B82F6-C14B-431E-B1D7-3ECC2565D6E0}|..\\Karate_Club_Business\\Karate_Club_Business.csproj|p:\\github\\karate-club-management-system\\karate_club_business\\member.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\members\\frmlistmembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{9AC63B85-4594-44B5-8973-EEB329B59E2C}|Karate_Club_Desktop_UI.csproj|solutionrelative:members\\frmlistmembers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -40,109 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": -1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmAddMember.cs",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmAddMember.cs",
-              "RelativeDocumentMoniker": "Members\\frmAddMember.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmAddMember.cs",
-              "RelativeToolTip": "Members\\frmAddMember.cs",
-              "ViewState": "AQIAABEAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T13:21:44.342Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmAddMember.cs [Design]",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmAddMember.cs",
-              "RelativeDocumentMoniker": "Members\\frmAddMember.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmAddMember.cs [Design]",
-              "RelativeToolTip": "Members\\frmAddMember.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T13:21:37.034Z"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Person.cs",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Business\\Person.cs",
-              "RelativeDocumentMoniker": "..\\Karate_Club_Business\\Person.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Business\\Person.cs",
-              "RelativeToolTip": "..\\Karate_Club_Business\\Person.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAAAA4AAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T12:04:43.728Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Member.cs",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Business\\Member.cs",
-              "RelativeDocumentMoniker": "..\\Karate_Club_Business\\Member.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Business\\Member.cs",
-              "RelativeToolTip": "..\\Karate_Club_Business\\Member.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAGkAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T12:02:36.949Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmEditPersonalInfo.cs",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmEditPersonalInfo.cs",
-              "RelativeDocumentMoniker": "Members\\frmEditPersonalInfo.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmEditPersonalInfo.cs",
-              "RelativeToolTip": "Members\\frmEditPersonalInfo.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAgwAkAAABPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T03:32:42.754Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmListMembers.cs",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmListMembers.cs",
-              "RelativeDocumentMoniker": "Members\\frmListMembers.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmListMembers.cs",
-              "RelativeToolTip": "Members\\frmListMembers.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAANoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T03:19:17.271Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "frmListMembers.cs [Design]",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmListMembers.cs",
-              "RelativeDocumentMoniker": "Members\\frmListMembers.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmListMembers.cs [Design]",
-              "RelativeToolTip": "Members\\frmListMembers.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T03:19:09.549Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "frmEditPersonalInfo.cs [Design]",
-              "DocumentMoniker": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmEditPersonalInfo.cs",
-              "RelativeDocumentMoniker": "Members\\frmEditPersonalInfo.cs",
-              "ToolTip": "P:\\GitHub\\Karate-Club-Management-System\\Karate_Club_Desktop_UI\\Members\\frmEditPersonalInfo.cs [Design]",
-              "RelativeToolTip": "Members\\frmEditPersonalInfo.cs [Design]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-06-10T03:15:02.403Z"
             }
           ]
         }
