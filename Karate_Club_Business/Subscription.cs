@@ -8,7 +8,6 @@ namespace Karate_Club_Business
     {
         public int SubscriptionID { get; set; }
         public int MemberID { get; set; }
-        public clsMember MemberInfo { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get { return _endDate; } }
         public decimal Fees { get; set; }
@@ -45,7 +44,6 @@ namespace Karate_Club_Business
         {
             SubscriptionID = subscriptionID;
             MemberID = memberID;
-            MemberInfo = clsMember.Find(memberID);
             StartDate = startDate;
             _endDate = endDate;
             SubscriptionTypeID = subscriptionTypeID;

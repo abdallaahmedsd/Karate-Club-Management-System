@@ -34,6 +34,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.cmsMembers = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addNewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateMemberInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatePersonalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -92,6 +93,7 @@
             this.dgvMembers.RowTemplate.Height = 25;
             this.dgvMembers.Size = new System.Drawing.Size(1540, 360);
             this.dgvMembers.TabIndex = 4;
+            this.dgvMembers.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMembers_CellMouseDoubleClick);
             this.dgvMembers.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvMembers_CellMouseDown);
             // 
             // cmsMembers
@@ -99,12 +101,23 @@
             this.cmsMembers.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.cmsMembers.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.cmsMembers.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.showInfoToolStripMenuItem,
             this.addNewMemberToolStripMenuItem,
             this.updateMemberInfoToolStripMenuItem,
             this.deleteToolStripMenuItem,
             this.takeBeltTestToolStripMenuItem});
             this.cmsMembers.Name = "cmsMembers";
-            this.cmsMembers.Size = new System.Drawing.Size(266, 174);
+            this.cmsMembers.Size = new System.Drawing.Size(266, 218);
+            // 
+            // showInfoToolStripMenuItem
+            // 
+            this.showInfoToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.info_32;
+            this.showInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.showInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
+            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.showInfoToolStripMenuItem.Text = "Show Info";
+            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
             // 
             // addNewMemberToolStripMenuItem
             // 
@@ -154,6 +167,7 @@
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
             this.deleteToolStripMenuItem.Text = "Delete ";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // takeBeltTestToolStripMenuItem
             // 
@@ -337,5 +351,6 @@
         private System.Windows.Forms.ToolStripMenuItem updateEmegencyContactInformationToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem takeBeltTestToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem showInfoToolStripMenuItem;
     }
 }

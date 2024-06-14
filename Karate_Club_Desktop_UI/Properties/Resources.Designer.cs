@@ -193,9 +193,59 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gender_24 {
+            get {
+                object obj = ResourceManager.GetObject("gender_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap id_24 {
+            get {
+                object obj = ResourceManager.GetObject("id_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap id_241 {
+            get {
+                object obj = ResourceManager.GetObject("id_241", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap info_32 {
+            get {
+                object obj = ResourceManager.GetObject("info_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap instructors_24 {
             get {
                 object obj = ResourceManager.GetObject("instructors_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap karate_belt_24 {
+            get {
+                object obj = ResourceManager.GetObject("karate_belt_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -366,6 +416,16 @@ namespace Karate_Club.Properties {
         internal static System.Drawing.Bitmap take_test_32 {
             get {
                 object obj = ResourceManager.GetObject("take_test_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap user_24_2 {
+            get {
+                object obj = ResourceManager.GetObject("user_24_2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

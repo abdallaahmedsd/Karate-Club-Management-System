@@ -8,18 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Karate_Club.People
+namespace Karate_Club.Subscriptions
 {
-    public partial class frmAddEditPeron : Form
+    public partial class frmAddSubscription : Form
     {
-        public frmAddEditPeron()
+        public frmAddSubscription()
         {
             InitializeComponent();
-        }
-
-        private void frmAddEditPeron_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

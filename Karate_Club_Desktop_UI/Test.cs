@@ -20,7 +20,7 @@ namespace Karate_Club
 
         private void Test_Load(object sender, EventArgs e)
         {
-            
+            ctrMemberCard1.LoadMemberInfo(39); 
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -30,7 +30,6 @@ namespace Karate_Club
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            ctrAddEditSubscription1.LoadSubscriptionInfo(1);
         }
     }
 }

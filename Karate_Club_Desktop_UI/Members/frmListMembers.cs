@@ -27,15 +27,19 @@ namespace Karate_Club
         // It will refresh the number of pages and will reload the data from the database
         private void _OnNewMemberAdded(object sender, MemberAddedEventArgs e) => _LoadRefreshMembersPerPage();
 
-        private void _OnPersonalInfoUpdated() => _LoadRefreshMembersPerPage();
+        private void _OnPersonalInfoUpdated_frmEditPersonalInfo() => _LoadRefreshMembersPerPage();
 
         private void _OnEmergencyContactInfoUpdated() => _LoadRefreshMembersPerPage();
 
+        private void _OnPersonalInfoUpdated_frmMemberCard() => _LoadRefreshMembersPerPage(); // Will be fired incase there has been updating by frmMemberCard
+
         private void _Subscribe(frmAddMember frm)  => frm.NewMemberAdded += _OnNewMemberAdded;
 
-        private void _Subscribe(frmEditPersonalInfo frm) => frm.PersonalInfoUpdated += _OnPersonalInfoUpdated;
+        private void _Subscribe(frmEditPersonalInfo frm) => frm.PersonalInfoUpdated += _OnPersonalInfoUpdated_frmEditPersonalInfo;
 
         private void _Subscribe(frmEditEmergencyContactInfo frm) => frm.EmergencyContactInfoUpdated += _OnEmergencyContactInfoUpdated;
+
+        private void _Subscribe(frmMemberCard frm) => frm.MemberInfoUpdated += _OnPersonalInfoUpdated_frmMemberCard;
 
         private void _FillDataGridView(DataTable dtMembers)
         {
@@ -62,7 +66,7 @@ namespace Karate_Club
         private void _LoadRefreshMembersPerPage()
         {
             // Get the number of pages and show them in the ComoboBox "cbPage"
-            if(_mode == enMode.add || _mode == enMode.update)
+            if(_mode == enMode.add || _mode == enMode.delete)
                 _HandleNumberOfPages();
 
             // load members data per page and save them in the DataTable "_dtMembers"
@@ -146,6 +150,17 @@ namespace Karate_Club
 
             // Updates the total records count label
             lblTotalRecordsCount.Text = dgvMembers.Rows.Count.ToString();
+        }
+
+        private void _OpenMemberCardForm()
+        {
+            _mode = enMode.update;
+
+            int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
+
+            frmMemberCard frm = new frmMemberCard(memberID);
+            _Subscribe(frm);
+            frm.ShowDialog();
         }
 
         private void frmListMembers_Load(object sender, EventArgs e)
@@ -254,6 +269,21 @@ namespace Karate_Club
                     cmsMembers.Show(Cursor.Position);
                 }
             }
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _OpenMemberCardForm();
+        }
+
+        private void dgvMembers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            _OpenMemberCardForm();
         }
     }
 }

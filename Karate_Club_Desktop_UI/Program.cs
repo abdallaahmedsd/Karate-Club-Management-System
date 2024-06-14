@@ -20,6 +20,7 @@ namespace Karate_Club
             //Application.Run(new frmEditPersonalInfo(1));
             //Application.Run(new frmAddMember());
             //Application.Run(new frmAddEditPeron());
+            //Application.Run(new Test());
         }
     }
 }

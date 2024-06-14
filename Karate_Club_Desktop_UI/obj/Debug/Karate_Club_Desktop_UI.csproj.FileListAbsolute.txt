@@ -33,7 +33,6 @@ P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.frmListMembers.resources
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.frmMain.resources
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.People.Controls.ctrAddEditPerson.resources
-P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.People.frmAddEditPeron.resources
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Properties.Resources.resources
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Subscriptions.ctrAddEditSubscription.resources
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Test.resources
@@ -44,3 +43,7 @@ P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.pdb
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Members.frmEditPersonalInfo.resources
 P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Emergency_Contacts.frmEditEmergencyContactInfo.resources
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Members.Controls.ctrMemberCard.resources
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Subscriptions.frmAddSubscription.resources
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.Members.frmMemberCard.resources
+P:\GitHub\Karate-Club-Management-System\Karate_Club_Desktop_UI\obj\Debug\Karate_Club.People.ctrPersonCard.resources

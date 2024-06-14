@@ -8,24 +8,29 @@ namespace Karate_Club_Business
     {
         public int MemberID { get; set; }
         public int CurrentBeltRankID { get; set; }
-        public clsBeltRank BeltRankInfo { get; set; }
         public int EmergencyContactID { get; set; }
-        public clsEmergencyContact EmergencyContactInfo { get; set; }
         public bool IsActive { get; set; }
-        public clsSubscription SubscriptionInfo { get; set; }
+
+        private clsBeltRank _beltRankInfo;
+
+        private clsSubscription _subscriptionInfo;
+        public clsBeltRank BeltRankInfo => _beltRankInfo;
+        public clsSubscription SubscriptionInfo => _subscriptionInfo;
+        public clsEmergencyContact EmergencyContactInfo { get; set; }
 
         public new enum enMode : byte { add_new_mode, update_mode }
         public new enMode Mode { get; set; }
         
         private clsMember(int personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address,
-                string imagePath, int? createdByUserID, int memberID, int currentBeltRankID, int emergencyContactID, bool isActive)
+                string imagePath, int? createdByUserID, int memberID, int currentBeltRankID, int emergencyContactID, int subscriptionID, bool isActive)
                 :base(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath, createdByUserID)
         {
             MemberID = memberID;
             CurrentBeltRankID = currentBeltRankID;
-            BeltRankInfo = clsBeltRank.Find(currentBeltRankID);
+            _beltRankInfo = clsBeltRank.Find(currentBeltRankID);
             EmergencyContactID = emergencyContactID;
             EmergencyContactInfo = clsEmergencyContact.Find(emergencyContactID);
+            _subscriptionInfo = clsSubscription.Find(subscriptionID);
             IsActive = isActive;
             Mode = enMode.update_mode;
         }
@@ -60,17 +65,17 @@ namespace Karate_Club_Business
 
         public static new clsMember Find(int memberID)
         {
-            int personID = -1, currentBeltRankID = -1, emergencyContactID = -1;
+            int personID = -1, currentBeltRankID = -1, emergencyContactID = -1, subscriptionID = -1;
             bool isActive = true;
 
-            if (clsMemberDataAccess.FindMemberByID(memberID, ref personID, ref currentBeltRankID, ref emergencyContactID, ref isActive))
+            if (clsMemberDataAccess.FindMemberByID(memberID, ref personID, ref currentBeltRankID, ref emergencyContactID, ref subscriptionID, ref isActive))
             {
                 clsPerson person = clsPerson.Find(personID);
                 
                 if(person == null) return null;
 
                 return new clsMember(person.PersonID, person.FirstName, person.LastName, person.Gender, person.Birthdate, person.Phone, person.Email, 
-                    person.Address, person.ImagePath, person.CreatedByUserID, memberID, currentBeltRankID, emergencyContactID, isActive);
+                    person.Address, person.ImagePath, person.CreatedByUserID, memberID, currentBeltRankID, emergencyContactID, subscriptionID, isActive);
             }
             else
                 return null;

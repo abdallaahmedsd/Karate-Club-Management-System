@@ -53,7 +53,7 @@ namespace Karate_Club_Business
 
         public static clsUser Find(int userID)
         {
-            int personID = -1, createdByUserID = -1;
+            int personID = -1;
             string userName = null, password = null;
             bool isActive = false;
 

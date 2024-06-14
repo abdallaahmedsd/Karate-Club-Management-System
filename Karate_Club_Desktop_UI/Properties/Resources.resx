@@ -118,17 +118,23 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="subscribtions_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\subscribtions_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="gender_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\gender_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logout_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logout_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="emergency_contact_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\emergency_contact_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="mail_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\mail_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="phone-call_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone-call_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="info_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\info_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -157,6 +163,9 @@
   <data name="subscription_type_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\subscription_type_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="user_24_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\user_24_2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="edit_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,17 +187,23 @@
   <data name="male_512" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\male_512.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="calendar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\calendar_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="id_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\id_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="members_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\members_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="personal_info_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\personal_info_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="name_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\name_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="personal_info_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\personal_info_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="id_241" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\id_241.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="members_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\members_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="subscribtions_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\subscribtions_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -198,6 +213,9 @@
   </data>
   <data name="take_test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\take_test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="calendar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\calendar_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="male_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\male_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,7 +229,7 @@
   <data name="users_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="emergency_contact_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\emergency_contact_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="karate_belt_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\karate_belt_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

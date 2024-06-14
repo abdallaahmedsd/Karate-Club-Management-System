@@ -94,7 +94,7 @@ namespace Karate_Club_Data_Access
             return success;
         }
 
-        public static bool FindMemberByID(int memberID, ref int personID, ref int currentBeltRankID, ref int emergencyContactID, ref bool isActive)
+        public static bool FindMemberByID(int memberID, ref int personID, ref int currentBeltRankID, ref int emergencyContactID, ref int subscriptionID, ref bool isActive)
         {
             bool isFound = false;
 
@@ -115,6 +115,7 @@ namespace Karate_Club_Data_Access
                                 personID = (int)reader["PersonID"];
                                 currentBeltRankID = (int)reader["CurrentBeltRankID"];
                                 emergencyContactID = (int)reader["EmergencyContactID"];
+                                subscriptionID = (int)reader["SubscriptionID"];
                                 isActive = (bool)reader["IsActive"];
                                 isFound = true;
                             }

@@ -59,16 +59,34 @@
     <Compile Include="Emergency Contacts\frmEditEmergencyContactInfo.Designer.cs">
       <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Members\Controls\ctrMemberCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Members\Controls\ctrMemberCard.Designer.cs">
+      <DependentUpon>ctrMemberCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Members\frmAddMember.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Members\frmAddMember.Designer.cs">
       <DependentUpon>frmAddMember.cs</DependentUpon>
     </Compile>
-    <Compile Include="Members\frmEditPersonalInfo.cs">
+    <Compile Include="Members\frmMemberCard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Members\frmEditPersonalInfo.Designer.cs">
+    <Compile Include="Members\frmMemberCard.Designer.cs">
+      <DependentUpon>frmMemberCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\Controls\ctrPersonCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="People\Controls\ctrPersonCard.Designer.cs">
+      <DependentUpon>ctrPersonCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="People\frmEditPersonalInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="People\frmEditPersonalInfo.Designer.cs">
       <DependentUpon>frmEditPersonalInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Members\frmListMembers.cs">
@@ -90,12 +108,6 @@
     <Compile Include="People\Controls\ctrAddEditPerson.Designer.cs">
       <DependentUpon>ctrAddEditPerson.cs</DependentUpon>
     </Compile>
-    <Compile Include="People\frmAddEditPeron.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="People\frmAddEditPeron.Designer.cs">
-      <DependentUpon>frmAddEditPeron.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Resources.Designer.cs">
@@ -103,11 +115,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Subscriptions\ctrAddEditSubscription.cs">
+    <Compile Include="Subscriptions\Controls\ctrAddEditSubscription.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Subscriptions\ctrAddEditSubscription.Designer.cs">
+    <Compile Include="Subscriptions\Controls\ctrAddEditSubscription.Designer.cs">
       <DependentUpon>ctrAddEditSubscription.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Subscriptions\frmAddSubscription.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Subscriptions\frmAddSubscription.Designer.cs">
+      <DependentUpon>frmAddSubscription.cs</DependentUpon>
     </Compile>
     <Compile Include="Test.cs">
       <SubType>Form</SubType>
@@ -121,10 +139,19 @@
     <EmbeddedResource Include="Emergency Contacts\frmEditEmergencyContactInfo.resx">
       <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Members\Controls\ctrMemberCard.resx">
+      <DependentUpon>ctrMemberCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Members\frmAddMember.resx">
       <DependentUpon>frmAddMember.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Members\frmEditPersonalInfo.resx">
+    <EmbeddedResource Include="Members\frmMemberCard.resx">
+      <DependentUpon>frmMemberCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\Controls\ctrPersonCard.resx">
+      <DependentUpon>ctrPersonCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="People\frmEditPersonalInfo.resx">
       <DependentUpon>frmEditPersonalInfo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Members\frmListMembers.resx">
@@ -136,16 +163,16 @@
     <EmbeddedResource Include="People\Controls\ctrAddEditPerson.resx">
       <DependentUpon>ctrAddEditPerson.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="People\frmAddEditPeron.resx">
-      <DependentUpon>frmAddEditPeron.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Subscriptions\ctrAddEditSubscription.resx">
+    <EmbeddedResource Include="Subscriptions\Controls\ctrAddEditSubscription.resx">
       <DependentUpon>ctrAddEditSubscription.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Subscriptions\frmAddSubscription.resx">
+      <DependentUpon>frmAddSubscription.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Test.resx">
       <DependentUpon>Test.cs</DependentUpon>
@@ -270,6 +297,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\emergency_contact_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\id_241.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gender_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\user_24_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\karate_belt_24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
