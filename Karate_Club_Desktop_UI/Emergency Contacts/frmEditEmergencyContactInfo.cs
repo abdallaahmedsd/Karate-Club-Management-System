@@ -23,9 +23,9 @@ namespace Karate_Club.Emergency_Contacts
             EmergencyContactInfoUpdated?.Invoke();
         }
 
-        int _emergencyContactID;
+        int? _emergencyContactID;
 
-        public frmEditEmergencyContactInfo(int emergencyContactID)
+        public frmEditEmergencyContactInfo(int? emergencyContactID)
         {
             InitializeComponent();
             _emergencyContactID = emergencyContactID;

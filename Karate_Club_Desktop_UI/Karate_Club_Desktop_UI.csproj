@@ -316,5 +316,14 @@
   <ItemGroup>
     <None Include="Resources\karate_belt_24.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Dana1-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\karate-girl-boy-with-black-belts.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fight-skill-training-technique-wallpaper-thumb.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

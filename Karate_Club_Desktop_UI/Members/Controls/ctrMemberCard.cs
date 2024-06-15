@@ -73,9 +73,9 @@ namespace Karate_Club.Members.Controls
             lvInstructors.Items.Clear();
         }
 
-        public void LoadMemberInfo(int id)
+        public void LoadMemberInfo(int? id)
         {
-            _member = clsMember.Find(id);
+            _member = clsMember.Find((int)id);
 
             if (_member == null)
             {

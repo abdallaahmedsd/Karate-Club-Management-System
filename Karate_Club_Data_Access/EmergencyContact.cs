@@ -6,9 +6,9 @@ namespace Karate_Club_Data_Access
 {
     public static class clsEmergencyContactsDataAccess
     {
-        public static int AddEmergencyContact(string name, string phone, string email)
+        public static int? AddEmergencyContact(string name, string phone, string email)
         {
-            int newEmergencyContactID = -1;
+            int? newEmergencyContactID = null;
 
             try
             {
@@ -31,7 +31,7 @@ namespace Karate_Club_Data_Access
                         connection.Open();
                         command.ExecuteNonQuery();
 
-                        newEmergencyContactID = Convert.ToInt32(newEmergencyContactIDParameter.Value);
+                        newEmergencyContactID = command.Parameters["@NewEmergencyContactID"].Value as int?;
                     }
                 }
             }
@@ -59,35 +59,6 @@ namespace Karate_Club_Data_Access
                         command.Parameters.AddWithValue("@Name", name);
                         command.Parameters.AddWithValue("@Phone", phone);
                         command.Parameters.AddWithValue("@Email", string.IsNullOrWhiteSpace(email) ? DBNull.Value : (object)email);
-
-                        connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        // If one or more rows were affected, consider the update successful
-                        success = rowsAffected > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
-            }
-
-            return success;
-        }
-
-        public static bool DeleteEmergencyContact(int emergencyContactID)
-        {
-            bool success = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_EmergencyContacts_Delete", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@EmergencyContactID", emergencyContactID);
 
                         connection.Open();
                         int rowsAffected = command.ExecuteNonQuery();
@@ -139,33 +110,11 @@ namespace Karate_Club_Data_Access
 
             return isFound;
         }
+        
+        public static bool DeleteEmergencyContact(int emergencyContactID)
+            => clsDataAccessHelper.Delete(emergencyContactID, "EmergencyContactID", "SP_EmergencyContacts_Delete");
 
         public static DataTable GetAllEmergencyContacts()
-        {
-            DataTable dtEmergencyContacts = new DataTable();
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_EmergencyContacts_GetAll", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            dtEmergencyContacts.Load(reader);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
-            }
-
-            return dtEmergencyContacts;
-        }
+            => clsDataAccessHelper.All("SP_EmergencyContacts_GetAll");
     }
-
 }

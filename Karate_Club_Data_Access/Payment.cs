@@ -6,9 +6,9 @@ namespace Karate_Club_Data_Access
 {
     public static class clsPaymentDataAccess
     {
-        public static int AddPayment(decimal amount, int memberID, DateTime date, int? createdByUserID)
+        public static int? AddPayment(decimal amount, int memberID, DateTime date, int? createdByUserID)
         {
-            int newPaymentID = -1;
+            int? newPaymentID = null;
 
             try
             {
@@ -31,7 +31,7 @@ namespace Karate_Club_Data_Access
                         connection.Open();
                         command.ExecuteNonQuery();
 
-                        newPaymentID = (int)command.Parameters["@NewPaymentID"].Value;
+                        newPaymentID = command.Parameters["@NewPaymentID"].Value as int?;
                     }
                 }
             }
@@ -43,7 +43,7 @@ namespace Karate_Club_Data_Access
             return newPaymentID;
         }
 
-        public static bool UpdatePayment(int paymentID, decimal amount, int memberID, DateTime date)
+        public static bool UpdatePayment(int? paymentID, decimal amount, int memberID, DateTime date)
         {
             bool success = false;
 
@@ -74,7 +74,7 @@ namespace Karate_Club_Data_Access
             return success;
         }
 
-        public static bool FindPaymentByID(int paymentID, ref decimal amount, ref int memberID, ref DateTime date, ref int? createdByUserID)
+        public static bool FindPaymentByID(int? paymentID, ref decimal amount, ref int memberID, ref DateTime date, ref int? createdByUserID)
         {
             bool isFound = false;
 
@@ -110,61 +110,9 @@ namespace Karate_Club_Data_Access
             return isFound;
         }
 
-        public static bool DeletePayment(int paymentID)
-        {
-            bool success = false;
+        public static bool DeletePayment(int paymentID) => clsDataAccessHelper.Delete(paymentID, "PaymentID", "SP_Payments_Delete");
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_Payments_Delete", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@PaymentID", paymentID);
-
-                        connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        success = rowsAffected > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occurred in PaymentDataAccess.DeletePayment: " + ex.Message);
-            }
-
-            return success;
-        }
-
-        public static DataTable GetAllPayments()
-        {
-            DataTable paymentsTable = new DataTable();
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_Payments_GetAll", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            paymentsTable.Load(reader);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occurred in PaymentDataAccess.GetAllPayments: " + ex.Message);
-            }
-
-            return paymentsTable;
-        }
+        public static DataTable GetAllPayments() => clsDataAccessHelper.All("SP_Payments_GetAll");
     }
 
 }

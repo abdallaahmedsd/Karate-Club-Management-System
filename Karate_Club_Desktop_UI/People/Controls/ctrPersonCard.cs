@@ -42,9 +42,9 @@ namespace Karate_Club.People
             pbPersonImage.ImageLocation = null;
         }
 
-        public void LoadPersonalInfo(int id)
+        public void LoadPersonalInfo(int? id)
         {
-            _person = clsPerson.Find(id);
+            _person = clsPerson.Find((int)id);
 
             if( _person == null ) 
             {
@@ -69,7 +69,7 @@ namespace Karate_Club.People
             lblGender.Text = _person.Gender == 'M' ? "Male" : "Female";
             lblPhone.Text = _person.Phone;
             lblEmail.Text = _person.Email;
-            lblAge.Text = _CalculateAge(_person.Birthdate).ToString();
+            lblAge.Text = _CalculateAge((DateTime)_person.Birthdate).ToString();
             lblAddress.Text = _person.Address;
             lblCreatedBY.Text = _person.UserInfo?.UserName ?? "Admin";
             pbPersonImage.ImageLocation = _person.ImagePath ?? null;

@@ -34,13 +34,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMembers = new System.Windows.Forms.DataGridView();
             this.cmsMembers = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.addNewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateMemberInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updatePersonalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.updateEmegencyContactInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.takeBeltTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTotalRecordsCount = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtFilterValue = new System.Windows.Forms.TextBox();
@@ -48,8 +41,15 @@
             this.cbFilterBy = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.cbPage = new System.Windows.Forms.ComboBox();
-            this.btnAddMember = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnAddMember = new System.Windows.Forms.Button();
+            this.showInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNewMemberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateMemberInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updatePersonalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.updateEmegencyContactInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeBeltTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
             this.cmsMembers.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -59,7 +59,7 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei UI", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(70)))), ((int)(((byte)(36)))));
-            this.label1.Location = new System.Drawing.Point(4, 104);
+            this.label1.Location = new System.Drawing.Point(5, 76);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1631, 58);
             this.label1.TabIndex = 1;
@@ -108,74 +108,6 @@
             this.takeBeltTestToolStripMenuItem});
             this.cmsMembers.Name = "cmsMembers";
             this.cmsMembers.Size = new System.Drawing.Size(266, 218);
-            // 
-            // showInfoToolStripMenuItem
-            // 
-            this.showInfoToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.info_32;
-            this.showInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.showInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
-            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
-            this.showInfoToolStripMenuItem.Text = "Show Info";
-            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
-            // 
-            // addNewMemberToolStripMenuItem
-            // 
-            this.addNewMemberToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.add_32;
-            this.addNewMemberToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.addNewMemberToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.addNewMemberToolStripMenuItem.Name = "addNewMemberToolStripMenuItem";
-            this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
-            this.addNewMemberToolStripMenuItem.Text = "Add New Subscription";
-            // 
-            // updateMemberInfoToolStripMenuItem
-            // 
-            this.updateMemberInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.updatePersonalInformationToolStripMenuItem,
-            this.updateEmegencyContactInformationToolStripMenuItem});
-            this.updateMemberInfoToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.edit_32;
-            this.updateMemberInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.updateMemberInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.updateMemberInfoToolStripMenuItem.Name = "updateMemberInfoToolStripMenuItem";
-            this.updateMemberInfoToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
-            this.updateMemberInfoToolStripMenuItem.Text = "Edit";
-            // 
-            // updatePersonalInformationToolStripMenuItem
-            // 
-            this.updatePersonalInformationToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.personal_info_32;
-            this.updatePersonalInformationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.updatePersonalInformationToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.updatePersonalInformationToolStripMenuItem.Name = "updatePersonalInformationToolStripMenuItem";
-            this.updatePersonalInformationToolStripMenuItem.Size = new System.Drawing.Size(318, 38);
-            this.updatePersonalInformationToolStripMenuItem.Text = "Edit Personal Info";
-            this.updatePersonalInformationToolStripMenuItem.Click += new System.EventHandler(this.updatePersonalInformationToolStripMenuItem_Click);
-            // 
-            // updateEmegencyContactInformationToolStripMenuItem
-            // 
-            this.updateEmegencyContactInformationToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.emergency_contact_32;
-            this.updateEmegencyContactInformationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.updateEmegencyContactInformationToolStripMenuItem.Name = "updateEmegencyContactInformationToolStripMenuItem";
-            this.updateEmegencyContactInformationToolStripMenuItem.Size = new System.Drawing.Size(318, 38);
-            this.updateEmegencyContactInformationToolStripMenuItem.Text = "Edit Emegency Contact Info";
-            this.updateEmegencyContactInformationToolStripMenuItem.Click += new System.EventHandler(this.updateEmegencyContactInformationToolStripMenuItem_Click);
-            // 
-            // deleteToolStripMenuItem
-            // 
-            this.deleteToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.delete_32;
-            this.deleteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.deleteToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
-            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
-            this.deleteToolStripMenuItem.Text = "Delete ";
-            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
-            // 
-            // takeBeltTestToolStripMenuItem
-            // 
-            this.takeBeltTestToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.take_test_32;
-            this.takeBeltTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.takeBeltTestToolStripMenuItem.Name = "takeBeltTestToolStripMenuItem";
-            this.takeBeltTestToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
-            this.takeBeltTestToolStripMenuItem.Text = "Take Belt Test";
             // 
             // lblTotalRecordsCount
             // 
@@ -274,6 +206,16 @@
             this.cbPage.TabIndex = 2;
             this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Karate_Club.Properties.Resources.fight_skill_training_technique_wallpaper_thumb;
+            this.pictureBox1.Location = new System.Drawing.Point(626, 137);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(386, 256);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnAddMember
             // 
             this.btnAddMember.BackColor = System.Drawing.Color.White;
@@ -290,15 +232,73 @@
             this.btnAddMember.UseVisualStyleBackColor = false;
             this.btnAddMember.Click += new System.EventHandler(this.btnAddMember_Click);
             // 
-            // pictureBox1
+            // showInfoToolStripMenuItem
             // 
-            this.pictureBox1.Image = global::Karate_Club.Properties.Resources.members_128;
-            this.pictureBox1.Location = new System.Drawing.Point(626, 137);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(386, 256);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
+            this.showInfoToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.info_32;
+            this.showInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.showInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.showInfoToolStripMenuItem.Name = "showInfoToolStripMenuItem";
+            this.showInfoToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.showInfoToolStripMenuItem.Text = "Show Info";
+            this.showInfoToolStripMenuItem.Click += new System.EventHandler(this.showInfoToolStripMenuItem_Click);
+            // 
+            // addNewMemberToolStripMenuItem
+            // 
+            this.addNewMemberToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.add_32;
+            this.addNewMemberToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.addNewMemberToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.addNewMemberToolStripMenuItem.Name = "addNewMemberToolStripMenuItem";
+            this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.addNewMemberToolStripMenuItem.Text = "Add New Subscription";
+            // 
+            // updateMemberInfoToolStripMenuItem
+            // 
+            this.updateMemberInfoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.updatePersonalInformationToolStripMenuItem,
+            this.updateEmegencyContactInformationToolStripMenuItem});
+            this.updateMemberInfoToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.edit_32;
+            this.updateMemberInfoToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.updateMemberInfoToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.updateMemberInfoToolStripMenuItem.Name = "updateMemberInfoToolStripMenuItem";
+            this.updateMemberInfoToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.updateMemberInfoToolStripMenuItem.Text = "Edit";
+            // 
+            // updatePersonalInformationToolStripMenuItem
+            // 
+            this.updatePersonalInformationToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.personal_info_32;
+            this.updatePersonalInformationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.updatePersonalInformationToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.updatePersonalInformationToolStripMenuItem.Name = "updatePersonalInformationToolStripMenuItem";
+            this.updatePersonalInformationToolStripMenuItem.Size = new System.Drawing.Size(318, 38);
+            this.updatePersonalInformationToolStripMenuItem.Text = "Edit Personal Info";
+            this.updatePersonalInformationToolStripMenuItem.Click += new System.EventHandler(this.updatePersonalInformationToolStripMenuItem_Click);
+            // 
+            // updateEmegencyContactInformationToolStripMenuItem
+            // 
+            this.updateEmegencyContactInformationToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.emergency_contact_32;
+            this.updateEmegencyContactInformationToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.updateEmegencyContactInformationToolStripMenuItem.Name = "updateEmegencyContactInformationToolStripMenuItem";
+            this.updateEmegencyContactInformationToolStripMenuItem.Size = new System.Drawing.Size(318, 38);
+            this.updateEmegencyContactInformationToolStripMenuItem.Text = "Edit Emegency Contact Info";
+            this.updateEmegencyContactInformationToolStripMenuItem.Click += new System.EventHandler(this.updateEmegencyContactInformationToolStripMenuItem_Click);
+            // 
+            // deleteToolStripMenuItem
+            // 
+            this.deleteToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.delete_32;
+            this.deleteToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deleteToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.deleteToolStripMenuItem.Text = "Delete ";
+            this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
+            // 
+            // takeBeltTestToolStripMenuItem
+            // 
+            this.takeBeltTestToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.take_test_32;
+            this.takeBeltTestToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.takeBeltTestToolStripMenuItem.Name = "takeBeltTestToolStripMenuItem";
+            this.takeBeltTestToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.takeBeltTestToolStripMenuItem.Text = "Take Belt Test";
             // 
             // frmListMembers
             // 
@@ -306,6 +306,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1648, 940);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.cbPage);
             this.Controls.Add(this.btnAddMember);
             this.Controls.Add(this.label4);
@@ -316,7 +317,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dgvMembers);
-            this.Controls.Add(this.pictureBox1);
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "frmListMembers";

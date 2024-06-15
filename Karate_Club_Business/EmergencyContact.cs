@@ -5,7 +5,7 @@ namespace Karate_Club_Business
 {
     public class clsEmergencyContact
     {
-        public int EmergencyContactID { get; set; }
+        public int? EmergencyContactID { get; set; }
         public string Name { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -15,10 +15,6 @@ namespace Karate_Club_Business
         // Constructor for creating a new Emergency Contact
         public clsEmergencyContact()
         {
-            EmergencyContactID = -1;
-            Name = null;
-            Phone = null;
-            Email = null;
             Mode = enMode.add_new_mode;
         }
 
@@ -72,13 +68,13 @@ namespace Karate_Club_Business
 
         private bool _AddEmergencyContact()
         {
-            this.EmergencyContactID = clsEmergencyContactsDataAccess.AddEmergencyContact(Name, Phone, Email);
-            return this.EmergencyContactID != -1;
+            EmergencyContactID = clsEmergencyContactsDataAccess.AddEmergencyContact(Name, Phone, Email);
+            return EmergencyContactID.HasValue;
         }
 
         private bool _UpdateEmergencyContact()
         {
-            return clsEmergencyContactsDataAccess.UpdateEmergencyContact(EmergencyContactID, Name, Phone, Email);
+            return clsEmergencyContactsDataAccess.UpdateEmergencyContact((int)EmergencyContactID, Name, Phone, Email);
         }
 
     }

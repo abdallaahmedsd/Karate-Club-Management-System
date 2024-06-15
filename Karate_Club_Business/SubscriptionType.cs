@@ -5,7 +5,7 @@ namespace Karate_Club_Business
 {
     public class clsSubscriptionType
     {
-        public int SubscriptionTypeID { get; set; }
+        public int? SubscriptionTypeID { get; set; }
         public int PeriodLength { get; set; }
         public string PeriodUnit { get; set; }
         public decimal Fees { get; set; }
@@ -24,10 +24,6 @@ namespace Karate_Club_Business
 
         public clsSubscriptionType()
         {
-            SubscriptionTypeID = -1;
-            PeriodLength = 0;
-            PeriodUnit = null;
-            Fees = 0;
             Mode = enMode.add_new_mode;
         }
 
@@ -73,8 +69,8 @@ namespace Karate_Club_Business
 
         private bool _Add()
         {
-            this.SubscriptionTypeID = clsSubscriptionTypeDataAccess.AddSubscriptionType(PeriodLength, PeriodUnit, Fees);
-            return this.SubscriptionTypeID != -1;
+            SubscriptionTypeID = clsSubscriptionTypeDataAccess.AddSubscriptionType(PeriodLength, PeriodUnit, Fees);
+            return this.SubscriptionTypeID.HasValue;
         }
 
         private bool _Update()

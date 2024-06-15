@@ -6,9 +6,9 @@ namespace Karate_Club_Data_Access
 {
     public static class clsSubscriptionDataAccess
     {
-        public static int AddSubscription(int memberID, DateTime startDate, DateTime endDate, int subscriptionTypeID, decimal fees, int? createdByUserID)
+        public static int? AddSubscription(int memberID, DateTime startDate, DateTime endDate, int subscriptionTypeID, decimal fees, int? createdByUserID)
         {
-            int newSubscriptionID = -1;
+            int? newSubscriptionID = null;
 
             try
             {
@@ -33,7 +33,7 @@ namespace Karate_Club_Data_Access
                         connection.Open();
                         command.ExecuteNonQuery();
 
-                        newSubscriptionID = (int)command.Parameters["@NewSubscriptionID"].Value;
+                        newSubscriptionID = command.Parameters["@NewSubscriptionID"].Value as int?;
                     }
                 }
             }
@@ -119,59 +119,9 @@ namespace Karate_Club_Data_Access
         }
 
         public static bool DeleteSubscription(int subscriptionID)
-        {
-            bool success = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_Subscriptions_Delete", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@SubscriptionID", subscriptionID);
-
-                        connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        success = rowsAffected > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
-            }
-
-            return success;
-        }
+            => clsDataAccessHelper.Delete(subscriptionID, "SubscriptionID", "SP_Subscriptions_Delete");
 
         public static DataTable GetAllSubscriptions()
-        {
-            DataTable dtSubscriptions = new DataTable();
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_Subscriptions_GetAll", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        connection.Open();
-                        using (SqlDataAdapter adapter = new SqlDataAdapter(command))
-                        {
-                            adapter.Fill(dtSubscriptions);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
-            }
-
-            return dtSubscriptions;
-        }
+            => clsDataAccessHelper.All("SP_Subscriptions_GetAll");
     }
 }

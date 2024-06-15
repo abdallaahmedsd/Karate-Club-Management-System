@@ -123,6 +123,16 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Dana1_1 {
+            get {
+                object obj = ResourceManager.GetObject("Dana1-1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap dashboard_24 {
             get {
                 object obj = ResourceManager.GetObject("dashboard_24", resourceCulture);
@@ -193,6 +203,16 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap fight_skill_training_technique_wallpaper_thumb {
+            get {
+                object obj = ResourceManager.GetObject("fight-skill-training-technique-wallpaper-thumb", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gender_24 {
             get {
                 object obj = ResourceManager.GetObject("gender_24", resourceCulture);
@@ -246,6 +266,16 @@ namespace Karate_Club.Properties {
         internal static System.Drawing.Bitmap karate_belt_24 {
             get {
                 object obj = ResourceManager.GetObject("karate_belt_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap karate_girl_boy_with_black_belts {
+            get {
+                object obj = ResourceManager.GetObject("karate-girl-boy-with-black-belts", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

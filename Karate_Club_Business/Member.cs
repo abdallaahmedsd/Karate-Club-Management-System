@@ -6,10 +6,12 @@ namespace Karate_Club_Business
 {
     public class clsMember : clsPerson
     {
-        public int MemberID { get; set; }
+        public int? MemberID { get; set; }
         public int CurrentBeltRankID { get; set; }
-        public int EmergencyContactID { get; set; }
         public bool IsActive { get; set; }
+
+        private int _emergencyContactID;
+        public int EmergencyContactID => _emergencyContactID;
 
         private clsBeltRank _beltRankInfo;
 
@@ -27,20 +29,16 @@ namespace Karate_Club_Business
         {
             MemberID = memberID;
             CurrentBeltRankID = currentBeltRankID;
-            _beltRankInfo = clsBeltRank.Find(currentBeltRankID);
-            EmergencyContactID = emergencyContactID;
-            EmergencyContactInfo = clsEmergencyContact.Find(emergencyContactID);
-            _subscriptionInfo = clsSubscription.Find(subscriptionID);
+            _beltRankInfo = clsBeltRank.Find((int)currentBeltRankID);
+            _emergencyContactID = emergencyContactID;
+            EmergencyContactInfo = clsEmergencyContact.Find((int)emergencyContactID);
+            _subscriptionInfo = clsSubscription.Find((int)subscriptionID);
             IsActive = isActive;
             Mode = enMode.update_mode;
         }
 
         public clsMember()
         {
-            MemberID = -1;
-            CurrentBeltRankID = -1;
-            EmergencyContactID = -1;
-            IsActive = false;
             EmergencyContactInfo = new clsEmergencyContact();
             Mode = enMode.add_new_mode;
         }
@@ -65,18 +63,20 @@ namespace Karate_Club_Business
 
         public static new clsMember Find(int memberID)
         {
+            int? createdByUserID = null;
             int personID = -1, currentBeltRankID = -1, emergencyContactID = -1, subscriptionID = -1;
-            bool isActive = true;
+            string fName = null, lName = null, phone = null, email = null, address = null, imagePath = null;
+            DateTime birthdate = DateTime.Now;
+            char gender = ' ';
+            bool isActive = true, isFound = false;
 
-            if (clsMemberDataAccess.FindMemberByID(memberID, ref personID, ref currentBeltRankID, ref emergencyContactID, ref subscriptionID, ref isActive))
-            {
-                clsPerson person = clsPerson.Find(personID);
-                
-                if(person == null) return null;
 
-                return new clsMember(person.PersonID, person.FirstName, person.LastName, person.Gender, person.Birthdate, person.Phone, person.Email, 
-                    person.Address, person.ImagePath, person.CreatedByUserID, memberID, currentBeltRankID, emergencyContactID, subscriptionID, isActive);
-            }
+            isFound = clsMemberDataAccess.FindMemberByID(memberID, ref personID, ref fName, ref lName, ref gender, ref birthdate, ref phone, ref email, ref address,
+                                                        ref imagePath, ref createdByUserID, ref currentBeltRankID, ref emergencyContactID, ref subscriptionID, ref isActive);
+
+            if (isFound)
+                return new clsMember(personID, fName, lName, gender, birthdate, phone, email, address, imagePath, createdByUserID,
+                                        memberID, currentBeltRankID, emergencyContactID, subscriptionID, isActive);
             else
                 return null;
         }
@@ -96,22 +96,22 @@ namespace Karate_Club_Business
             return clsMemberDataAccess.GetMembersPerPage(pageNumber, rowsPerPage);
         }
 
-        public static uint GetTotalMemberCount()
+        public static uint Count()
         {
-            return clsMemberDataAccess.GetTotalMemberCount();
+            return clsMemberDataAccess.Count();
         }
 
         private bool _Add()
         {
-            this.MemberID = clsMemberDataAccess.AddMember(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath, CreatedByUserID,
+            MemberID = clsMemberDataAccess.AddMember(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath, CreatedByUserID,
                 EmergencyContactInfo.Name, EmergencyContactInfo.Phone, EmergencyContactInfo.Email, CurrentBeltRankID, IsActive);
 
-            return this.MemberID != -1;
+            return MemberID.HasValue;
         }
 
         private bool _Update()
         {
-            return clsMemberDataAccess.UpdateMember(MemberID, PersonID, CurrentBeltRankID, EmergencyContactID, IsActive);
+            return clsMemberDataAccess.UpdateMember((int)MemberID, (int)PersonID, CurrentBeltRankID, _emergencyContactID, IsActive);
         }
     }
 }

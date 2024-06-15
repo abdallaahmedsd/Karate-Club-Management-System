@@ -43,7 +43,7 @@ namespace Karate_Club.People.Controls
             txtPhone.Text = _person.Phone;
             txtEmail.Text = _person.Email != null ? _person.Email : string.Empty;
             txtAddress.Text = _person.Address;
-            dtpBirthdate.Value = _person.Birthdate;
+            dtpBirthdate.Value = (DateTime)_person.Birthdate;
             _ = _person.Gender == 'M' ? radBtnMale.Checked = true : radBtnFemale.Checked = true; // Search about the ' _ ' in the start of this line
 
             // Handle person image
@@ -201,9 +201,9 @@ namespace Karate_Club.People.Controls
             return result;
         }
 
-        public bool LoadPersonInfo(int personId)
+        public bool LoadPersonInfo(int? personId)
         {
-            _person = clsPerson.Find(personId);
+            _person = clsPerson.Find((int)personId);
 
             if (_person == null)
             {

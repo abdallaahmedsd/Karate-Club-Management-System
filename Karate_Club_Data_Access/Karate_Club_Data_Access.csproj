@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BeltRank.cs" />
+    <Compile Include="DataAccessHelper.cs" />
     <Compile Include="DataAccessSettings.cs" />
     <Compile Include="EmergencyContact.cs" />
     <Compile Include="ErrorsLogger.cs" />

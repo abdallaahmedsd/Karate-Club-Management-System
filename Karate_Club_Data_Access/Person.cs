@@ -6,10 +6,10 @@ namespace Karate_Club_Data_Access
 {
     public static class clsPersonDataAccess
     {
-        public static int AddPerson(string firstName, string lastName, char gender, DateTime birthdate,
+        public static int? AddPerson(string firstName, string lastName, char gender, DateTime birthdate,
                                         string phone, string email, string address, string imagePath, int? createdByUserID)
         {
-            int newPersonID = -1;
+            int newPersonID = default;
 
             try
             {
@@ -68,7 +68,7 @@ namespace Karate_Club_Data_Access
             return newPersonID;
         }
 
-        public static bool UpdatePerson(int personID, string firstName, string lastName, char gender, DateTime birthdate,
+        public static bool UpdatePerson(int? personID, string firstName, string lastName, char gender, DateTime birthdate,
                                             string phone, string email, string address, string imagePath)
         {
             bool success = false;
@@ -143,7 +143,7 @@ namespace Karate_Club_Data_Access
 
                                 isFound = true; // Set to true as a row is found
                             }
-                        } // SqlDataReader is disposed here automatically
+                        } 
                     }
                 }
             }
@@ -155,119 +155,11 @@ namespace Karate_Club_Data_Access
             return isFound;
         }
 
-        public static bool DeletePerson(int personID)
-        {
-            int rowsAffected = 0;
-            
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_People_DeletePerson", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
+        public static bool DeletePerson(int personID) => clsDataAccessHelper.Delete(personID, "PersonID", "SP_People_DeletePerson");
 
-                        // Add input parameter for PersonID
-                        command.Parameters.AddWithValue("@PersonID", personID);
+        public static bool IsPersonExists(int personID) => clsDataAccessHelper.IsExists(personID, "PersonID", "SP_People_IsPersonExists");
 
-                        // Add output parameter for rows affected
-                        SqlParameter rowsAffectedParameter = new SqlParameter("@RowsAffected", SqlDbType.Int);
-                        rowsAffectedParameter.Direction = ParameterDirection.Output;
-                        command.Parameters.Add(rowsAffectedParameter);
-
-                        // Open connection and execute the command within the same using statement
-                        connection.Open();
-                        command.ExecuteNonQuery();
-
-                        // Retrieve the number of rows affected from the output parameter
-                        if (rowsAffectedParameter.Value != DBNull.Value)
-                        {
-                            rowsAffected = Convert.ToInt32(rowsAffectedParameter.Value);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
-            }
-
-            return rowsAffected > 0;
-        }
-
-        public static bool IsPersonExists(int personID)
-        {
-            bool personExists = false;
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_People_IsPersonExists", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        // Add input parameter for PersonID
-                        command.Parameters.AddWithValue("@PersonID", personID);
-
-                        // Add output parameter for person existence
-                        SqlParameter personExistsParameter = new SqlParameter("@PersonExists", SqlDbType.Bit);
-                        personExistsParameter.Direction = ParameterDirection.Output;
-                        command.Parameters.Add(personExistsParameter);
-
-                        // Open connection and execute the command within the same using statement
-                        connection.Open();
-                        command.ExecuteNonQuery();
-
-                        // Retrieve the value of the output parameter
-                        if (personExistsParameter.Value != DBNull.Value)
-                        {
-                            personExists = Convert.ToBoolean(personExistsParameter.Value);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
-            }
-
-            return personExists;
-        }
-
-        public static DataTable GetAllPeople()
-        {
-            DataTable dtPeople = new DataTable();
-
-            try
-            {
-                // Create a SqlConnection object
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    // Create a SqlCommand object with the stored procedure name
-                    using (SqlCommand command = new SqlCommand("SP_People_GetAll", connection))
-                    {
-                        // Set the command type as stored procedure
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        // Open the connection
-                        connection.Open();
-
-                        // Create a SqlDataReader to execute the command and fill the DataTable
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            dtPeople.Load(reader);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
-            }
-
-            return dtPeople;
-        }
+        public static DataTable GetAllPeople() => clsDataAccessHelper.All("SP_People_GetAll");
 
     }
 }

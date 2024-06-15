@@ -6,32 +6,29 @@ namespace Karate_Club_Business
 {
     public class clsPayment
     {
-        public int PaymentID { get; set; }
+        public int? PaymentID { get; set; }
         public decimal Amount { get; set; }
         public int MemberID { get; set; }
-        public DateTime Date { get; set; }
+
+        private DateTime _date;
+        public DateTime Date { get; }
         public int? CreatedByUserID { get; set; }
 
         public enum enMode : byte { add_new_mode, update_mode }
         public enMode Mode { get; set; }
 
-        private clsPayment(int paymentID, decimal amount, int memberID, DateTime date, int? createdByUserID)
+        private clsPayment(int? paymentID, decimal amount, int memberID, DateTime date, int? createdByUserID)
         {
             PaymentID = paymentID;
             Amount = amount;
             MemberID = memberID;
-            Date = date;
+            _date = date;
             CreatedByUserID = createdByUserID;
             Mode = enMode.update_mode;
         }
 
         public clsPayment()
         {
-            PaymentID = -1;
-            Amount = 0;
-            MemberID = -1;
-            Date = DateTime.MinValue;
-            CreatedByUserID = null;
             Mode = enMode.add_new_mode;
         }
 
@@ -57,7 +54,7 @@ namespace Karate_Club_Business
         {
             decimal amount = 0;
             int memberID = -1;
-            DateTime date = DateTime.MinValue;
+            DateTime date = DateTime.Now;
             int? createdByUserID = null;
 
             if (clsPaymentDataAccess.FindPaymentByID(paymentID, ref amount, ref memberID, ref date, ref createdByUserID))
@@ -79,8 +76,9 @@ namespace Karate_Club_Business
 
         private bool _Add()
         {
-            this.PaymentID = clsPaymentDataAccess.AddPayment(Amount, MemberID, Date, CreatedByUserID);
-            return this.PaymentID != -1;
+            PaymentID = clsPaymentDataAccess.AddPayment(Amount, MemberID, Date, CreatedByUserID);
+
+            return this.PaymentID.HasValue;
         }
 
         private bool _Update()

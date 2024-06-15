@@ -41,7 +41,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(1218, 58);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Manage Members";
+            this.label1.Text = "Members Inofrmation";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClose

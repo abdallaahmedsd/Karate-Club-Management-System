@@ -6,7 +6,7 @@ namespace Karate_Club_Business
 {
     public class clsSubscription
     {
-        public int SubscriptionID { get; set; }
+        public int? SubscriptionID { get; set; }
         public int MemberID { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate { get { return _endDate; } }
@@ -40,7 +40,7 @@ namespace Karate_Club_Business
 
         private enPeriodUnit _periodUnit { get; set; }
 
-        private clsSubscription(int subscriptionID, int memberID, DateTime startDate, DateTime endDate, int subscriptionTypeID, decimal fees, int paymentID, int? createdByUserID)
+        private clsSubscription(int? subscriptionID, int memberID, DateTime startDate, DateTime endDate, int subscriptionTypeID, decimal fees, int paymentID, int? createdByUserID)
         {
             SubscriptionID = subscriptionID;
             MemberID = memberID;
@@ -58,12 +58,6 @@ namespace Karate_Club_Business
 
         public clsSubscription()
         {
-            SubscriptionID = -1;
-            MemberID = -1;
-            StartDate = DateTime.MinValue;
-            SubscriptionTypeID = -1;
-            PaymentID = -1;
-            CreatedByUserID = null;
             Mode = enMode.add_new_mode;
         }
 
@@ -74,7 +68,7 @@ namespace Karate_Club_Business
                 case enMode.add_new_mode:
                     if (_Add())
                     {
-                        this.Mode = enMode.update_mode;
+                        Mode = enMode.update_mode;
                         return true;
                     }
                     return false;
@@ -157,8 +151,8 @@ namespace Karate_Club_Business
             // first clac the end date
             _CalcEndDate();
 
-            this.SubscriptionID = clsSubscriptionDataAccess.AddSubscription(MemberID, StartDate, _endDate, SubscriptionTypeID, Fees, CreatedByUserID);
-            return this.SubscriptionID != -1;
+            SubscriptionID = clsSubscriptionDataAccess.AddSubscription(MemberID, StartDate, _endDate, SubscriptionTypeID, Fees, CreatedByUserID);
+            return this.SubscriptionID.HasValue;
         }
 
         private bool _Update()
@@ -166,7 +160,7 @@ namespace Karate_Club_Business
             // first clac the end date
             _CalcEndDate();
 
-            return clsSubscriptionDataAccess.UpdateSubscription(SubscriptionID, MemberID, StartDate, _endDate, SubscriptionTypeID, Fees, PaymentID);
+            return clsSubscriptionDataAccess.UpdateSubscription((int)SubscriptionID, MemberID, StartDate, _endDate, SubscriptionTypeID, Fees, PaymentID);
         }
     }
 }

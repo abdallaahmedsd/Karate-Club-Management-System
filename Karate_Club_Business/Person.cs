@@ -1,12 +1,13 @@
 ﻿using Karate_Club_Data_Access;
 using System;
 using System.Data;
+using System.Runtime.CompilerServices;
 
 namespace Karate_Club_Business
 {
     public class clsPerson
     {
-        public int PersonID { get; set; }
+        public int? PersonID { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string FullName 
@@ -20,11 +21,14 @@ namespace Karate_Club_Business
         public string Address { get; set; }
         public string ImagePath { get; set; }
         public int? CreatedByUserID { get; set; }
-        public clsUser UserInfo { get; set; }
+        public clsUser UserInfo { get; }
+
+        private clsUser _userInfo;
+
         public enum enMode : byte { add_new_mode, update_mode }
         public enMode Mode {get; set;}
 
-        protected clsPerson(int personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address, string imagePath, int? createdByUserID)
+        protected clsPerson(int? personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address, string imagePath, int? createdByUserID)
         {
             PersonID = personID;
             FirstName = firstName;
@@ -36,22 +40,12 @@ namespace Karate_Club_Business
             Address = address;
             ImagePath = imagePath;
             CreatedByUserID = createdByUserID;
-            if (createdByUserID.HasValue) UserInfo = clsUser.Find(createdByUserID.Value);
+            if (createdByUserID.HasValue) _userInfo = clsUser.Find(createdByUserID.Value);
             Mode = enMode.update_mode;
         }
 
         public clsPerson()
         {
-            PersonID = -1;
-            FirstName = null;
-            LastName = null;
-            Gender = ' ';
-            Birthdate = DateTime.Today;
-            Phone = null;
-            Email = null;
-            Address = null;
-            ImagePath = null;
-            CreatedByUserID = null;
             Mode = enMode.add_new_mode;
         }
 
@@ -75,9 +69,9 @@ namespace Karate_Club_Business
 
         public static clsPerson Find(int personID)
         {
-            string firstName = null,lastName = null, phone = null, email = null, address = null, imagePath = null;
+            string firstName = null, lastName = null, phone = null, email = null, address = null, imagePath = null;
             char gender = ' ';
-            DateTime birthdate = DateTime.Today;
+            DateTime birthdate = DateTime.Now;
             int? createdByUserID = null;
 
             if (clsPersonDataAccess.GetPersonByID(personID, ref firstName, ref lastName, ref gender, ref birthdate, ref phone, ref email, ref address, ref imagePath, ref createdByUserID))
@@ -104,8 +98,8 @@ namespace Karate_Club_Business
 
         private bool _Add()
         {
-            this.PersonID = clsPersonDataAccess.AddPerson(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath, CreatedByUserID);
-            return this.PersonID != -1;
+            PersonID = clsPersonDataAccess.AddPerson(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath, CreatedByUserID);
+            return PersonID.HasValue;
         }
 
         private bool _Update() 

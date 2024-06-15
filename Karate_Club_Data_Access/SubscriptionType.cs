@@ -6,9 +6,9 @@ namespace Karate_Club_Data_Access
 {
     public static class clsSubscriptionTypeDataAccess
     {
-        public static int AddSubscriptionType(int periodLength, string periodUnit, decimal fees)
+        public static int? AddSubscriptionType(int periodLength, string periodUnit, decimal fees)
         {
-            int newSubscriptionTypeID = -1;
+            int? newSubscriptionTypeID = null;
 
             try
             {
@@ -30,7 +30,7 @@ namespace Karate_Club_Data_Access
                         connection.Open();
                         command.ExecuteNonQuery();
 
-                        newSubscriptionTypeID = (int)command.Parameters["@NewSubscriptionTypeID"].Value;
+                        newSubscriptionTypeID = command.Parameters["@NewSubscriptionTypeID"].Value as int?;
                     }
                 }
             }
@@ -42,7 +42,7 @@ namespace Karate_Club_Data_Access
             return newSubscriptionTypeID;
         }
 
-        public static bool UpdateSubscriptionType(int subscriptionTypeID, int periodLength, string periodUnit, decimal fees)
+        public static bool UpdateSubscriptionType(int? subscriptionTypeID, int periodLength, string periodUnit, decimal fees)
         {
             bool success = false;
 
@@ -73,7 +73,7 @@ namespace Karate_Club_Data_Access
             return success;
         }
 
-        public static bool FindSubscriptionTypeByID(int subscriptionTypeID, ref int periodLength, ref string periodUnit, ref decimal fees)
+        public static bool FindSubscriptionTypeByID(int? subscriptionTypeID, ref int periodLength, ref string periodUnit, ref decimal fees)
         {
             bool isFound = false;
 
@@ -109,59 +109,8 @@ namespace Karate_Club_Data_Access
         }
 
         public static bool DeleteSubscriptionType(int subscriptionTypeID)
-        {
-            bool success = false;
+            => clsDataAccessHelper.Delete(subscriptionTypeID, "SubscriptionTypeID", "SP_SubscriptionTypes_Delete");
 
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_SubscriptionTypes_Delete", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-                        command.Parameters.AddWithValue("@SubscriptionTypeID", subscriptionTypeID);
-
-                        connection.Open();
-                        int rowsAffected = command.ExecuteNonQuery();
-
-                        success = rowsAffected > 0;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
-            }
-
-            return success;
-        }
-
-        public static DataTable GetAllSubscriptionTypes()
-        {
-            DataTable dtSubscriptionTypes = new DataTable();
-
-            try
-            {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
-                {
-                    using (SqlCommand command = new SqlCommand("SP_SubscriptionTypes_GetAll", connection))
-                    {
-                        command.CommandType = CommandType.StoredProcedure;
-
-                        connection.Open();
-                        using (SqlDataReader reader = command.ExecuteReader())
-                        {
-                            dtSubscriptionTypes.Load(reader);
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                clsErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
-            }
-
-            return dtSubscriptionTypes;
-        }
+        public static DataTable GetAllSubscriptionTypes() => clsDataAccessHelper.All("SP_SubscriptionTypes_GetAll");
     }
 }

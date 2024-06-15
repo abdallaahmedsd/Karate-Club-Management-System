@@ -11,7 +11,7 @@ namespace Karate_Club
         // Apply Publisher Subscriber Desgin Pattern => Observer Design Pattern
         public event EventHandler<MemberAddedEventArgs> NewMemberAdded;
 
-        private void OnNewMemberAdded(int memberID)
+        private void OnNewMemberAdded(int? memberID)
         {
             OnNewMemberAdded(this, new MemberAddedEventArgs(memberID));
         }
@@ -89,7 +89,7 @@ namespace Karate_Club
         {
             _subscription = new clsSubscription();
 
-            _subscription.MemberID = _member.MemberID;
+            _subscription.MemberID = (int)_member.MemberID;
             _subscription.SubscriptionTypeID = ctrAddEditSubscription1.SubscriptionInfo.SubscriptionTypeID;
             _subscription.StartDate = ctrAddEditSubscription1.SubscriptionInfo.StartDate; // Note!!!  EndDate will be calculated automatically by the business layer
             _subscription.Fees = ctrAddEditSubscription1.SubscriptionInfo.Fees;
@@ -263,9 +263,9 @@ namespace Karate_Club
 
     public class MemberAddedEventArgs : EventArgs
     {
-        public int MemberID { get; }
+        public int? MemberID { get; }
 
-        public MemberAddedEventArgs(int memberID)
+        public MemberAddedEventArgs(int? memberID)
         {
             MemberID = memberID;
         }

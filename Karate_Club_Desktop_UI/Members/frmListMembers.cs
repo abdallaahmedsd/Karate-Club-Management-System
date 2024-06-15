@@ -77,7 +77,7 @@ namespace Karate_Club
 
         private void _HandleNumberOfPages()
         {
-            uint totalMembersCount = clsMember.GetTotalMemberCount();
+            uint totalMembersCount = clsMember.Count();
 
             // Calculate the number of pages depending on "totalMembersCount"
             uint numberOfPages = totalMembersCount > 0 ? (uint)Ceiling((double)totalMembersCount / clsUtilities.RowsPerPage) : 0;

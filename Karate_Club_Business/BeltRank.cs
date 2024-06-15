@@ -5,7 +5,7 @@ namespace Karate_Club_Business
 {
     public class clsBeltRank
     {
-        public int RankID { get; set; }
+        public int? RankID { get; set; }
         public string Title { get; set; }
         public decimal Fees { get; set; }
 
@@ -22,9 +22,6 @@ namespace Karate_Club_Business
 
         public clsBeltRank()
         {
-            RankID = -1;
-            Title = null;
-            Fees = 0;
             Mode = enMode.add_new_mode;
         }
 
@@ -75,7 +72,7 @@ namespace Karate_Club_Business
 
         private bool _Update()
         {
-            return clsBeltRankDataAccess.UpdateBeltRank(RankID, Title, Fees);
+            return clsBeltRankDataAccess.UpdateBeltRank((int)RankID, Title, Fees);
         }
     }
 
