@@ -1,13 +1,4 @@
-﻿using Karate_Club.People.Controls;
-using Karate_Club_Business;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Karate_Club.Emergency_Contacts
@@ -23,9 +14,9 @@ namespace Karate_Club.Emergency_Contacts
             EmergencyContactInfoUpdated?.Invoke();
         }
 
-        int? _emergencyContactID;
+        int _emergencyContactID;
 
-        public frmEditEmergencyContactInfo(int? emergencyContactID)
+        public frmEditEmergencyContactInfo(int emergencyContactID)
         {
             InitializeComponent();
             _emergencyContactID = emergencyContactID;

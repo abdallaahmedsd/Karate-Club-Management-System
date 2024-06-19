@@ -7,11 +7,16 @@ namespace Karate_Club.Subscriptions
 {
     public partial class ctrAddEditSubscription : UserControl
     {
+        public enum enMode { forNewMember, forExistingMember }
+        public enMode Mode = enMode.forNewMember;
+
         public clsSubscription.enPeriodUnit enPeriodUnit;
 
-        DataTable _dtSubscriptionTypes;
+        private DataTable _dtSubscriptionTypes;
 
         private clsSubscription _subscription;
+
+        private clsMember _member;
 
         public clsSubscription SubscriptionInfo => _subscription; 
 
@@ -113,6 +118,8 @@ namespace Karate_Club.Subscriptions
                 }
             }
 
+            if(Mode == enMode.forExistingMember) _subscription.MemberID = (int)_member.MemberID;
+
             _subscription.StartDate = dtpStartDate.Value;
             _subscription.CreatedByUserID = null;
         }
@@ -142,12 +149,45 @@ namespace Karate_Club.Subscriptions
         public bool AreAllFieldsValid()
         {
             if(!HasChooseSubscriptionType())
-            {
                 return false;
-            }
 
             _FillSubscriptionObject();
             return true;
+        }
+
+        public bool AddNewSubscribtion(int memberID)
+        {
+            Mode = enMode.forExistingMember;
+
+            _member = clsMember.Find(memberID);
+
+            if(_member == null)
+            {
+                MessageBox.Show($"There's no member with ID ({memberID}).", "Not Found", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (!AreAllFieldsValid())
+            {
+                MessageBox.Show("You must select a subscription type first.", "Not Valid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (MessageBox.Show("Are you sure you want to add new subscription?", "Confirm Adding", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (_subscription.Save())
+                {
+                    MessageBox.Show($"New subscription has been added successfully with ID ({_subscription.SubscriptionID})", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    return true;
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot add new subscription, some thing went wrong.", "Falied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+            }
+
+            return false;
         }
 
         public void Reset()
@@ -158,7 +198,7 @@ namespace Karate_Club.Subscriptions
 
         public void LoadSubscriptionInfo(int subscriptionID)
         {
-            _subscription = clsSubscription.Find(subscriptionID);
+            _subscription = clsSubscription.FindBySubscriptionID(subscriptionID);
 
             if (_subscription == null)
             {

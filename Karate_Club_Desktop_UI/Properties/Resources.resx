@@ -133,9 +133,6 @@
   <data name="phone-call_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\phone-call_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="take_test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\take_test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="info_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\info_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -184,6 +181,9 @@
   <data name="instructors_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\instructors_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="fight-skill-training-technique-wallpaper-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\fight-skill-training-technique-wallpaper-thumb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="fees_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fees_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -193,8 +193,11 @@
   <data name="id_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\id_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="personal_info_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\personal_info_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="take_test_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\take_test_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="name_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\name_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="id_241" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\id_241.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -202,11 +205,11 @@
   <data name="members_128" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\members_128.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="name_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\name_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="subscribtions_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\subscribtions_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="personal_info_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\personal_info_32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="logo_2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\logo_2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -219,6 +222,9 @@
   </data>
   <data name="karate-girl-boy-with-black-belts" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\karate-girl-boy-with-black-belts.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="activate_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\activate_321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="calendar_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\calendar_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -238,7 +244,7 @@
   <data name="users_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\users_24.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="fight-skill-training-technique-wallpaper-thumb" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\fight-skill-training-technique-wallpaper-thumb.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="deactivate_32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\deactivate_321.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

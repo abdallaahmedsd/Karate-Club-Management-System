@@ -6,11 +6,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("Karate_Club_Data_Access")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("This assembly is the data access layer of this project.\nIt's responsable for accessing the database to add, update and delete records.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Karate_Club_Data_Access")]
-[assembly: AssemblyCopyright("Copyright ©  2024")]
+[assembly: AssemblyCopyright("Abdalla Ahmed © 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

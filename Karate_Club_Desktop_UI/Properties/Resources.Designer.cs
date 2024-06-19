@@ -63,6 +63,16 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap activate_32 {
+            get {
+                object obj = ResourceManager.GetObject("activate_32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_32 {
             get {
                 object obj = ResourceManager.GetObject("add_32", resourceCulture);
@@ -136,6 +146,16 @@ namespace Karate_Club.Properties {
         internal static System.Drawing.Bitmap dashboard_24 {
             get {
                 object obj = ResourceManager.GetObject("dashboard_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap deactivate_32 {
+            get {
+                object obj = ResourceManager.GetObject("deactivate_32", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

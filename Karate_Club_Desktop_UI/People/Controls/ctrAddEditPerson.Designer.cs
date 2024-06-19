@@ -96,7 +96,7 @@
             this.llblRemoveImage.Location = new System.Drawing.Point(850, 301);
             this.llblRemoveImage.Name = "llblRemoveImage";
             this.llblRemoveImage.Size = new System.Drawing.Size(84, 25);
-            this.llblRemoveImage.TabIndex = 9;
+            this.llblRemoveImage.TabIndex = 10;
             this.llblRemoveImage.TabStop = true;
             this.llblRemoveImage.Text = "Remove";
             this.llblRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblRemoveImage_LinkClicked);
@@ -111,7 +111,7 @@
             this.llblSetImage.Location = new System.Drawing.Point(694, 301);
             this.llblSetImage.Name = "llblSetImage";
             this.llblSetImage.Size = new System.Drawing.Size(101, 25);
-            this.llblSetImage.TabIndex = 8;
+            this.llblSetImage.TabIndex = 9;
             this.llblSetImage.TabStop = true;
             this.llblSetImage.Text = "Set Image";
             this.llblSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llblSetImage_LinkClicked);
@@ -149,7 +149,8 @@
             this.panel2.Location = new System.Drawing.Point(699, 52);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(255, 39);
-            this.panel2.TabIndex = 77;
+            this.panel2.TabIndex = 6;
+            this.panel2.TabStop = true;
             // 
             // pictureBox7
             // 
@@ -170,7 +171,8 @@
             this.radBtnFemale.Location = new System.Drawing.Point(144, 7);
             this.radBtnFemale.Name = "radBtnFemale";
             this.radBtnFemale.Size = new System.Drawing.Size(85, 24);
-            this.radBtnFemale.TabIndex = 7;
+            this.radBtnFemale.TabIndex = 8;
+            this.radBtnFemale.TabStop = true;
             this.radBtnFemale.Text = "Female";
             this.radBtnFemale.UseVisualStyleBackColor = true;
             this.radBtnFemale.Click += new System.EventHandler(this.radBtnFemale_Click);
@@ -185,7 +187,7 @@
             this.radBtnMale.Location = new System.Drawing.Point(3, 8);
             this.radBtnMale.Name = "radBtnMale";
             this.radBtnMale.Size = new System.Drawing.Size(66, 24);
-            this.radBtnMale.TabIndex = 6;
+            this.radBtnMale.TabIndex = 7;
             this.radBtnMale.TabStop = true;
             this.radBtnMale.Text = "Male";
             this.radBtnMale.UseVisualStyleBackColor = true;

@@ -15,9 +15,9 @@ namespace Karate_Club.Members
             PersonalInfoUpdated?.Invoke();
         }
 
-        int? _personID;
+        int _personID;
 
-        public frmEditPersonalInfo(int? personID)
+        public frmEditPersonalInfo(int personID)
         {
             InitializeComponent();
             _personID = personID;

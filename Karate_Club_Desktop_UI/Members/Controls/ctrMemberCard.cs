@@ -38,7 +38,7 @@ namespace Karate_Club.Members.Controls
         {
             _Subscribe(ctrPersonCard1); // Subscribe to the event in person card 
 
-            ctrPersonCard1.LoadPersonalInfo(_member.PersonID);
+            ctrPersonCard1.LoadPersonalInfo((int)_member.PersonID);
 
             lblMemberID.Text = _member.MemberID.ToString();
             lblCurrentBelt.Text = _member.BeltRankInfo.Title;
@@ -73,7 +73,7 @@ namespace Karate_Club.Members.Controls
             lvInstructors.Items.Clear();
         }
 
-        public void LoadMemberInfo(int? id)
+        public void LoadMemberInfo(int id)
         {
             _member = clsMember.Find((int)id);
 
@@ -89,9 +89,8 @@ namespace Karate_Club.Members.Controls
 
         public void RefreshMemberInfo()
         {
-            LoadMemberInfo(_member.PersonID);
+            LoadMemberInfo((int)_member.PersonID);
             OnMemberInfoUpdated();
         }
-
     }
 }

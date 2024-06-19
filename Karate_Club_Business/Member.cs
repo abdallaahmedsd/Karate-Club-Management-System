@@ -32,7 +32,7 @@ namespace Karate_Club_Business
             _beltRankInfo = clsBeltRank.Find((int)currentBeltRankID);
             _emergencyContactID = emergencyContactID;
             EmergencyContactInfo = clsEmergencyContact.Find((int)emergencyContactID);
-            _subscriptionInfo = clsSubscription.Find((int)subscriptionID);
+            _subscriptionInfo = clsSubscription.FindBySubscriptionID((int)subscriptionID);
             IsActive = isActive;
             Mode = enMode.update_mode;
         }
@@ -81,10 +81,11 @@ namespace Karate_Club_Business
                 return null;
         }
 
-        public static new bool Delete(int memberID)
-        {
-            return clsMemberDataAccess.DeleteMember(memberID);
-        }
+        public static bool Activate(int memberID) => clsMemberDataAccess.Activate(memberID);
+
+        public static bool Deactivate(int memberID) => clsMemberDataAccess.Deactivate(memberID);
+       
+        public static bool DeletePermanently(int memberID) => clsMemberDataAccess.DeletePermanently(memberID);
 
         public static DataTable GetAllMembers()
         {
@@ -100,6 +101,8 @@ namespace Karate_Club_Business
         {
             return clsMemberDataAccess.Count();
         }
+
+        public static bool HasAcriveSubscription(int  memberID) => clsMemberDataAccess.HasAcriveSubscription(memberID);
 
         private bool _Add()
         {

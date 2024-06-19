@@ -179,46 +179,6 @@ namespace Karate_Club
             tcMemberInfo.SelectTab("tpPersonalInfo");
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            if(!_AreAllDataValid())
-                return;
-
-            _FillMemberObject();
-
-            if(MessageBox.Show("Are you sure you want to add a member?", "Confirm Adding New Member", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-            {
-                if(_member.Save())
-                {
-                    _FillSubscriptionObject();
-                    if(_subscription.Save())
-                        MessageBox.Show($"Member has been added successfully with ID ({_member.MemberID}).", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    else
-                        MessageBox.Show($"Member has been added with ID ({_member.MemberID}), but failed to add subscription.", "Falied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
-                    // To prevent the user from adding member mulitiple times 
-                    tpPersonalInfo.Enabled = false;
-                    tpEmergencyContactInfo.Enabled = false;
-                    tpSubscriptionInfo.Enabled = false;
-                    tpCurrentBelt.Enabled = false;
-                    btnSave.Enabled = false;
-
-                    // Raise the MemberAddedEvent
-                    OnNewMemberAdded(_member.MemberID);
-                }
-                else
-                {
-                    MessageBox.Show($"Cannot add new member. Something went wrong.", "Falied", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
-        }
-
-        private void btnClose_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
         private void tcMemberInfo_Selecting(object sender, TabControlCancelEventArgs e)
         {
             if(e.TabPage == tpEmergencyContactInfo)
@@ -258,6 +218,46 @@ namespace Karate_Club
         private void btnBackToSubscriptionInfo_Click(object sender, EventArgs e)
         {
             tcMemberInfo.SelectTab("tpSubscriptionInfo");
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            if (!_AreAllDataValid())
+                return;
+
+            _FillMemberObject();
+
+            if (MessageBox.Show("Are you sure you want to add a member?", "Confirm Adding New Member", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (_member.Save())
+                {
+                    _FillSubscriptionObject();
+                    if (_subscription.Save())
+                        MessageBox.Show($"Member has been added successfully with ID ({_member.MemberID}).", "Succeeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    else
+                        MessageBox.Show($"Member has been added with ID ({_member.MemberID}), but failed to add subscription.", "Falied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                    // To prevent the user from adding member mulitiple times 
+                    tpPersonalInfo.Enabled = false;
+                    tpEmergencyContactInfo.Enabled = false;
+                    tpSubscriptionInfo.Enabled = false;
+                    tpCurrentBelt.Enabled = false;
+                    btnSave.Enabled = false;
+
+                    // Raise the MemberAddedEvent
+                    OnNewMemberAdded(_member.MemberID);
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot add new member. Something went wrong.", "Falied", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 

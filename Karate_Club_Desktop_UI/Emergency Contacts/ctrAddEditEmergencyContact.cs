@@ -136,9 +136,9 @@ namespace Karate_Club.Emergency_Contacts
             return false;
         }
 
-        public bool LoadEmergencyContactInfo(int? emergencyContactID)
+        public bool LoadEmergencyContactInfo(int emergencyContactID)
         {
-            _emergencyContact = clsEmergencyContact.Find((int)emergencyContactID);
+            _emergencyContact = clsEmergencyContact.Find(emergencyContactID);
 
             if (_emergencyContact == null)
             {

@@ -1,13 +1,6 @@
 ﻿using Karate_Club.Members;
 using Karate_Club_Business;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Karate_Club.People
@@ -20,7 +13,6 @@ namespace Karate_Club.People
         {
             PersonalInfoUpdated?.Invoke();
         }
-
 
         private clsPerson _person;
 
@@ -42,9 +34,9 @@ namespace Karate_Club.People
             pbPersonImage.ImageLocation = null;
         }
 
-        public void LoadPersonalInfo(int? id)
+        public void LoadPersonalInfo(int id)
         {
-            _person = clsPerson.Find((int)id);
+            _person = clsPerson.Find(id);
 
             if( _person == null ) 
             {
@@ -58,7 +50,7 @@ namespace Karate_Club.People
 
         public void RefreshPersonalInfo()
         {
-            LoadPersonalInfo(_person.PersonID);
+            LoadPersonalInfo((int)_person.PersonID);
             OnPersonalInfoUpdated();
         }
 
@@ -91,11 +83,10 @@ namespace Karate_Club.People
         {
             if(_person != null)
             {
-                frmEditPersonalInfo frm = new frmEditPersonalInfo(_person.PersonID);
+                frmEditPersonalInfo frm = new frmEditPersonalInfo((int)_person.PersonID);
                 _Subscribe(frm);
                 frm.ShowDialog();
             }
         }
-
     }
 }

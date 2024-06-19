@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListMembers));
             this.label1 = new System.Windows.Forms.Label();
             this.dgvMembers = new System.Windows.Forms.DataGridView();
@@ -48,6 +48,8 @@
             this.updateMemberInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updatePersonalInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.updateEmegencyContactInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.deleteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.takeBeltTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvMembers)).BeginInit();
@@ -75,15 +77,15 @@
             this.dgvMembers.BackgroundColor = System.Drawing.Color.White;
             this.dgvMembers.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvMembers.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(2);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMembers.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvMembers.ColumnHeadersHeight = 40;
             this.dgvMembers.GridColor = System.Drawing.Color.DarkGray;
             this.dgvMembers.Location = new System.Drawing.Point(52, 480);
@@ -104,10 +106,13 @@
             this.showInfoToolStripMenuItem,
             this.addNewMemberToolStripMenuItem,
             this.updateMemberInfoToolStripMenuItem,
+            this.activateToolStripMenuItem,
+            this.deactivateToolStripMenuItem,
             this.deleteToolStripMenuItem,
             this.takeBeltTestToolStripMenuItem});
             this.cmsMembers.Name = "cmsMembers";
-            this.cmsMembers.Size = new System.Drawing.Size(266, 218);
+            this.cmsMembers.Size = new System.Drawing.Size(266, 334);
+            this.cmsMembers.Opening += new System.ComponentModel.CancelEventHandler(this.cmsMembers_Opening);
             // 
             // lblTotalRecordsCount
             // 
@@ -250,6 +255,7 @@
             this.addNewMemberToolStripMenuItem.Name = "addNewMemberToolStripMenuItem";
             this.addNewMemberToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
             this.addNewMemberToolStripMenuItem.Text = "Add New Subscription";
+            this.addNewMemberToolStripMenuItem.Click += new System.EventHandler(this.addNewMemberToolStripMenuItem_Click);
             // 
             // updateMemberInfoToolStripMenuItem
             // 
@@ -282,6 +288,26 @@
             this.updateEmegencyContactInformationToolStripMenuItem.Text = "Edit Emegency Contact Info";
             this.updateEmegencyContactInformationToolStripMenuItem.Click += new System.EventHandler(this.updateEmegencyContactInformationToolStripMenuItem_Click);
             // 
+            // activateToolStripMenuItem
+            // 
+            this.activateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("activateToolStripMenuItem.Image")));
+            this.activateToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.activateToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.activateToolStripMenuItem.Name = "activateToolStripMenuItem";
+            this.activateToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.activateToolStripMenuItem.Text = "Activate";
+            this.activateToolStripMenuItem.Click += new System.EventHandler(this.activateToolStripMenuItem_Click);
+            // 
+            // deactivateToolStripMenuItem
+            // 
+            this.deactivateToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("deactivateToolStripMenuItem.Image")));
+            this.deactivateToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.deactivateToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
+            this.deactivateToolStripMenuItem.Name = "deactivateToolStripMenuItem";
+            this.deactivateToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
+            this.deactivateToolStripMenuItem.Text = "Deactivate";
+            this.deactivateToolStripMenuItem.Click += new System.EventHandler(this.deactivateToolStripMenuItem_Click);
+            // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Image = global::Karate_Club.Properties.Resources.delete_32;
@@ -289,7 +315,7 @@
             this.deleteToolStripMenuItem.Margin = new System.Windows.Forms.Padding(0, 0, 0, 6);
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             this.deleteToolStripMenuItem.Size = new System.Drawing.Size(265, 38);
-            this.deleteToolStripMenuItem.Text = "Delete ";
+            this.deleteToolStripMenuItem.Text = "Delete Permanently";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
             // takeBeltTestToolStripMenuItem
@@ -352,5 +378,7 @@
         private System.Windows.Forms.ToolStripMenuItem deleteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem takeBeltTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showInfoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem activateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deactivateToolStripMenuItem;
     }
 }

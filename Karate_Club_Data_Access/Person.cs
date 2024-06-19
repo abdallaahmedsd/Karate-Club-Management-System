@@ -45,8 +45,10 @@ namespace Karate_Club_Data_Access
 
 
                         // Add output parameter for the new person ID
-                        SqlParameter newPersonIDParameter = new SqlParameter("@NewPersonID", SqlDbType.Int);
-                        newPersonIDParameter.Direction = ParameterDirection.Output;
+                        SqlParameter newPersonIDParameter = new SqlParameter("@NewPersonID", SqlDbType.Int)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
                         command.Parameters.Add(newPersonIDParameter);
 
                         // Open connection and execute the command within the same using statement

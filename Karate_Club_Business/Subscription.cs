@@ -79,7 +79,7 @@ namespace Karate_Club_Business
             }
         }
 
-        public static clsSubscription Find(int subscriptionID)
+        public static clsSubscription FindBySubscriptionID(int subscriptionID)
         {
             int memberID = -1;
             DateTime startDate = DateTime.MinValue;
@@ -89,7 +89,24 @@ namespace Karate_Club_Business
             int paymentID = 0;
             int? createdByUserID = null;
 
-            if (clsSubscriptionDataAccess.FindSubscriptionByID(subscriptionID, ref memberID, ref startDate, ref endDate, ref subscriptionTypeID, ref fees, ref paymentID, ref createdByUserID))
+            if (clsSubscriptionDataAccess.FindBySubscriptionID(subscriptionID, ref memberID, ref startDate, ref endDate, ref subscriptionTypeID, ref fees, ref paymentID, ref createdByUserID))
+            {
+                return new clsSubscription(subscriptionID, memberID, startDate, endDate, subscriptionTypeID, fees, paymentID, createdByUserID);
+            }
+            return null;
+        }
+
+        public static clsSubscription FindByMemberID(int memberID)
+        {
+            int subscriptionID = -1;
+            DateTime startDate = DateTime.MinValue;
+            DateTime endDate = DateTime.MinValue;
+            int subscriptionTypeID = -1;
+            decimal fees = 0;
+            int paymentID = 0;
+            int? createdByUserID = null;
+
+            if (clsSubscriptionDataAccess.FindByMemberID(memberID, ref subscriptionID, ref startDate, ref endDate, ref subscriptionTypeID, ref fees, ref paymentID, ref createdByUserID))
             {
                 return new clsSubscription(subscriptionID, memberID, startDate, endDate, subscriptionTypeID, fees, paymentID, createdByUserID);
             }

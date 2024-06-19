@@ -325,5 +325,17 @@
   <ItemGroup>
     <None Include="Resources\fight-skill-training-technique-wallpaper-thumb.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deactivate_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activate_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\activate_321.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deactivate_321.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

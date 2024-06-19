@@ -178,7 +178,7 @@ namespace Karate_Club.People.Controls
             bool result = true;
 
             if (string.IsNullOrWhiteSpace(txtFirstName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text)
-                || string.IsNullOrWhiteSpace(txtLastName.Text) || string.IsNullOrWhiteSpace(txtLastName.Text))
+                || string.IsNullOrWhiteSpace(txtAddress.Text) || string.IsNullOrWhiteSpace(txtPhone.Text))
             {
                 _ValidateEmptyFields(txtFirstName);
                 _ValidateEmptyFields(txtLastName);
@@ -201,9 +201,9 @@ namespace Karate_Club.People.Controls
             return result;
         }
 
-        public bool LoadPersonInfo(int? personId)
+        public bool LoadPersonInfo(int personId)
         {
-            _person = clsPerson.Find((int)personId);
+            _person = clsPerson.Find(personId);
 
             if (_person == null)
             {

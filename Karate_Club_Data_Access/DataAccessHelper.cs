@@ -95,6 +95,62 @@ namespace Karate_Club_Data_Access
             return rowsAffected > 0;
         }
 
+        public static bool Deactivate(int ID, string pramamterName, string storedProcedure)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(storedProcedure, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@{pramamterName}", ID);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                return false;
+            }
+
+            return rowsAffected > 0;
+        }
+
+        public static bool Activate(int ID, string pramamterName, string storedProcedure)
+        {
+            int rowsAffected = 0;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(storedProcedure, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@{pramamterName}", ID);
+
+                        connection.Open();
+                        rowsAffected = command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                return false;
+            }
+
+            return rowsAffected > 0;
+        }
+
         public static bool IsExists<T>(T pramamterValue, string pramamterName, string storedProcedure)
         {
             bool Exists = false;

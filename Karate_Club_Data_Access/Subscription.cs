@@ -79,7 +79,7 @@ namespace Karate_Club_Data_Access
             return success;
         }
 
-        public static bool FindSubscriptionByID(int subscriptionID, ref int memberID, ref DateTime startDate, ref DateTime endDate, ref int subscriptionTypeID, ref decimal fees, ref int paymentID, ref int? createdByUserID)
+        public static bool FindBySubscriptionID(int subscriptionID, ref int memberID, ref DateTime startDate, ref DateTime endDate, ref int subscriptionTypeID, ref decimal fees, ref int paymentID, ref int? createdByUserID)
         {
             bool isFound = false;
 
@@ -98,6 +98,46 @@ namespace Karate_Club_Data_Access
                             if (reader.Read())
                             {
                                 memberID = (int)reader["MemberID"];
+                                startDate = (DateTime)reader["StartDate"];
+                                endDate = (DateTime)reader["EndDate"];
+                                subscriptionTypeID = (int)reader["SubscriptionTypeID"];
+                                paymentID = (int)reader["PaymentID"];
+                                fees = (decimal)reader["Fees"];
+                                createdByUserID = reader["CreatedByUserID"] as int?;
+                                isFound = true;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
+            }
+
+            return isFound;
+        }
+
+
+        public static bool FindByMemberID(int memberID, ref int subscriptionID, ref DateTime startDate, ref DateTime endDate, ref int subscriptionTypeID, ref decimal fees, ref int paymentID, ref int? createdByUserID)
+        {
+            bool isFound = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("SP_Subscriptions_FindByMemberID", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@MemberID", memberID);
+
+                        connection.Open();
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                subscriptionID = (int)reader["SubscriptionID"];
                                 startDate = (DateTime)reader["StartDate"];
                                 endDate = (DateTime)reader["EndDate"];
                                 subscriptionTypeID = (int)reader["SubscriptionTypeID"];

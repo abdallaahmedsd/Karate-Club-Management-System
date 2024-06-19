@@ -1,11 +1,12 @@
 ﻿using Karate_Club.Emergency_Contacts;
 using Karate_Club.Global_Classes;
 using Karate_Club.Members;
+using Karate_Club.Subscriptions;
 using Karate_Club_Business;
 using System;
 using System.Data;
 using System.Windows.Forms;
-
+using System.Xml.Serialization;
 using static System.Math;
 
 namespace Karate_Club
@@ -33,6 +34,8 @@ namespace Karate_Club
 
         private void _OnPersonalInfoUpdated_frmMemberCard() => _LoadRefreshMembersPerPage(); // Will be fired incase there has been updating by frmMemberCard
 
+        private void _OnSubscriptionAdded() => _LoadRefreshMembersPerPage();
+
         private void _Subscribe(frmAddMember frm)  => frm.NewMemberAdded += _OnNewMemberAdded;
 
         private void _Subscribe(frmEditPersonalInfo frm) => frm.PersonalInfoUpdated += _OnPersonalInfoUpdated_frmEditPersonalInfo;
@@ -41,9 +44,11 @@ namespace Karate_Club
 
         private void _Subscribe(frmMemberCard frm) => frm.MemberInfoUpdated += _OnPersonalInfoUpdated_frmMemberCard;
 
+        private void _Subscribe(frmAddSubscription frm) => frm.SubscriptionAdded += _OnSubscriptionAdded;
+
         private void _FillDataGridView(DataTable dtMembers)
         {
-            if (dtMembers != null)
+            if (dtMembers != null && dtMembers.Rows.Count > 0)
             {
                 dgvMembers.DataSource = dtMembers;
 
@@ -273,7 +278,21 @@ namespace Karate_Club
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
 
+            if(MessageBox.Show($"Warring! this member will be deleted permanently with all the data related to them, even the payments. Are you sure you wanna delete the member with ID ({memberID})?", "Confirm Deletion", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                if (clsMember.DeletePermanently(memberID))
+                {
+                    MessageBox.Show("The member has been deleted successfully!", "Succeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _mode = enMode.delete;
+                    _LoadRefreshMembersPerPage();
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot delete the member with ID ({memberID}), something went wrong", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
 
         private void showInfoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -284,6 +303,83 @@ namespace Karate_Club
         private void dgvMembers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             _OpenMemberCardForm();
+        }
+
+        private void addNewMemberToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
+
+            // first check if member has an active subscription
+            if(clsMember.HasAcriveSubscription(memberID))
+            {
+                clsSubscription subscription = clsSubscription.FindByMemberID(memberID);
+                if (subscription != null)
+                    MessageBox.Show($"This member already has an active subscription, it will be end at {subscription.EndDate}", "Not Acceptable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                else
+                    MessageBox.Show($"This member already has an active subscription", "Not Acceptable", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                return;
+            }
+
+            _mode = enMode.update; // it's update mode because I'm just adding a subscription to an existed member
+
+            frmAddSubscription frm = new frmAddSubscription(memberID);
+            _Subscribe(frm);
+            frm.ShowDialog();
+        }
+
+        private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
+
+            if (MessageBox.Show($"Are you sure you wanna deactivate the member with ID ({memberID})?", "Confirm Deactivation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (clsMember.Deactivate(memberID))
+                {
+                    MessageBox.Show("The member has been deactivated successfully!", "Succeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _mode = enMode.update;
+                    _LoadRefreshMembersPerPage();
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot deactivate the member with ID ({memberID}), something went wrong", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void activateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
+
+            if (MessageBox.Show($"Are you sure you wanna activate the member with ID ({memberID})?", "Confirm Activation", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+            {
+                if (clsMember.Activate(memberID))
+                {
+                    MessageBox.Show("The member has been activated successfully!", "Succeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    _mode = enMode.update;
+                    _LoadRefreshMembersPerPage();
+                }
+                else
+                {
+                    MessageBox.Show($"Cannot activate the member with ID ({memberID}), something went wrong", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void cmsMembers_Opening(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            bool isActive = (bool)dgvMembers.CurrentRow.Cells["IsActive"].Value;
+            if (isActive)
+            {
+                activateToolStripMenuItem.Enabled = false;
+                deactivateToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                activateToolStripMenuItem.Enabled = true;
+                deactivateToolStripMenuItem.Enabled = false;
+            }
         }
     }
 }

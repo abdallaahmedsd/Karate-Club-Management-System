@@ -31,29 +31,31 @@
             this.tcMemberInfo = new System.Windows.Forms.TabControl();
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnGoToEmergencyContactfo = new System.Windows.Forms.Button();
+            this.ctrAddEditPerson1 = new Karate_Club.People.Controls.ctrAddEditPerson();
             this.tpEmergencyContactInfo = new System.Windows.Forms.TabPage();
             this.btnBackToPersonalInfo = new System.Windows.Forms.Button();
             this.btnGoToSubscriptionInfo = new System.Windows.Forms.Button();
+            this.ctrAddEditEmergencyContact1 = new Karate_Club.Emergency_Contacts.ctrAddEditEmergencyContact();
             this.tpSubscriptionInfo = new System.Windows.Forms.TabPage();
             this.btnGoToCurrentBelt = new System.Windows.Forms.Button();
             this.btnBackToEmergencyContactInfo = new System.Windows.Forms.Button();
+            this.ctrAddEditSubscription1 = new Karate_Club.Subscriptions.ctrAddEditSubscription();
             this.tpCurrentBelt = new System.Windows.Forms.TabPage();
             this.btnBackToSubscriptionInfo = new System.Windows.Forms.Button();
             this.cbCurrentBelt = new System.Windows.Forms.ComboBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
-            this.ctrAddEditPerson1 = new Karate_Club.People.Controls.ctrAddEditPerson();
-            this.ctrAddEditEmergencyContact1 = new Karate_Club.Emergency_Contacts.ctrAddEditEmergencyContact();
-            this.ctrAddEditSubscription1 = new Karate_Club.Subscriptions.ctrAddEditSubscription();
             this.tcMemberInfo.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
             this.tpEmergencyContactInfo.SuspendLayout();
             this.tpSubscriptionInfo.SuspendLayout();
             this.tpCurrentBelt.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tcMemberInfo
@@ -65,7 +67,7 @@
             this.tcMemberInfo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tcMemberInfo.Font = new System.Drawing.Font("Microsoft YaHei UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tcMemberInfo.ItemSize = new System.Drawing.Size(136, 35);
-            this.tcMemberInfo.Location = new System.Drawing.Point(41, 159);
+            this.tcMemberInfo.Location = new System.Drawing.Point(43, 159);
             this.tcMemberInfo.Name = "tcMemberInfo";
             this.tcMemberInfo.Padding = new System.Drawing.Point(10, 3);
             this.tcMemberInfo.SelectedIndex = 0;
@@ -103,6 +105,15 @@
             this.btnGoToEmergencyContactfo.Text = "Next";
             this.btnGoToEmergencyContactfo.UseVisualStyleBackColor = false;
             this.btnGoToEmergencyContactfo.Click += new System.EventHandler(this.btnGoToEmergencyContactfo_Click);
+            // 
+            // ctrAddEditPerson1
+            // 
+            this.ctrAddEditPerson1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+            this.ctrAddEditPerson1.BackColor = System.Drawing.Color.White;
+            this.ctrAddEditPerson1.Location = new System.Drawing.Point(16, 19);
+            this.ctrAddEditPerson1.Name = "ctrAddEditPerson1";
+            this.ctrAddEditPerson1.Size = new System.Drawing.Size(983, 340);
+            this.ctrAddEditPerson1.TabIndex = 0;
             // 
             // tpEmergencyContactInfo
             // 
@@ -152,6 +163,14 @@
             this.btnGoToSubscriptionInfo.UseVisualStyleBackColor = false;
             this.btnGoToSubscriptionInfo.Click += new System.EventHandler(this.btnGoToSubscriptionInfo_Click);
             // 
+            // ctrAddEditEmergencyContact1
+            // 
+            this.ctrAddEditEmergencyContact1.BackColor = System.Drawing.Color.White;
+            this.ctrAddEditEmergencyContact1.Location = new System.Drawing.Point(16, 17);
+            this.ctrAddEditEmergencyContact1.Name = "ctrAddEditEmergencyContact1";
+            this.ctrAddEditEmergencyContact1.Size = new System.Drawing.Size(511, 176);
+            this.ctrAddEditEmergencyContact1.TabIndex = 0;
+            // 
             // tpSubscriptionInfo
             // 
             this.tpSubscriptionInfo.BackColor = System.Drawing.Color.White;
@@ -198,6 +217,15 @@
             this.btnBackToEmergencyContactInfo.Text = "Back";
             this.btnBackToEmergencyContactInfo.UseVisualStyleBackColor = false;
             this.btnBackToEmergencyContactInfo.Click += new System.EventHandler(this.btnBackToEmergencyContactInfo_Click);
+            // 
+            // ctrAddEditSubscription1
+            // 
+            this.ctrAddEditSubscription1.BackColor = System.Drawing.Color.White;
+            this.ctrAddEditSubscription1.Location = new System.Drawing.Point(16, 17);
+            this.ctrAddEditSubscription1.Margin = new System.Windows.Forms.Padding(4);
+            this.ctrAddEditSubscription1.Name = "ctrAddEditSubscription1";
+            this.ctrAddEditSubscription1.Size = new System.Drawing.Size(594, 196);
+            this.ctrAddEditSubscription1.TabIndex = 0;
             // 
             // tpCurrentBelt
             // 
@@ -275,6 +303,15 @@
             this.label2.Text = "Add New Member";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btnClose);
+            this.panel1.Controls.Add(this.btnSave);
+            this.panel1.Location = new System.Drawing.Point(411, 673);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(287, 44);
+            this.panel1.TabIndex = 17;
+            // 
             // btnClose
             // 
             this.btnClose.AutoSize = true;
@@ -285,10 +322,10 @@
             this.btnClose.ForeColor = System.Drawing.Color.White;
             this.btnClose.Image = global::Karate_Club.Properties.Resources.close_24;
             this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnClose.Location = new System.Drawing.Point(436, 673);
+            this.btnClose.Location = new System.Drawing.Point(12, 0);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(117, 44);
-            this.btnClose.TabIndex = 16;
+            this.btnClose.TabIndex = 18;
             this.btnClose.Text = "       Close";
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
@@ -303,39 +340,13 @@
             this.btnSave.ForeColor = System.Drawing.Color.White;
             this.btnSave.Image = global::Karate_Club.Properties.Resources.save_24;
             this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSave.Location = new System.Drawing.Point(582, 673);
+            this.btnSave.Location = new System.Drawing.Point(158, 0);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(117, 44);
-            this.btnSave.TabIndex = 15;
+            this.btnSave.TabIndex = 17;
             this.btnSave.Text = "       Save";
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // ctrAddEditPerson1
-            // 
-            this.ctrAddEditPerson1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-            this.ctrAddEditPerson1.BackColor = System.Drawing.Color.White;
-            this.ctrAddEditPerson1.Location = new System.Drawing.Point(16, 19);
-            this.ctrAddEditPerson1.Name = "ctrAddEditPerson1";
-            this.ctrAddEditPerson1.Size = new System.Drawing.Size(983, 340);
-            this.ctrAddEditPerson1.TabIndex = 0;
-            // 
-            // ctrAddEditEmergencyContact1
-            // 
-            this.ctrAddEditEmergencyContact1.BackColor = System.Drawing.Color.White;
-            this.ctrAddEditEmergencyContact1.Location = new System.Drawing.Point(16, 17);
-            this.ctrAddEditEmergencyContact1.Name = "ctrAddEditEmergencyContact1";
-            this.ctrAddEditEmergencyContact1.Size = new System.Drawing.Size(511, 176);
-            this.ctrAddEditEmergencyContact1.TabIndex = 0;
-            // 
-            // ctrAddEditSubscription1
-            // 
-            this.ctrAddEditSubscription1.BackColor = System.Drawing.Color.White;
-            this.ctrAddEditSubscription1.Location = new System.Drawing.Point(16, 17);
-            this.ctrAddEditSubscription1.Margin = new System.Windows.Forms.Padding(4);
-            this.ctrAddEditSubscription1.Name = "ctrAddEditSubscription1";
-            this.ctrAddEditSubscription1.Size = new System.Drawing.Size(594, 196);
-            this.ctrAddEditSubscription1.TabIndex = 0;
             // 
             // frmAddMember
             // 
@@ -343,8 +354,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1108, 742);
-            this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tcMemberInfo);
             this.ForeColor = System.Drawing.Color.Black;
@@ -360,8 +370,9 @@
             this.tpCurrentBelt.ResumeLayout(false);
             this.tpCurrentBelt.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -378,8 +389,6 @@
         private System.Windows.Forms.Button btnGoToSubscriptionInfo;
         private System.Windows.Forms.Button btnBackToPersonalInfo;
         private System.Windows.Forms.Button btnBackToEmergencyContactInfo;
-        private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.TabPage tpCurrentBelt;
         private Subscriptions.ctrAddEditSubscription ctrAddEditSubscription1;
         private System.Windows.Forms.ComboBox cbCurrentBelt;
@@ -387,5 +396,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnGoToCurrentBelt;
         private System.Windows.Forms.Button btnBackToSubscriptionInfo;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnSave;
     }
 }

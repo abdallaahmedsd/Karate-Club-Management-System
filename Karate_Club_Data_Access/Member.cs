@@ -155,8 +155,11 @@ namespace Karate_Club_Data_Access
                         return isFound;
                     }
 
-        public static bool DeleteMember(int memberID) => clsDataAccessHelper.Delete(memberID, "MemberID", "SP_Members_Delete");
-         
+        public static bool Deactivate(int memberID) => clsDataAccessHelper.Deactivate(memberID, "MemberID", "SP_Members_Deactivate");
+
+        public static bool Activate(int memberID) => clsDataAccessHelper.Activate(memberID, "MemberID", "SP_Members_Activate");
+        
+        public static bool DeletePermanently(int memberID) => clsDataAccessHelper.Delete(memberID, "MemberID", "SP_Members_DeletePermanently");         
 
         public static DataTable GetAllMembers() => clsDataAccessHelper.All("SP_Members_GetAll");
 
@@ -164,5 +167,42 @@ namespace Karate_Club_Data_Access
             => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_Members_GetMembersPerPage");
 
         public static uint Count() => clsDataAccessHelper.Count("SP_Members_GetTotalCount");
+
+        public static bool HasAcriveSubscription(int memberID)
+        {
+            bool HasAcriveSubscription = false;
+
+            try
+            {
+                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand("SP_Members_HasAcriveSubscription", connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue($"@MemberID", memberID);
+
+                        SqlParameter HasAcriveSubscriptionParameter = new SqlParameter("@HasAcriveSubscription", SqlDbType.Bit)
+                        {
+                            Direction = ParameterDirection.Output
+                        };
+                        command.Parameters.Add(HasAcriveSubscriptionParameter);
+
+                        connection.Open();
+                        command.ExecuteNonQuery();
+
+                        if (HasAcriveSubscriptionParameter.Value != DBNull.Value)
+                            HasAcriveSubscription = Convert.ToBoolean(HasAcriveSubscriptionParameter.Value);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                clsErrorsLogger.LogError($"An error occur in Memeber's Class: " + ex.Message);
+                return false;
+            }
+
+            return HasAcriveSubscription;
+        }
     }
 }
