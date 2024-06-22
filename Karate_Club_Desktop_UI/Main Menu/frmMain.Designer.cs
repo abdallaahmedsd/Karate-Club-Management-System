@@ -275,7 +275,7 @@
             // 
             // pnlChildForm
             // 
-            this.pnlChildForm.BackColor = System.Drawing.Color.Snow;
+            this.pnlChildForm.BackColor = System.Drawing.Color.White;
             this.pnlChildForm.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlChildForm.Location = new System.Drawing.Point(400, 0);
             this.pnlChildForm.Name = "pnlChildForm";

@@ -5,8 +5,8 @@ using Karate_Club.Subscriptions;
 using Karate_Club_Business;
 using System;
 using System.Data;
+using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using static System.Math;
 
 namespace Karate_Club
@@ -26,15 +26,15 @@ namespace Karate_Club
         // this function will subscribe to an event in frmAddMember form.
         // This function will be called only if new member has been added.
         // It will refresh the number of pages and will reload the data from the database
-        private void _OnNewMemberAdded(object sender, MemberAddedEventArgs e) => _LoadRefreshMembersPerPage();
+        private async void _OnNewMemberAdded(object sender, MemberAddedEventArgs e) => await _LoadRefreshMembersPerPageAsync();
 
-        private void _OnPersonalInfoUpdated_frmEditPersonalInfo() => _LoadRefreshMembersPerPage();
+        private async void _OnPersonalInfoUpdated_frmEditPersonalInfo() => await _LoadRefreshMembersPerPageAsync();
 
-        private void _OnEmergencyContactInfoUpdated() => _LoadRefreshMembersPerPage();
+        private async void _OnEmergencyContactInfoUpdated() => await _LoadRefreshMembersPerPageAsync();
 
-        private void _OnPersonalInfoUpdated_frmMemberCard() => _LoadRefreshMembersPerPage(); // Will be fired incase there has been updating by frmMemberCard
+        private async void _OnPersonalInfoUpdated_frmMemberCard() => await _LoadRefreshMembersPerPageAsync(); // Will be fired incase there has been updating by frmMemberCard
 
-        private void _OnSubscriptionAdded() => _LoadRefreshMembersPerPage();
+        private async void _OnSubscriptionAdded() => await _LoadRefreshMembersPerPageAsync();
 
         private void _Subscribe(frmAddMember frm)  => frm.NewMemberAdded += _OnNewMemberAdded;
 
@@ -68,7 +68,7 @@ namespace Karate_Club
             }
         }
 
-        private void _LoadRefreshMembersPerPage()
+        private async Task _LoadRefreshMembersPerPageAsync()
         {
             // Get the number of pages and show them in the ComoboBox "cbPage"
             if(_mode == enMode.add || _mode == enMode.delete)
@@ -76,7 +76,7 @@ namespace Karate_Club
 
             // load members data per page and save them in the DataTable "_dtMembers"
             // in case the page number is equal to zero assign null to the DataTable "_dtMembers"
-            _dtMembers = _pageNumber > 0 ? clsMember.GetMembersPerPage(_pageNumber, clsUtilities.RowsPerPage) : null;
+            _dtMembers = await Task.Run(() => _pageNumber > 0 ? clsMember.GetMembersPerPageAsync(_pageNumber, clsUtilities.RowsPerPage) : null);
             _FillDataGridView(_dtMembers);
         }
 
@@ -168,12 +168,12 @@ namespace Karate_Club
             frm.ShowDialog();
         }
 
-        private void frmListMembers_Load(object sender, EventArgs e)
+        private async void frmListMembers_Load(object sender, EventArgs e)
         {
             // Cusomize the appearance of the DataGridView
             clsUtilities.CustomizeDataGridView(dgvMembers);
 
-            _LoadRefreshMembersPerPage();
+            await _LoadRefreshMembersPerPageAsync();
             cbFilterBy.SelectedItem = "None";
         }
 
@@ -216,13 +216,13 @@ namespace Karate_Club
                 clsUtilities.IsNumber(e);
         }
 
-        private void cbPage_SelectedIndexChanged(object sender, EventArgs e)
+        private async void cbPage_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Get the selected page number
             _pageNumber = ushort.TryParse(cbPage.Text, out ushort result) == true ? result : (ushort)0;
 
             // Load members data from the database and view it in the DataGridView
-            _dtMembers = clsMember.GetMembersPerPage(_pageNumber, clsUtilities.RowsPerPage);
+            _dtMembers = await clsMember.GetMembersPerPageAsync(_pageNumber, clsUtilities.RowsPerPage);
             _FillDataGridView(_dtMembers);
         }
 
@@ -276,7 +276,7 @@ namespace Karate_Club
             }
         }
 
-        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deleteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
 
@@ -286,7 +286,7 @@ namespace Karate_Club
                 {
                     MessageBox.Show("The member has been deleted successfully!", "Succeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _mode = enMode.delete;
-                    _LoadRefreshMembersPerPage();
+                    await _LoadRefreshMembersPerPageAsync();
                 }
                 else
                 {
@@ -329,7 +329,7 @@ namespace Karate_Club
             frm.ShowDialog();
         }
 
-        private void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void deactivateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
 
@@ -339,7 +339,7 @@ namespace Karate_Club
                 {
                     MessageBox.Show("The member has been deactivated successfully!", "Succeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _mode = enMode.update;
-                    _LoadRefreshMembersPerPage();
+                    await _LoadRefreshMembersPerPageAsync();
                 }
                 else
                 {
@@ -348,7 +348,7 @@ namespace Karate_Club
             }
         }
 
-        private void activateToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void activateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             int memberID = (int)dgvMembers.CurrentRow.Cells["MemberID"].Value;
 
@@ -358,7 +358,7 @@ namespace Karate_Club
                 {
                     MessageBox.Show("The member has been activated successfully!", "Succeded", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     _mode = enMode.update;
-                    _LoadRefreshMembersPerPage();
+                    await _LoadRefreshMembersPerPageAsync();
                 }
                 else
                 {

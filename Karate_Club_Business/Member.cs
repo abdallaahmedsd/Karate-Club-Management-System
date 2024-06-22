@@ -1,6 +1,7 @@
 ﻿using Karate_Club_Data_Access;
 using System;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Karate_Club_Business
 {
@@ -92,9 +93,9 @@ namespace Karate_Club_Business
             return clsMemberDataAccess.GetAllMembers();
         }
 
-        public static DataTable GetMembersPerPage(ushort pageNumber, uint rowsPerPage)
+        public static async Task<DataTable> GetMembersPerPageAsync(ushort pageNumber, uint rowsPerPage)
         {
-            return clsMemberDataAccess.GetMembersPerPage(pageNumber, rowsPerPage);
+            return await clsMemberDataAccess.GetMembersPerPageAsync(pageNumber, rowsPerPage);
         }
 
         public static uint Count()

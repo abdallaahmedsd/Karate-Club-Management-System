@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
+using System.Threading.Tasks;
 
 namespace Karate_Club_Data_Access
 {
@@ -30,12 +31,13 @@ namespace Karate_Club_Data_Access
             catch (Exception ex)
             {
                 clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                dt = null;
             }
 
             return dt;
         }
 
-        public static DataTable AllInPages(ushort pageNumber, uint rowsPerPage, string storedProcedure) 
+        public static async Task<DataTable> AllInPagesAsync(ushort pageNumber, uint rowsPerPage, string storedProcedure) 
         {
             DataTable dt = new DataTable();
 
@@ -52,7 +54,7 @@ namespace Karate_Club_Data_Access
 
                         connection.Open();
 
-                        using (SqlDataReader reader = command.ExecuteReader())
+                        using (SqlDataReader reader = await command.ExecuteReaderAsync())
                         {
                             dt.Load(reader);
                         }
@@ -62,6 +64,7 @@ namespace Karate_Club_Data_Access
             catch (Exception ex)
             {
                 clsErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+                dt = null;
             }
 
             return dt;

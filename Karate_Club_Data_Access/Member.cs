@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Net;
 using System.Security.Policy;
+using System.Threading.Tasks;
 
 namespace Karate_Club_Data_Access
 {
@@ -163,8 +164,8 @@ namespace Karate_Club_Data_Access
 
         public static DataTable GetAllMembers() => clsDataAccessHelper.All("SP_Members_GetAll");
 
-        public static DataTable GetMembersPerPage(ushort pageNumber, uint rowsPerPage)
-            => clsDataAccessHelper.AllInPages(pageNumber, rowsPerPage, "SP_Members_GetMembersPerPage");
+        public static async Task<DataTable> GetMembersPerPageAsync(ushort pageNumber, uint rowsPerPage)
+            => await clsDataAccessHelper.AllInPagesAsync(pageNumber, rowsPerPage, "SP_Members_GetMembersPerPage");
 
         public static uint Count() => clsDataAccessHelper.Count("SP_Members_GetTotalCount");
 
