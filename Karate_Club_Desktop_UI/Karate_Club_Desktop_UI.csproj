@@ -337,5 +337,11 @@
   <ItemGroup>
     <None Include="Resources\deactivate_321.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\left-arrow_24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\right-arrow_24.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -268,7 +268,7 @@ namespace Karate_Club.People.Controls
 
         private void llblSetImage_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            ofdSetImage.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            ofdSetImage.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.gif;*.bmp;*.avif";
             ofdSetImage.FilterIndex = 1;
             ofdSetImage.RestoreDirectory = true;
 

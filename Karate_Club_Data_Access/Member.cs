@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Data.SqlClient;
 using System.Data;
-using System.Net;
-using System.Security.Policy;
 using System.Threading.Tasks;
 
 namespace Karate_Club_Data_Access

@@ -303,6 +303,16 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap left_arrow_24 {
+            get {
+                object obj = ResourceManager.GetObject("left-arrow_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap location_pin_24 {
             get {
                 object obj = ResourceManager.GetObject("location-pin_24", resourceCulture);
@@ -426,6 +436,16 @@ namespace Karate_Club.Properties {
         internal static System.Drawing.Bitmap profile_picture_24 {
             get {
                 object obj = ResourceManager.GetObject("profile-picture_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_arrow_24 {
+            get {
+                object obj = ResourceManager.GetObject("right-arrow_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

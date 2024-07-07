@@ -15,7 +15,9 @@ namespace Karate_Club
     {
         private enum enMode { add, update, delete}
         private enMode _mode = enMode.add;
-        private ushort _pageNumber = 0; 
+        private ushort _pageNumber = 0;
+        private uint _currentPageNumber = 0;
+        private uint _totalNumberOfPages = 0;
         private DataTable _dtMembers;
 
         public frmListMembers()
@@ -166,6 +168,11 @@ namespace Karate_Club
             frmMemberCard frm = new frmMemberCard(memberID);
             _Subscribe(frm);
             frm.ShowDialog();
+        }
+
+        private void _HandleCurrentPage()
+        {
+            cbPage.SelectedIndex = Convert.ToInt16(_currentPageNumber - 1);
         }
 
         private async void frmListMembers_Load(object sender, EventArgs e)
@@ -379,6 +386,21 @@ namespace Karate_Club
             {
                 activateToolStripMenuItem.Enabled = true;
                 deactivateToolStripMenuItem.Enabled = false;
+            }
+        }
+
+        private void btnNextPage_Click(object sender, EventArgs e)
+        {
+            // check is it the last item?
+            //if(cbPage.Items.Count - 1 == cb)
+        }
+
+        private void btnPreviousPage_Click(object sender, EventArgs e)
+        {
+            if (_currentPageNumber > 1)
+            {
+                _currentPageNumber--;
+                _HandleCurrentPage();
             }
         }
     }
