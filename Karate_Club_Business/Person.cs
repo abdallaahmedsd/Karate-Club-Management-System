@@ -20,15 +20,11 @@ namespace Karate_Club_Business
         public string Email { get; set; }
         public string Address { get; set; }
         public string ImagePath { get; set; }
-        public int? CreatedByUserID { get; set; }
-        public clsUser UserInfo { get; }
-
-        private clsUser _userInfo;
 
         public enum enMode : byte { add_new_mode, update_mode }
         public enMode Mode {get; set;}
 
-        protected clsPerson(int? personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address, string imagePath, int? createdByUserID)
+        protected clsPerson(int? personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address, string imagePath)
         {
             PersonID = personID;
             FirstName = firstName;
@@ -39,8 +35,6 @@ namespace Karate_Club_Business
             Email = email;
             Address = address;
             ImagePath = imagePath;
-            CreatedByUserID = createdByUserID;
-            if (createdByUserID.HasValue) _userInfo = clsUser.Find(createdByUserID.Value);
             Mode = enMode.update_mode;
         }
 
@@ -72,10 +66,9 @@ namespace Karate_Club_Business
             string firstName = null, lastName = null, phone = null, email = null, address = null, imagePath = null;
             char gender = ' ';
             DateTime birthdate = DateTime.Now;
-            int? createdByUserID = null;
 
-            if (clsPersonDataAccess.GetPersonByID(personID, ref firstName, ref lastName, ref gender, ref birthdate, ref phone, ref email, ref address, ref imagePath, ref createdByUserID))
-                return new clsPerson(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath, createdByUserID);
+            if (clsPersonDataAccess.GetPersonByID(personID, ref firstName, ref lastName, ref gender, ref birthdate, ref phone, ref email, ref address, ref imagePath))
+                return new clsPerson(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath);
             else
                 return null;
 
@@ -98,7 +91,7 @@ namespace Karate_Club_Business
 
         private bool _Add()
         {
-            PersonID = clsPersonDataAccess.AddPerson(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath, CreatedByUserID);
+            PersonID = clsPersonDataAccess.AddPerson(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath);
             return PersonID.HasValue;
         }
 
@@ -106,6 +99,5 @@ namespace Karate_Club_Business
         {
             return clsPersonDataAccess.UpdatePerson(PersonID, FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath);
         }
-
     }
 }

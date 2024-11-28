@@ -81,7 +81,6 @@ namespace Karate_Club
                 }
             }
             
-            _member.CreatedByUserID = null; // Handle it later and set it to the current user
             _member.IsActive = true;
         }
 

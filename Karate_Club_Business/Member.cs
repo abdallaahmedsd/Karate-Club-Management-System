@@ -25,8 +25,8 @@ namespace Karate_Club_Business
         public new enMode Mode { get; set; }
         
         private clsMember(int personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address,
-                string imagePath, int? createdByUserID, int memberID, int currentBeltRankID, int emergencyContactID, int subscriptionID, bool isActive)
-                :base(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath, createdByUserID)
+                string imagePath, int memberID, int currentBeltRankID, int emergencyContactID, int subscriptionID, bool isActive)
+                :base(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath)
         {
             MemberID = memberID;
             CurrentBeltRankID = currentBeltRankID;
@@ -64,7 +64,6 @@ namespace Karate_Club_Business
 
         public static new clsMember Find(int memberID)
         {
-            int? createdByUserID = null;
             int personID = -1, currentBeltRankID = -1, emergencyContactID = -1, subscriptionID = -1;
             string fName = null, lName = null, phone = null, email = null, address = null, imagePath = null;
             DateTime birthdate = DateTime.Now;
@@ -73,10 +72,10 @@ namespace Karate_Club_Business
 
 
             isFound = clsMemberDataAccess.FindMemberByID(memberID, ref personID, ref fName, ref lName, ref gender, ref birthdate, ref phone, ref email, ref address,
-                                                        ref imagePath, ref createdByUserID, ref currentBeltRankID, ref emergencyContactID, ref subscriptionID, ref isActive);
+                                                        ref imagePath, ref currentBeltRankID, ref emergencyContactID, ref subscriptionID, ref isActive);
 
             if (isFound)
-                return new clsMember(personID, fName, lName, gender, birthdate, phone, email, address, imagePath, createdByUserID,
+                return new clsMember(personID, fName, lName, gender, birthdate, phone, email, address, imagePath,
                                         memberID, currentBeltRankID, emergencyContactID, subscriptionID, isActive);
             else
                 return null;
@@ -107,7 +106,7 @@ namespace Karate_Club_Business
 
         private bool _Add()
         {
-            MemberID = clsMemberDataAccess.AddMember(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath, CreatedByUserID,
+            MemberID = clsMemberDataAccess.AddMember(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath,
                 EmergencyContactInfo.Name, EmergencyContactInfo.Phone, EmergencyContactInfo.Email, CurrentBeltRankID, IsActive);
 
             return MemberID.HasValue;

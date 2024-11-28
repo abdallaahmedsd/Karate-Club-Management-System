@@ -30,7 +30,6 @@ namespace Karate_Club.People
             lblEmail.Text = "????";
             lblAge.Text = "????";
             lblAddress.Text = "????";
-            lblCreatedBY.Text = "????";
             pbPersonImage.ImageLocation = null;
         }
 
@@ -63,7 +62,6 @@ namespace Karate_Club.People
             lblEmail.Text = _person.Email;
             lblAge.Text = _CalculateAge((DateTime)_person.Birthdate).ToString();
             lblAddress.Text = _person.Address;
-            lblCreatedBY.Text = _person.UserInfo?.UserName ?? "Admin";
             pbPersonImage.ImageLocation = _person.ImagePath ?? null;
         }
 

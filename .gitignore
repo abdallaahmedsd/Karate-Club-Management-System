@@ -1,1 +1,4 @@
-".vs/" 
+# Ignore build and Visual Studio directories globally
+**/bin/
+**/obj/
+**/.vs/

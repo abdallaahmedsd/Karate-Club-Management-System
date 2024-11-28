@@ -7,7 +7,7 @@ namespace Karate_Club_Data_Access
     public static class clsPersonDataAccess
     {
         public static int? AddPerson(string firstName, string lastName, char gender, DateTime birthdate,
-                                        string phone, string email, string address, string imagePath, int? createdByUserID)
+                                        string phone, string email, string address, string imagePath)
         {
             int newPersonID = default;
 
@@ -39,10 +39,6 @@ namespace Karate_Club_Data_Access
                             command.Parameters.AddWithValue("@ImagePath", imagePath);
                         else
                             command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
-
-                        // handle it later
-                        command.Parameters.AddWithValue("@CreatedByUserID", createdByUserID.HasValue ? (object)createdByUserID : DBNull.Value);
-
 
                         // Add output parameter for the new person ID
                         SqlParameter newPersonIDParameter = new SqlParameter("@NewPersonID", SqlDbType.Int)
@@ -111,7 +107,7 @@ namespace Karate_Club_Data_Access
         }
 
         public static bool GetPersonByID(int personID, ref string firstName, ref string lastName, ref char gender, ref DateTime birthdate,
-                                    ref string phone, ref string email, ref string address, ref string imagePath, ref int? createdByUserID)
+                                    ref string phone, ref string email, ref string address, ref string imagePath)
         {
             bool isFound = false;
             try
@@ -141,7 +137,6 @@ namespace Karate_Club_Data_Access
                                 email = reader["Email"].ToString();
                                 address = reader["Address"].ToString();
                                 imagePath = reader["ImagePath"].ToString();
-                                createdByUserID = reader["CreatedByUserID"] as int?;
 
                                 isFound = true; // Set to true as a row is found
                             }
