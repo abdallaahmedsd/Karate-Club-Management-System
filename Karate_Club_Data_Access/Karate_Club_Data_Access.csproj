@@ -45,6 +45,8 @@
     <Compile Include="BeltRank.cs" />
     <Compile Include="DataAccessHelper.cs" />
     <Compile Include="DataAccessSettings.cs" />
+    <Compile Include="Instructors\Specialization.cs" />
+    <Compile Include="Instructors\Qualification.cs" />
     <Compile Include="Members\EmergencyContact.cs" />
     <Compile Include="ErrorsLogger.cs" />
     <Compile Include="Members\Member.cs" />
@@ -55,8 +57,6 @@
     <Compile Include="Members\SubscriptionType.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Instructors\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
