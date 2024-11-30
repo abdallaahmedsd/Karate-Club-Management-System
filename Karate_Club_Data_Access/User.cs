@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Karate_Club_Data_Access
 {
-    public static class clsUserDataAccess
+    public static class UserDataAccess
     {
         public static int AddUser(int personID, string userName, string password, bool isActive)
         {
@@ -12,7 +12,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_User_AddUser", connection))
                     {
@@ -36,7 +36,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return newUserID;
@@ -48,7 +48,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_User_UpdateUser", connection))
                     {
@@ -69,7 +69,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return success;
@@ -81,7 +81,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     connection.Open();
 
@@ -107,7 +107,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return isFound;
@@ -119,7 +119,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_User_DeleteUser", connection))
                     {
@@ -142,7 +142,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return rowsAffected > 0;
@@ -154,7 +154,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_User_IsUserExists", connection))
                     {
@@ -177,7 +177,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return userExists;
@@ -189,7 +189,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_User_GetAll", connection))
                     {
@@ -206,7 +206,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in User's Class: " + ex.Message);
             }
 
             return dtUsers;

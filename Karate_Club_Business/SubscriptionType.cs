@@ -51,7 +51,7 @@ namespace Karate_Club_Business
             string periodUnit = null;
             decimal fees = 0;
 
-            if (clsSubscriptionTypeDataAccess.FindSubscriptionTypeByID(subscriptionTypeID, ref periodLength, ref periodUnit, ref fees))
+            if (SubscriptionTypeDataAccess.FindSubscriptionTypeByID(subscriptionTypeID, ref periodLength, ref periodUnit, ref fees))
                 return new clsSubscriptionType(subscriptionTypeID, periodLength, periodUnit, fees);
             else
                 return null;
@@ -59,23 +59,23 @@ namespace Karate_Club_Business
 
         public static bool Delete(int subscriptionTypeID)
         {
-            return clsSubscriptionTypeDataAccess.DeleteSubscriptionType(subscriptionTypeID);
+            return SubscriptionTypeDataAccess.DeleteSubscriptionType(subscriptionTypeID);
         }
 
         public static DataTable GetAllSubscriptionTypes()
         {
-            return clsSubscriptionTypeDataAccess.GetAllSubscriptionTypes();
+            return SubscriptionTypeDataAccess.GetAllSubscriptionTypes();
         }
 
         private bool _Add()
         {
-            SubscriptionTypeID = clsSubscriptionTypeDataAccess.AddSubscriptionType(PeriodLength, PeriodUnit, Fees);
+            SubscriptionTypeID = SubscriptionTypeDataAccess.AddSubscriptionType(PeriodLength, PeriodUnit, Fees);
             return this.SubscriptionTypeID.HasValue;
         }
 
         private bool _Update()
         {
-            return clsSubscriptionTypeDataAccess.UpdateSubscriptionType(SubscriptionTypeID, PeriodLength, PeriodUnit, Fees);
+            return SubscriptionTypeDataAccess.UpdateSubscriptionType(SubscriptionTypeID, PeriodLength, PeriodUnit, Fees);
         }
     }
 

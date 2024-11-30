@@ -2,7 +2,7 @@
 
 namespace Karate_Club_Data_Access
 {
-    internal class clsErrorsLogger
+    internal class ErrorsLogger
     {
         public static void LogError(string message)
         {

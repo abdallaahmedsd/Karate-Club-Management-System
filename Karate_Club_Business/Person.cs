@@ -67,7 +67,7 @@ namespace Karate_Club_Business
             char gender = ' ';
             DateTime birthdate = DateTime.Now;
 
-            if (clsPersonDataAccess.GetPersonByID(personID, ref firstName, ref lastName, ref gender, ref birthdate, ref phone, ref email, ref address, ref imagePath))
+            if (PersonDataAccess.GetPersonByID(personID, ref firstName, ref lastName, ref gender, ref birthdate, ref phone, ref email, ref address, ref imagePath))
                 return new clsPerson(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath);
             else
                 return null;
@@ -76,28 +76,28 @@ namespace Karate_Club_Business
 
         public static bool Delete(int personID)
         {
-            return clsPersonDataAccess.DeletePerson(personID);
+            return PersonDataAccess.DeletePerson(personID);
         }
 
         public static bool IsExists(int personID)
         {
-            return clsPersonDataAccess.IsPersonExists(personID);
+            return PersonDataAccess.IsPersonExists(personID);
         }
 
         public static DataTable GetAllPeople()
         {
-            return clsPersonDataAccess.GetAllPeople();
+            return PersonDataAccess.GetAllPeople();
         }
 
         private bool _Add()
         {
-            PersonID = clsPersonDataAccess.AddPerson(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath);
+            PersonID = PersonDataAccess.AddPerson(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath);
             return PersonID.HasValue;
         }
 
         private bool _Update() 
         {
-            return clsPersonDataAccess.UpdatePerson(PersonID, FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath);
+            return PersonDataAccess.UpdatePerson(PersonID, FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath);
         }
     }
 }

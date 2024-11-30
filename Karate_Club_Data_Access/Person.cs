@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Karate_Club_Data_Access
 {
-    public static class clsPersonDataAccess
+    public static class PersonDataAccess
     {
         public static int? AddPerson(string firstName, string lastName, char gender, DateTime birthdate,
                                         string phone, string email, string address, string imagePath)
@@ -14,7 +14,7 @@ namespace Karate_Club_Data_Access
             try
             {
                 // Create SqlConnection object within a using statement
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     // Create SqlCommand object within a using statement
                     using (SqlCommand command = new SqlCommand("SP_People_AddPerson", connection))
@@ -60,7 +60,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return newPersonID;
@@ -73,7 +73,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_People_UpdatePerson", connection))
                     {
@@ -100,7 +100,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return success;
@@ -112,7 +112,7 @@ namespace Karate_Club_Data_Access
             bool isFound = false;
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     connection.Open();
 
@@ -146,17 +146,17 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in Person's Class: " + ex.Message);
             }
 
             return isFound;
         }
 
-        public static bool DeletePerson(int personID) => clsDataAccessHelper.Delete(personID, "PersonID", "SP_People_DeletePerson");
+        public static bool DeletePerson(int personID) => DataAccessHelper.Delete(personID, "PersonID", "SP_People_DeletePerson");
 
-        public static bool IsPersonExists(int personID) => clsDataAccessHelper.IsExists(personID, "PersonID", "SP_People_IsPersonExists");
+        public static bool IsPersonExists(int personID) => DataAccessHelper.IsExists(personID, "PersonID", "SP_People_IsPersonExists");
 
-        public static DataTable GetAllPeople() => clsDataAccessHelper.All("SP_People_GetAll");
+        public static DataTable GetAllPeople() => DataAccessHelper.All("SP_People_GetAll");
 
     }
 }

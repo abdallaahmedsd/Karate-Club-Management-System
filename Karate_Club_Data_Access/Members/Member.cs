@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Karate_Club_Data_Access.Members
 {
-	public static class clsMemberDataAccess
+	public static class MemberDataAccess
 	{
 		public static int? AddMember(string personFirstName, string personLastName, char personGender, DateTime personBirthdate, string personPhone,
 			string personEmail, string personAddress, string personImagePath, string emergencyContactName, string emergencyContactPhone,
@@ -15,7 +15,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Members_Add", connection))
 					{
@@ -54,7 +54,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
 			}
 
 			return newMemberID;
@@ -66,7 +66,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Members_Update", connection))
 					{
@@ -87,7 +87,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
 			}
 
 			return success;
@@ -101,7 +101,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Members_FindByID", connection))
 					{
@@ -145,24 +145,24 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
 			}
 
 			return isFound;
 		}
 
-		public static bool Deactivate(int memberID) => clsDataAccessHelper.Deactivate(memberID, "MemberID", "SP_Members_Deactivate");
+		public static bool Deactivate(int memberID) => DataAccessHelper.Deactivate(memberID, "MemberID", "SP_Members_Deactivate");
 
-		public static bool Activate(int memberID) => clsDataAccessHelper.Activate(memberID, "MemberID", "SP_Members_Activate");
+		public static bool Activate(int memberID) => DataAccessHelper.Activate(memberID, "MemberID", "SP_Members_Activate");
 
-		public static bool DeletePermanently(int memberID) => clsDataAccessHelper.Delete(memberID, "MemberID", "SP_Members_DeletePermanently");
+		public static bool DeletePermanently(int memberID) => DataAccessHelper.Delete(memberID, "MemberID", "SP_Members_DeletePermanently");
 
-		public static DataTable GetAllMembers() => clsDataAccessHelper.All("SP_Members_GetAll");
+		public static DataTable GetAllMembers() => DataAccessHelper.All("SP_Members_GetAll");
 
 		public static async Task<DataTable> GetMembersPerPageAsync(ushort pageNumber, uint rowsPerPage)
-			=> await clsDataAccessHelper.AllInPagesAsync(pageNumber, rowsPerPage, "SP_Members_GetMembersPerPage");
+			=> await DataAccessHelper.AllInPagesAsync(pageNumber, rowsPerPage, "SP_Members_GetMembersPerPage");
 
-		public static uint Count() => clsDataAccessHelper.Count("SP_Members_GetTotalCount");
+		public static uint Count() => DataAccessHelper.Count("SP_Members_GetTotalCount");
 
 		public static bool HasAcriveSubscription(int memberID)
 		{
@@ -170,7 +170,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Members_HasAcriveSubscription", connection))
 					{
@@ -194,7 +194,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError($"An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError($"An error occur in Memeber's Class: " + ex.Message);
 				return false;
 			}
 

@@ -71,7 +71,7 @@ namespace Karate_Club_Business
             bool isActive = true, isFound = false;
 
 
-            isFound = clsMemberDataAccess.FindMemberByID(memberID, ref personID, ref fName, ref lName, ref gender, ref birthdate, ref phone, ref email, ref address,
+            isFound = MemberDataAccess.FindMemberByID(memberID, ref personID, ref fName, ref lName, ref gender, ref birthdate, ref phone, ref email, ref address,
                                                         ref imagePath, ref currentBeltRankID, ref emergencyContactID, ref subscriptionID, ref isActive);
 
             if (isFound)
@@ -81,32 +81,32 @@ namespace Karate_Club_Business
                 return null;
         }
 
-        public static bool Activate(int memberID) => clsMemberDataAccess.Activate(memberID);
+        public static bool Activate(int memberID) => MemberDataAccess.Activate(memberID);
 
-        public static bool Deactivate(int memberID) => clsMemberDataAccess.Deactivate(memberID);
+        public static bool Deactivate(int memberID) => MemberDataAccess.Deactivate(memberID);
        
-        public static bool DeletePermanently(int memberID) => clsMemberDataAccess.DeletePermanently(memberID);
+        public static bool DeletePermanently(int memberID) => MemberDataAccess.DeletePermanently(memberID);
 
         public static DataTable GetAllMembers()
         {
-            return clsMemberDataAccess.GetAllMembers();
+            return MemberDataAccess.GetAllMembers();
         }
 
         public static async Task<DataTable> GetMembersPerPageAsync(ushort pageNumber, uint rowsPerPage)
         {
-            return await clsMemberDataAccess.GetMembersPerPageAsync(pageNumber, rowsPerPage);
+            return await MemberDataAccess.GetMembersPerPageAsync(pageNumber, rowsPerPage);
         }
 
         public static uint Count()
         {
-            return clsMemberDataAccess.Count();
+            return MemberDataAccess.Count();
         }
 
-        public static bool HasAcriveSubscription(int  memberID) => clsMemberDataAccess.HasAcriveSubscription(memberID);
+        public static bool HasAcriveSubscription(int  memberID) => MemberDataAccess.HasAcriveSubscription(memberID);
 
         private bool _Add()
         {
-            MemberID = clsMemberDataAccess.AddMember(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath,
+            MemberID = MemberDataAccess.AddMember(FirstName, LastName, Gender, Birthdate, Phone, Email, Address, ImagePath,
                 EmergencyContactInfo.Name, EmergencyContactInfo.Phone, EmergencyContactInfo.Email, CurrentBeltRankID, IsActive);
 
             return MemberID.HasValue;
@@ -114,7 +114,7 @@ namespace Karate_Club_Business
 
         private bool _Update()
         {
-            return clsMemberDataAccess.UpdateMember((int)MemberID, (int)PersonID, CurrentBeltRankID, _emergencyContactID, IsActive);
+            return MemberDataAccess.UpdateMember((int)MemberID, (int)PersonID, CurrentBeltRankID, _emergencyContactID, IsActive);
         }
     }
 }

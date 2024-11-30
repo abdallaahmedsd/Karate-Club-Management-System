@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Karate_Club_Data_Access.Members
 {
-	public static class clsSubscriptionTypeDataAccess
+	public static class SubscriptionTypeDataAccess
 	{
 		public static int? AddSubscriptionType(int periodLength, string periodUnit, decimal fees)
 		{
@@ -12,7 +12,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_SubscriptionTypes_Add", connection))
 					{
@@ -36,7 +36,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
 			}
 
 			return newSubscriptionTypeID;
@@ -48,7 +48,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_SubscriptionTypes_Update", connection))
 					{
@@ -67,7 +67,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
 			}
 
 			return success;
@@ -79,7 +79,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_SubscriptionTypes_FindByID", connection))
 					{
@@ -102,15 +102,15 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in SubscriptionType's Class: " + ex.Message);
 			}
 
 			return isFound;
 		}
 
 		public static bool DeleteSubscriptionType(int subscriptionTypeID)
-			=> clsDataAccessHelper.Delete(subscriptionTypeID, "SubscriptionTypeID", "SP_SubscriptionTypes_Delete");
+			=> DataAccessHelper.Delete(subscriptionTypeID, "SubscriptionTypeID", "SP_SubscriptionTypes_Delete");
 
-		public static DataTable GetAllSubscriptionTypes() => clsDataAccessHelper.All("SP_SubscriptionTypes_GetAll");
+		public static DataTable GetAllSubscriptionTypes() => DataAccessHelper.All("SP_SubscriptionTypes_GetAll");
 	}
 }

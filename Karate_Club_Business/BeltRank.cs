@@ -48,7 +48,7 @@ namespace Karate_Club_Business
             string title = null;
             decimal fees = 0;
 
-            if (clsBeltRankDataAccess.FindBeltRankByID(rankID, ref title, ref fees))
+            if (BeltRankDataAccess.FindBeltRankByID(rankID, ref title, ref fees))
                 return new clsBeltRank(rankID, title, fees);
             else
                 return null;
@@ -56,23 +56,23 @@ namespace Karate_Club_Business
 
         public static bool Delete(int rankID)
         {
-            return clsBeltRankDataAccess.DeleteBeltRank(rankID);
+            return BeltRankDataAccess.DeleteBeltRank(rankID);
         }
 
         public static DataTable GetAllBeltRanks()
         {
-            return clsBeltRankDataAccess.GetAllBeltRanks();
+            return BeltRankDataAccess.GetAllBeltRanks();
         }
 
         private bool _Add()
         {
-            this.RankID = clsBeltRankDataAccess.AddBeltRank(Title, Fees);
+            this.RankID = BeltRankDataAccess.AddBeltRank(Title, Fees);
             return this.RankID != -1;
         }
 
         private bool _Update()
         {
-            return clsBeltRankDataAccess.UpdateBeltRank((int)RankID, Title, Fees);
+            return BeltRankDataAccess.UpdateBeltRank((int)RankID, Title, Fees);
         }
     }
 

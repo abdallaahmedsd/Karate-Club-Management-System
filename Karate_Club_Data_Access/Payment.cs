@@ -4,7 +4,7 @@ using System.Data.SqlClient;
 
 namespace Karate_Club_Data_Access
 {
-    public static class clsPaymentDataAccess
+    public static class PaymentDataAccess
     {
         public static int? AddPayment(decimal amount, int memberID, DateTime date, int? createdByUserID)
         {
@@ -12,7 +12,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_Payments_Add", connection))
                     {
@@ -37,7 +37,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occurred in PaymentDataAccess.AddPayment: " + ex.Message);
+                ErrorsLogger.LogError("An error occurred in PaymentDataAccess.AddPayment: " + ex.Message);
             }
 
             return newPaymentID;
@@ -49,7 +49,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_Payments_Update", connection))
                     {
@@ -68,7 +68,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occurred in PaymentDataAccess.UpdatePayment: " + ex.Message);
+                ErrorsLogger.LogError("An error occurred in PaymentDataAccess.UpdatePayment: " + ex.Message);
             }
 
             return success;
@@ -80,7 +80,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_Payments_FindByID", connection))
                     {
@@ -104,15 +104,15 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occurred in PaymentDataAccess.FindPaymentByID: " + ex.Message);
+                ErrorsLogger.LogError("An error occurred in PaymentDataAccess.FindPaymentByID: " + ex.Message);
             }
 
             return isFound;
         }
 
-        public static bool DeletePayment(int paymentID) => clsDataAccessHelper.Delete(paymentID, "PaymentID", "SP_Payments_Delete");
+        public static bool DeletePayment(int paymentID) => DataAccessHelper.Delete(paymentID, "PaymentID", "SP_Payments_Delete");
 
-        public static DataTable GetAllPayments() => clsDataAccessHelper.All("SP_Payments_GetAll");
+        public static DataTable GetAllPayments() => DataAccessHelper.All("SP_Payments_GetAll");
     }
 
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Karate_Club_Data_Access
 {
-    internal static class clsDataAccessHelper
+    internal static class DataAccessHelper
     {
         public static DataTable All(string storedProcedure)
         {
@@ -13,7 +13,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedure, connection))
                     {
@@ -30,7 +30,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                ErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
                 dt = null;
             }
 
@@ -43,7 +43,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedure, connection))
                     {
@@ -63,7 +63,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
                 dt = null;
             }
 
@@ -76,7 +76,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedure, connection))
                     {
@@ -91,7 +91,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                ErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
                 return false;
             }
 
@@ -104,7 +104,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedure, connection))
                     {
@@ -119,7 +119,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                ErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
                 return false;
             }
 
@@ -132,7 +132,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedure, connection))
                     {
@@ -147,7 +147,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                ErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
                 return false;
             }
 
@@ -160,7 +160,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedure, connection))
                     {
@@ -182,7 +182,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
+                ErrorsLogger.LogError($"An error occured in {storedProcedure}: " + ex.Message);
                 return false;
             }
 
@@ -195,7 +195,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand(storedProcedure, connection))
                     {
@@ -214,7 +214,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError($"An error occurred in {storedProcedure}: " + ex.Message);
+                ErrorsLogger.LogError($"An error occurred in {storedProcedure}: " + ex.Message);
             }
 
             return totalMembers;

@@ -50,7 +50,7 @@ namespace Karate_Club_Business
         {
             string name = null, phone = null, email = null;
 
-            if (clsEmergencyContactsDataAccess.FindEmergencyContactByID(emergencyContactID, ref name, ref phone, ref email))
+            if (EmergencyContactsDataAccess.FindEmergencyContactByID(emergencyContactID, ref name, ref phone, ref email))
                 return new clsEmergencyContact(emergencyContactID, name, phone, email);
             else
                 return null;
@@ -58,23 +58,23 @@ namespace Karate_Club_Business
 
         public static bool Delete(int emergencyContactID)
         {
-            return clsEmergencyContactsDataAccess.DeleteEmergencyContact(emergencyContactID);
+            return EmergencyContactsDataAccess.DeleteEmergencyContact(emergencyContactID);
         }
 
         public static DataTable GetAllEmergencyContacts()
         {
-            return clsEmergencyContactsDataAccess.GetAllEmergencyContacts();
+            return EmergencyContactsDataAccess.GetAllEmergencyContacts();
         }
 
         private bool _AddEmergencyContact()
         {
-            EmergencyContactID = clsEmergencyContactsDataAccess.AddEmergencyContact(Name, Phone, Email);
+            EmergencyContactID = EmergencyContactsDataAccess.AddEmergencyContact(Name, Phone, Email);
             return EmergencyContactID.HasValue;
         }
 
         private bool _UpdateEmergencyContact()
         {
-            return clsEmergencyContactsDataAccess.UpdateEmergencyContact((int)EmergencyContactID, Name, Phone, Email);
+            return EmergencyContactsDataAccess.UpdateEmergencyContact((int)EmergencyContactID, Name, Phone, Email);
         }
 
     }

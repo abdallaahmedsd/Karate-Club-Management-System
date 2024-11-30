@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Karate_Club_Data_Access
 {
-    public static class clsBeltRankDataAccess
+    public static class BeltRankDataAccess
     {
         public static int? AddBeltRank(string title, decimal fees)
         {
@@ -12,7 +12,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_BeltRanks_Add", connection))
                     {
@@ -35,7 +35,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in BeltRank's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in BeltRank's Class: " + ex.Message);
             }
 
             return newRankID;
@@ -47,7 +47,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_BeltRanks_Update", connection))
                     {
@@ -65,7 +65,7 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in BeltRank's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in BeltRank's Class: " + ex.Message);
             }
 
             return success;
@@ -77,7 +77,7 @@ namespace Karate_Club_Data_Access
 
             try
             {
-                using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+                using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
                 {
                     using (SqlCommand command = new SqlCommand("SP_BeltRanks_FindByID", connection))
                     {
@@ -99,16 +99,16 @@ namespace Karate_Club_Data_Access
             }
             catch (Exception ex)
             {
-                clsErrorsLogger.LogError("An error occur in BeltRank's Class: " + ex.Message);
+                ErrorsLogger.LogError("An error occur in BeltRank's Class: " + ex.Message);
             }
 
             return isFound;
         }
 
         public static bool DeleteBeltRank(int rankID)
-            => clsDataAccessHelper.Delete(rankID, "RankID", "SP_BeltRanks_Delete");
+            => DataAccessHelper.Delete(rankID, "RankID", "SP_BeltRanks_Delete");
 
         public static DataTable GetAllBeltRanks()
-            => clsDataAccessHelper.All("SP_BeltRanks_GetAll");
+            => DataAccessHelper.All("SP_BeltRanks_GetAll");
     }
 }

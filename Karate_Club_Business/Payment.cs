@@ -57,7 +57,7 @@ namespace Karate_Club_Business
             DateTime date = DateTime.Now;
             int? createdByUserID = null;
 
-            if (clsPaymentDataAccess.FindPaymentByID(paymentID, ref amount, ref memberID, ref date, ref createdByUserID))
+            if (PaymentDataAccess.FindPaymentByID(paymentID, ref amount, ref memberID, ref date, ref createdByUserID))
             {
                 return new clsPayment(paymentID, amount, memberID, date, createdByUserID);
             }
@@ -66,24 +66,24 @@ namespace Karate_Club_Business
 
         public static bool Delete(int paymentID)
         {
-            return clsPaymentDataAccess.DeletePayment(paymentID);
+            return PaymentDataAccess.DeletePayment(paymentID);
         }
 
         public static DataTable GetAllPayments()
         {
-            return clsPaymentDataAccess.GetAllPayments();
+            return PaymentDataAccess.GetAllPayments();
         }
 
         private bool _Add()
         {
-            PaymentID = clsPaymentDataAccess.AddPayment(Amount, MemberID, Date, CreatedByUserID);
+            PaymentID = PaymentDataAccess.AddPayment(Amount, MemberID, Date, CreatedByUserID);
 
             return this.PaymentID.HasValue;
         }
 
         private bool _Update()
         {
-            return clsPaymentDataAccess.UpdatePayment(PaymentID, Amount, MemberID, Date);
+            return PaymentDataAccess.UpdatePayment(PaymentID, Amount, MemberID, Date);
         }
     }
 }

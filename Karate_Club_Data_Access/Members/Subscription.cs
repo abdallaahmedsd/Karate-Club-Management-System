@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Karate_Club_Data_Access.Members
 {
-	public static class clsSubscriptionDataAccess
+	public static class SubscriptionDataAccess
 	{
 		public static int? AddSubscription(int memberID, DateTime startDate, DateTime endDate, int subscriptionTypeID, decimal fees, int? createdByUserID)
 		{
@@ -12,7 +12,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Subscriptions_Add", connection))
 					{
@@ -39,7 +39,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
 			}
 
 			return newSubscriptionID;
@@ -51,7 +51,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Subscriptions_Update", connection))
 					{
@@ -73,7 +73,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
 			}
 
 			return success;
@@ -85,7 +85,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Subscriptions_FindByID", connection))
 					{
@@ -112,7 +112,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
 			}
 
 			return isFound;
@@ -125,7 +125,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_Subscriptions_FindByMemberID", connection))
 					{
@@ -152,16 +152,16 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Subscription's Data Access Layer: " + ex.Message);
 			}
 
 			return isFound;
 		}
 
 		public static bool DeleteSubscription(int subscriptionID)
-			=> clsDataAccessHelper.Delete(subscriptionID, "SubscriptionID", "SP_Subscriptions_Delete");
+			=> DataAccessHelper.Delete(subscriptionID, "SubscriptionID", "SP_Subscriptions_Delete");
 
 		public static DataTable GetAllSubscriptions()
-			=> clsDataAccessHelper.All("SP_Subscriptions_GetAll");
+			=> DataAccessHelper.All("SP_Subscriptions_GetAll");
 	}
 }

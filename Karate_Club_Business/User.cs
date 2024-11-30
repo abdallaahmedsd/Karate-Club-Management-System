@@ -57,7 +57,7 @@ namespace Karate_Club_Business
             string userName = null, password = null;
             bool isActive = false;
 
-            if (clsUserDataAccess.GetUserByID(userID, ref personID, ref userName, ref password, ref isActive))
+            if (UserDataAccess.GetUserByID(userID, ref personID, ref userName, ref password, ref isActive))
                 return new clsUser(userID, personID, userName, password, isActive);
             else
                 return null;
@@ -65,23 +65,23 @@ namespace Karate_Club_Business
 
         public static bool Delete(int userID)
         {
-            return clsUserDataAccess.DeleteUser(userID);
+            return UserDataAccess.DeleteUser(userID);
         }
 
         public static bool IsExists(int userID)
         {
-            return clsUserDataAccess.IsUserExists(userID);
+            return UserDataAccess.IsUserExists(userID);
         }
 
         private bool _AddUser()
         {
-            this.UserID = clsUserDataAccess.AddUser(PersonID, UserName, Password, IsActive);
+            this.UserID = UserDataAccess.AddUser(PersonID, UserName, Password, IsActive);
             return this.UserID != -1;
         }
 
         private bool _UpdateUser()
         {
-            return clsUserDataAccess.UpdateUser(UserID, PersonID, UserName, Password, IsActive);
+            return UserDataAccess.UpdateUser(UserID, PersonID, UserName, Password, IsActive);
         }
     }
 }

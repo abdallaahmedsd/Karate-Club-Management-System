@@ -4,7 +4,7 @@ using System.Data;
 
 namespace Karate_Club_Data_Access.Members
 {
-	public static class clsEmergencyContactsDataAccess
+	public static class EmergencyContactsDataAccess
 	{
 		public static int? AddEmergencyContact(string name, string phone, string email)
 		{
@@ -12,7 +12,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_EmergencyContacts_Add", connection))
 					{
@@ -37,7 +37,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
 			}
 
 			return newEmergencyContactID;
@@ -49,7 +49,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_EmergencyContacts_Update", connection))
 					{
@@ -70,7 +70,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
 			}
 
 			return success;
@@ -82,7 +82,7 @@ namespace Karate_Club_Data_Access.Members
 
 			try
 			{
-				using (SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString))
+				using (SqlConnection connection = new SqlConnection(DataAccessSettings.ConnectionString))
 				{
 					using (SqlCommand command = new SqlCommand("SP_EmergencyContacts_FindByID", connection))
 					{
@@ -105,16 +105,16 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				clsErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in EmergencyContact's Class: " + ex.Message);
 			}
 
 			return isFound;
 		}
 
 		public static bool DeleteEmergencyContact(int emergencyContactID)
-			=> clsDataAccessHelper.Delete(emergencyContactID, "EmergencyContactID", "SP_EmergencyContacts_Delete");
+			=> DataAccessHelper.Delete(emergencyContactID, "EmergencyContactID", "SP_EmergencyContacts_Delete");
 
 		public static DataTable GetAllEmergencyContacts()
-			=> clsDataAccessHelper.All("SP_EmergencyContacts_GetAll");
+			=> DataAccessHelper.All("SP_EmergencyContacts_GetAll");
 	}
 }
