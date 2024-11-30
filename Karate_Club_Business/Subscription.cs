@@ -1,10 +1,10 @@
-﻿using Karate_Club_Data_Access;
+﻿using Karate_Club_Data_Access.Members;
 using System;
 using System.Data;
 
 namespace Karate_Club_Business
 {
-    public class clsSubscription
+	public class clsSubscription
     {
         public int? SubscriptionID { get; set; }
         public int MemberID { get; set; }

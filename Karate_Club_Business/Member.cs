@@ -1,11 +1,11 @@
-﻿using Karate_Club_Data_Access;
+﻿using Karate_Club_Data_Access.Members;
 using System;
 using System.Data;
 using System.Threading.Tasks;
 
 namespace Karate_Club_Business
 {
-    public class clsMember : clsPerson
+	public class clsMember : clsPerson
     {
         public int? MemberID { get; set; }
         public int CurrentBeltRankID { get; set; }

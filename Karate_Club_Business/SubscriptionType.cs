@@ -1,9 +1,9 @@
-﻿using Karate_Club_Data_Access;
+﻿using Karate_Club_Data_Access.Members;
 using System.Data;
 
 namespace Karate_Club_Business
 {
-    public class clsSubscriptionType
+	public class clsSubscriptionType
     {
         public int? SubscriptionTypeID { get; set; }
         public int PeriodLength { get; set; }

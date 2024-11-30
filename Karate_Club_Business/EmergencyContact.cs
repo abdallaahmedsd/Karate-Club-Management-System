@@ -1,9 +1,9 @@
-﻿using Karate_Club_Data_Access;
+﻿using Karate_Club_Data_Access.Members;
 using System.Data;
 
 namespace Karate_Club_Business
 {
-    public class clsEmergencyContact
+	public class clsEmergencyContact
     {
         public int? EmergencyContactID { get; set; }
         public string Name { get; set; }

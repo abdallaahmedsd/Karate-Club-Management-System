@@ -45,15 +45,18 @@
     <Compile Include="BeltRank.cs" />
     <Compile Include="DataAccessHelper.cs" />
     <Compile Include="DataAccessSettings.cs" />
-    <Compile Include="EmergencyContact.cs" />
+    <Compile Include="Members\EmergencyContact.cs" />
     <Compile Include="ErrorsLogger.cs" />
-    <Compile Include="Member.cs" />
+    <Compile Include="Members\Member.cs" />
     <Compile Include="Payment.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Subscription.cs" />
-    <Compile Include="SubscriptionType.cs" />
+    <Compile Include="Members\Subscription.cs" />
+    <Compile Include="Members\SubscriptionType.cs" />
     <Compile Include="User.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Instructors\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
