@@ -54,7 +54,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				ErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Member's Class: " + ex.Message);
 			}
 
 			return newMemberID;
@@ -87,7 +87,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				ErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Member's Class: " + ex.Message);
 			}
 
 			return success;
@@ -145,7 +145,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				ErrorsLogger.LogError("An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError("An error occur in Member's Class: " + ex.Message);
 			}
 
 			return isFound;
@@ -194,7 +194,7 @@ namespace Karate_Club_Data_Access.Members
 			}
 			catch (Exception ex)
 			{
-				ErrorsLogger.LogError($"An error occur in Memeber's Class: " + ex.Message);
+				ErrorsLogger.LogError($"An error occur in Member's Class: " + ex.Message);
 				return false;
 			}
 

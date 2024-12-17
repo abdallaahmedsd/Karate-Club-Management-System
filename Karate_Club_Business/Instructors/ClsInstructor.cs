@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace Karate_Club_Business.Instructors
@@ -18,12 +19,17 @@ namespace Karate_Club_Business.Instructors
 		public new enum enMode : byte { add_new_mode, update_mode }
 		public new enMode Mode { get; set; }
 
-		private ClsInstructor(int personID, string firstName, string lastName, char gender, DateTime birthdate, string phone, string email, string address,
-				string imagePath, int memberID, int currentBeltRankID, int emergencyContactID, int subscriptionID, bool isActive)
+		private ClsInstructor(int personID, string firstName, string lastName, char gender, DateTime birthdate, string phone,
+			string email, string address, string imagePath, int instructorID, byte yearsOfExperience, bool isActive,
+			int? createdByUserID, List<ClsQualification> qualifications, List<ClsSpecialization> specializations)
 				: base(personID, firstName, lastName, gender, birthdate, phone, email, address, imagePath)
 		{
-			InstructorID = memberID;
+			InstructorID = instructorID;
 			IsActive = isActive;
+			CreatedByUserID = createdByUserID;
+			Qualifications = qualifications;	
+			Specializations = specializations;
+
 			Mode = enMode.update_mode;
 		}
 
@@ -50,31 +56,46 @@ namespace Karate_Club_Business.Instructors
 			}
 		}
 
-		public static new ClsInstructor Find(int memberID)
+		public static new ClsInstructor Find(int instructorID)
 		{
-			//int personID = -1, currentBeltRankID = -1, emergencyContactID = -1, subscriptionID = -1;
-			//string fName = null, lName = null, phone = null, email = null, address = null, imagePath = null;
-			//DateTime birthdate = DateTime.Now;
-			//char gender = ' ';
-			//bool isActive = true, isFound = false;
+			int personID = default;
+			byte yearsOfExperience = default;
+			int? createdByUserID = default;
+			string fName = null, lName = null, phone = null, email = null, address = null, imagePath = null;
+			DateTime birthdate = DateTime.Now;
+			char gender = default;
+			bool isActive = default, isFound = default;
+			Dictionary<int, string> qualifications = new Dictionary<int, string>(), specializations = new Dictionary<int, string>();
 
+			isFound = InstructorDataAccess.FindByID(instructorID, ref personID, ref fName, ref lName, ref gender, ref birthdate, ref phone, ref email, ref address,
+														ref imagePath, ref yearsOfExperience, ref createdByUserID, ref isActive, qualifications, specializations);
 
-			//isFound = InstructorDataAccess.FindInstructorByID(memberID, ref personID, ref fName, ref lName, ref gender, ref birthdate, ref phone, ref email, ref address,
-			//											ref imagePath, ref currentBeltRankID, ref emergencyContactID, ref subscriptionID, ref isActive);
+			if (isFound)
+			{
+				List<ClsQualification> qualificationsList = qualifications.Select(qual => new ClsQualification()
+				{
+					QualificationID = qual.Key,
+					Title = qual.Value,
+				}).ToList();
 
-			//if (isFound)
-			//	return new ClsInstructor(personID, fName, lName, gender, birthdate, phone, email, address, imagePath,
-			//							memberID, currentBeltRankID, emergencyContactID, subscriptionID, isActive);
-			//else
-			//	return null;
-			throw new NotImplementedException();
+				List<ClsSpecialization> specializationsList = specializations.Select(qual => new ClsSpecialization()
+				{
+					SpecializationID = qual.Key,
+					Title = qual.Value,
+				}).ToList();
+
+				return new ClsInstructor(personID, fName, lName, gender, birthdate, phone, email, address, imagePath, instructorID,
+					yearsOfExperience, isActive, createdByUserID, qualificationsList, specializationsList);
+			}
+			
+			return null;
 		}
 
-		public static bool Activate(int memberID) => throw new NotImplementedException();
+		public static bool Activate(int instructorID) => throw new NotImplementedException();
 
-		public static bool Deactivate(int memberID) => throw new NotImplementedException();
+		public static bool Deactivate(int instructorID) => throw new NotImplementedException();
 
-		public static bool DeletePermanently(int memberID) => throw new NotImplementedException();
+		public static bool DeletePermanently(int instructorID) => throw new NotImplementedException();
 
 		public static DataTable GetAllInstructors()
 		{
@@ -101,7 +122,7 @@ namespace Karate_Club_Business.Instructors
 
 		private bool _Update()
 		{
-			throw new NotImplementedException();
+			return InstructorDataAccess.Update(InstructorID.Value, PersonID.Value, YearsOfExperience, IsActive);
 		}
 
 		private List<int> _qualificationIDs

@@ -34,60 +34,64 @@ namespace Karate_Club
 
 		private void button1_Click_2(object sender, EventArgs e)
 		{
-			ClsInstructor instructor = new ClsInstructor
-			{
-				FirstName = "Test",
-				LastName = "Test",
-				Gender = 'm',
-				Birthdate = new DateTime(1998, 8, 25),
-				Phone = "30282123",
-				Email = "test@gmail.com",
-				Address = "Main st 123",
-				ImagePath = null,
-				Qualifications = new List<ClsQualification>()
-				{
-					new ClsQualification
-					{
-						QualificationID = 1,
-						Title = "Test",
-					},
-					new ClsQualification
-					{
-						QualificationID = 2,
-						Title = "Test",
-					},
-					new ClsQualification
-					{
-						QualificationID = 3,
-						Title = "Test",
-					},
-				},
-				Specializations = new List<ClsSpecialization>()
-				{
-					new ClsSpecialization
-					{
-						SpecializationID = 1,
-						Title = "Test",
-					},
-					new ClsSpecialization
-					{
-						SpecializationID = 2,
-						Title = "Test",
-					},
-					new ClsSpecialization
-					{
-						SpecializationID = 3,
-						Title = "Test",
-					},
-				},
-				YearsOfExperience = 16,
-				IsActive = true,
-			};
+			ClsInstructor instructor = ClsInstructor.Find(3);
+
+			instructor.YearsOfExperience = 200;
 
 			if (instructor.Save())
-				Console.WriteLine($"Saved with ID {instructor.InstructorID}");
+				MessageBox.Show(instructor.YearsOfExperience.ToString());
 			else
-				Console.WriteLine("something went wrong");
+				MessageBox.Show("something went wrong");
+
+			//ClsInstructor instructor = new ClsInstructor
+			//{
+			//	FirstName = "Test",
+			//	LastName = "Test",
+			//	Gender = 'm',
+			//	Birthdate = new DateTime(1998, 8, 25),
+			//	Phone = "30282123",
+			//	Email = "test@gmail.com",
+			//	Address = "Main st 123",
+			//	ImagePath = null,
+			//	Qualifications = new List<ClsQualification>()
+			//	{
+			//		new ClsQualification
+			//		{
+			//			QualificationID = 1,
+			//			Title = "Test",
+			//		},
+			//		new ClsQualification
+			//		{
+			//			QualificationID = 2,
+			//			Title = "Test",
+			//		},
+			//		new ClsQualification
+			//		{
+			//			QualificationID = 3,
+			//			Title = "Test",
+			//		},
+			//	},
+			//	Specializations = new List<ClsSpecialization>()
+			//	{
+			//		new ClsSpecialization
+			//		{
+			//			SpecializationID = 1,
+			//			Title = "Test",
+			//		},
+			//		new ClsSpecialization
+			//		{
+			//			SpecializationID = 2,
+			//			Title = "Test",
+			//		},
+			//		new ClsSpecialization
+			//		{
+			//			SpecializationID = 3,
+			//			Title = "Test",
+			//		},
+			//	},
+			//	YearsOfExperience = 16,
+			//	IsActive = true,
+			//};
 		}
 	}
 }
