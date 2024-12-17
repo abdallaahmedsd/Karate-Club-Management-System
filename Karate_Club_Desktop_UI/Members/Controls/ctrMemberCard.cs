@@ -1,5 +1,6 @@
 ﻿using Karate_Club.People;
-using Karate_Club_Business;
+using Karate_Club_Business.Instructors;
+using Karate_Club_Business.Members;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -12,7 +13,7 @@ using System.Windows.Forms;
 
 namespace Karate_Club.Members.Controls
 {
-    public partial class ctrMemberCard : UserControl
+	public partial class ctrMemberCard : UserControl
     {
         public event Action MemberInfoUpdated;
 

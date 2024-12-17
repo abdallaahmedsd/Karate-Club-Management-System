@@ -1,11 +1,13 @@
 ﻿using Karate_Club_Business;
+using Karate_Club_Business.Instructors;
+using Karate_Club_Business.Members;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
 namespace Karate_Club
 {
-    public partial class frmAddMember : Form
+	public partial class frmAddMember : Form
     {
         // This event will be raised when a new member added successfully
         // Apply Publisher Subscriber Desgin Pattern => Observer Design Pattern

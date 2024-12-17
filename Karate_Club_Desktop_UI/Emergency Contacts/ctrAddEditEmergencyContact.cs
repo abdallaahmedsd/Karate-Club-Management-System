@@ -1,11 +1,11 @@
 ﻿using Karate_Club.Global_Classes;
-using Karate_Club_Business;
+using Karate_Club_Business.Members;
 using System;
 using System.Windows.Forms;
 
 namespace Karate_Club.Emergency_Contacts
 {
-    public partial class ctrAddEditEmergencyContact : UserControl
+	public partial class ctrAddEditEmergencyContact : UserControl
     {
         public enum enMode { add_new, update}
         public enMode Mode = enMode.add_new;

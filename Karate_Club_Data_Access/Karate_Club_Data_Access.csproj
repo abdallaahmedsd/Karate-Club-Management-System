@@ -45,6 +45,7 @@
     <Compile Include="BeltRank.cs" />
     <Compile Include="DataAccessHelper.cs" />
     <Compile Include="DataAccessSettings.cs" />
+    <Compile Include="Instructors\Instructor.cs" />
     <Compile Include="Instructors\Specialization.cs" />
     <Compile Include="Instructors\Qualification.cs" />
     <Compile Include="Members\EmergencyContact.cs" />

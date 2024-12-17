@@ -1,11 +1,12 @@
-﻿using Karate_Club_Business;
+﻿using Karate_Club_Business.Instructors;
+using Karate_Club_Business.Members;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
 namespace Karate_Club.Subscriptions
 {
-    public partial class ctrAddEditSubscription : UserControl
+	public partial class ctrAddEditSubscription : UserControl
     {
         public enum enMode { forNewMember, forExistingMember }
         public enMode Mode = enMode.forNewMember;

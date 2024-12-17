@@ -2,7 +2,8 @@
 using Karate_Club.Global_Classes;
 using Karate_Club.Members;
 using Karate_Club.Subscriptions;
-using Karate_Club_Business;
+using Karate_Club_Business.Instructors;
+using Karate_Club_Business.Members;
 using System;
 using System.Data;
 using System.Threading.Tasks;
@@ -11,7 +12,7 @@ using static System.Math;
 
 namespace Karate_Club
 {
-    public partial class frmListMembers : Form
+	public partial class frmListMembers : Form
     {
         private enum enMode { add, update, delete}
         private enMode _mode = enMode.add;
