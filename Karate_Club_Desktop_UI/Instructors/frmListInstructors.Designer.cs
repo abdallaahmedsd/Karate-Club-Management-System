@@ -26,11 +26,11 @@
 		/// Required method for Designer support - do not modify
 		/// the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent()
+		private async void InitializeComponent()
 		{
 			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmListInstructors));
-			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+			System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
 			this.deactivateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.activateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.updateEmegencyContactInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -184,6 +184,7 @@
 			this.btnAddInstructor.Size = new System.Drawing.Size(90, 60);
 			this.btnAddInstructor.TabIndex = 171;
 			this.btnAddInstructor.UseVisualStyleBackColor = false;
+			this.btnAddInstructor.Click += new System.EventHandler(this.btnAddInstructor_Click);
 			// 
 			// label4
 			// 
@@ -204,6 +205,8 @@
 			this.txtFilterValue.Name = "txtFilterValue";
 			this.txtFilterValue.Size = new System.Drawing.Size(220, 30);
 			this.txtFilterValue.TabIndex = 168;
+			this.txtFilterValue.TextChanged += new System.EventHandler(this.txtFilterValue_TextChanged);
+			this.txtFilterValue.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtFilterValue_KeyPress);
 			// 
 			// label3
 			// 
@@ -229,12 +232,12 @@
             "Member ID",
             "Person ID",
             "Full Name",
-            "Belt Rank",
             "Gender"});
 			this.cbFilterBy.Location = new System.Drawing.Point(156, 441);
 			this.cbFilterBy.Name = "cbFilterBy";
 			this.cbFilterBy.Size = new System.Drawing.Size(220, 28);
 			this.cbFilterBy.TabIndex = 167;
+			this.cbFilterBy.SelectedIndexChanged += new System.EventHandler(this.cbFilterBy_SelectedIndexChanged);
 			// 
 			// lblTotalRecordsCount
 			// 
@@ -291,6 +294,7 @@
 			this.cbPage.Name = "cbPage";
 			this.cbPage.Size = new System.Drawing.Size(164, 28);
 			this.cbPage.TabIndex = 170;
+			this.cbPage.SelectedIndexChanged += new System.EventHandler(this.cbPage_SelectedIndexChanged);
 			// 
 			// label1
 			// 
@@ -312,15 +316,15 @@
 			this.dgvInstructors.BackgroundColor = System.Drawing.Color.White;
 			this.dgvInstructors.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
 			this.dgvInstructors.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-			dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-			dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-			dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-			dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(2);
-			dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-			dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-			dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-			this.dgvInstructors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+			dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+			dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+			dataGridViewCellStyle5.Padding = new System.Windows.Forms.Padding(2);
+			dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+			dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+			dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+			this.dgvInstructors.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this.dgvInstructors.ColumnHeadersHeight = 40;
 			this.dgvInstructors.GridColor = System.Drawing.Color.DarkGray;
 			this.dgvInstructors.Location = new System.Drawing.Point(47, 484);
@@ -354,6 +358,7 @@
 			this.Name = "frmListInstructors";
 			this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
 			this.Text = "Manage Instructors";
+			this.Load += new System.EventHandler(this.frmListInstructors_LoadAsync);
 			((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
 			this.cmsInstructors.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.dgvInstructors)).EndInit();

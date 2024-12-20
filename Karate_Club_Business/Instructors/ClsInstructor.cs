@@ -104,13 +104,10 @@ namespace Karate_Club_Business.Instructors
 
 		public static async Task<DataTable> GetInstructorsPerPageAsync(ushort pageNumber, uint rowsPerPage)
 		{
-			throw new NotImplementedException();
+			return await InstructorDataAccess.GetInstructorsPerPageAsync(pageNumber, rowsPerPage);
 		}
 
-		public static uint Count()
-		{
-			throw new NotImplementedException();
-		}
+		public static uint Count() => InstructorDataAccess.Count();
 
 		private bool _Add()
 		{

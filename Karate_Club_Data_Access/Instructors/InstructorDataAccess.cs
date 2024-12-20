@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.Threading.Tasks;
 
 namespace Karate_Club_Data_Access.Instructors
 {
@@ -188,5 +189,9 @@ namespace Karate_Club_Data_Access.Instructors
 			return isFound;
 		}
 
+		public static async Task<DataTable> GetInstructorsPerPageAsync(ushort pageNumber, uint rowsPerPage)
+			=> await DataAccessHelper.AllInPagesAsync(pageNumber, rowsPerPage, "SP_Instructors_GetInstructorsPerPage");
+
+		public static uint Count() => DataAccessHelper.Count("SP_Instructors_GetTotalCount");
 	}
 }

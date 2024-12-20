@@ -1,12 +1,6 @@
-﻿using Karate_Club.Global_Classes;
+﻿using Karate_Club.Instructors;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Karate_Club
@@ -20,13 +14,13 @@ namespace Karate_Club
             InitializeComponent();
 
             // Let the Dashboard Button to be the active button 
-            _PreviousButton = btnMembers;
+            _PreviousButton = btnDashboard;
             _PreviousPanel = pnlChildForm;
         }
 
         private void Karate_Club_Load(object sender, EventArgs e)
         {
-            _ActiveScreen(_PreviousButton);
+            _ActiveScreen(_PreviousButton, new frmListMembers());
         }
 
         private void _ActiveButton(Button button)
@@ -45,30 +39,32 @@ namespace Karate_Club
             _PreviousPanel = panel;
         }
 
-        private void _ActiveScreen(Button button)
+        private void _ActiveScreen(Button button, Form form = null)
         {
-            frmListMembers childForm = new frmListMembers();
+            
+            Form childForm = form;
             childForm.TopLevel = false;
 
             _ActiveButton(button);
             childForm.Dock = DockStyle.Fill;
+            pnlChildForm.Controls.Clear();
             pnlChildForm.Controls.Add(childForm);
             childForm.Show();
         }
 
         private void btnDashboard_Click(object sender, EventArgs e)
         {
-            _ActiveScreen((Button)sender);
+            _ActiveScreen((Button)sender, new frmListMembers());
         }
 
         private void btnMembers_Click(object sender, EventArgs e)
         {
-            _ActiveScreen((Button)sender);
+            _ActiveScreen((Button)sender, new frmListMembers());
         }
 
         private void btnInstructors_Click(object sender, EventArgs e)
         {
-            _ActiveScreen((Button)sender);
+            _ActiveScreen((Button)sender, new frmListInstructors());
         }
 
         private void btnSubscriptions_Click(object sender, EventArgs e)
