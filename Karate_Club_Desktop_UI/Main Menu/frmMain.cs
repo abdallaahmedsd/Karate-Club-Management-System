@@ -32,6 +32,7 @@ namespace Karate_Club
             _PreviousButton = button;
         }
 
+        // I need to know what is this code about!
         private void _ActivePanel(Panel panel)
         {
             _PreviousPanel.Visible = false;
@@ -41,11 +42,10 @@ namespace Karate_Club
 
         private void _ActiveScreen(Button button, Form form = null)
         {
-            
+            _ActiveButton(button);
+
             Form childForm = form;
             childForm.TopLevel = false;
-
-            _ActiveButton(button);
             childForm.Dock = DockStyle.Fill;
             pnlChildForm.Controls.Clear();
             pnlChildForm.Controls.Add(childForm);

@@ -17,46 +17,59 @@ namespace Karate_Club.Global_Classes
        
         public static DateTime MaximumValidAge = DateTime.Today.AddYears(-2);
 
-        public static void CustomizeDataGridView(DataGridView dgv)
-        {
-            // Set Fill Mode to all cells
-            dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+		public static Color MembersMainColor => Color.LimeGreen;
 
-            // Resize the row header column (the one used for selecting rows)
-            dgv.RowHeadersWidth = 25;
+		public static Color InstructorsMainColor => Color.DarkBlue;
 
-            // Resize the column header heigth
-            dgv.ColumnHeadersHeight = 40;
+		public static void CustomizeDataGridView(DataGridView dgv)
+		{
+			// Set Fill Mode to all cells
+			dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
 
-            // Disable visual styles for headers to allow custom styling
-            dgv.EnableHeadersVisualStyles = false;
+			// Resize the row header column (the one used for selecting rows)
+			dgv.RowHeadersWidth = 25;
 
+			// Resize the column header heigth
+			dgv.ColumnHeadersHeight = 40;
 
-            // Customize the header style
-            DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
+			// Disable visual styles for headers to allow custom styling
+			dgv.EnableHeadersVisualStyles = false;
+
+			// Customize the header style
+			DataGridViewCellStyle headerStyle = new DataGridViewCellStyle
+			{
+				Font = new Font("Arial", 9, FontStyle.Bold),
+				BackColor = Color.FromArgb(44, 54, 79),
+				ForeColor = Color.White,
+				Alignment = DataGridViewContentAlignment.MiddleCenter // Center the text
+			};
+
+			// customize the default cell styles as well
+			DataGridViewCellStyle cellStyle = new DataGridViewCellStyle
+			{
+				Font = new Font("Arial", 8, FontStyle.Regular),
+				BackColor = Color.White,
+				ForeColor = clsUtilities.MainColor,
+			};
+
+			// Customize row styles for alternating colors
+			dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightSteelBlue;
+
+			// Set the main color 
+			if (dgv.Name == "dgvMembers")
             {
-                Font = new Font("Arial", 9, FontStyle.Bold),
-                BackColor = Color.FromArgb(44, 54, 79),
-                ForeColor = Color.White,
-                Alignment = DataGridViewContentAlignment.MiddleCenter // Center the text
-            };
-            dgv.ColumnHeadersDefaultCellStyle = headerStyle;
-
-
-            // customize the default cell styles as well
-            DataGridViewCellStyle cellStyle = new DataGridViewCellStyle
+				dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightPink;
+			}
+			else if (dgv.Name == "dgvInstructors")
             {
-                Font = new Font("Arial", 8, FontStyle.Regular),
-                BackColor = Color.White,
-                ForeColor = clsUtilities.MainColor,
-            };
-            dgv.DefaultCellStyle = cellStyle;
+				dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightGreen;
+			}
 
-            // Customize row styles for alternating colors
-            dgv.AlternatingRowsDefaultCellStyle.BackColor = Color.LightSteelBlue;
-        }
+			dgv.ColumnHeadersDefaultCellStyle = headerStyle;
+			dgv.DefaultCellStyle = cellStyle;
+		}
 
-        public static bool IsValidEmail(string email)
+		public static bool IsValidEmail(string email)
         {
             // Define a regular expression pattern for a simple email validation
             string pattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
