@@ -21,6 +21,7 @@ namespace Karate_Club
 
         private void Test_Load(object sender, EventArgs e)
         {
+			ctrQualifications1.LoadQualifications();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -34,14 +35,20 @@ namespace Karate_Club
 
 		private void button1_Click_2(object sender, EventArgs e)
 		{
-			ClsInstructor instructor = ClsInstructor.Find(3);
+			List<ClsQualification> lst = ctrQualifications1.GetSelectedQualifications();
 
-			instructor.YearsOfExperience = 200;
+			foreach (ClsQualification c in lst)
+			{
 
-			if (instructor.Save())
-				MessageBox.Show(instructor.YearsOfExperience.ToString());
-			else
-				MessageBox.Show("something went wrong");
+			}
+			//ClsInstructor instructor = ClsInstructor.Find(3);
+
+			//instructor.YearsOfExperience = 200;
+
+			//if (instructor.Save())
+			//	MessageBox.Show(instructor.YearsOfExperience.ToString());
+			//else
+			//	MessageBox.Show("something went wrong");
 
 			//ClsInstructor instructor = new ClsInstructor
 			//{
@@ -92,6 +99,30 @@ namespace Karate_Club
 			//	YearsOfExperience = 16,
 			//	IsActive = true,
 			//};
+		}
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+			List<ClsQualification> lst = new List<ClsQualification>()
+				{
+					new ClsQualification
+					{
+						QualificationID = 1,
+						Title = "Test",
+					},
+					new ClsQualification
+					{
+						QualificationID = 2,
+						Title = "Test",
+					},
+					new ClsQualification
+					{
+						QualificationID = 3,
+						Title = "Test",
+					},
+				};
+
+			ctrQualifications1.CheckQulifications(lst);
 		}
 	}
 }

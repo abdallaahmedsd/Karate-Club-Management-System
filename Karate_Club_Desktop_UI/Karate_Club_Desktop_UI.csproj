@@ -59,6 +59,19 @@
     <Compile Include="Emergency Contacts\frmEditEmergencyContactInfo.Designer.cs">
       <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Global Classes\Global.cs" />
+    <Compile Include="Instructors\Controls\ctrQualifications.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Instructors\Controls\ctrQualifications.Designer.cs">
+      <DependentUpon>ctrQualifications.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Instructors\frmAddInstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Instructors\frmAddInstructor.Designer.cs">
+      <DependentUpon>frmAddInstructor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Instructors\frmListInstructors.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +157,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Emergency Contacts\frmEditEmergencyContactInfo.resx">
       <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructors\Controls\ctrQualifications.resx">
+      <DependentUpon>ctrQualifications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructors\frmAddInstructor.resx">
+      <DependentUpon>frmAddInstructor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instructors\frmListInstructors.resx">
       <DependentUpon>frmListInstructors.cs</DependentUpon>
