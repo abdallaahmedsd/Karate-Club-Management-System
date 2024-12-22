@@ -1,6 +1,6 @@
 ﻿namespace Karate_Club.Instructors.Controls
 {
-	partial class ctrQualifications
+	partial class ctrSpecializations
 	{
 		/// <summary> 
 		/// Required designer variable.
@@ -28,25 +28,25 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
-			this.clbQualifications = new System.Windows.Forms.CheckedListBox();
+			this.clbSpecializations = new System.Windows.Forms.CheckedListBox();
 			this.SuspendLayout();
 			// 
-			// clbQualifications
+			// clbSpecializations
 			// 
-			this.clbQualifications.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.clbQualifications.FormattingEnabled = true;
-			this.clbQualifications.Location = new System.Drawing.Point(3, 3);
-			this.clbQualifications.Name = "clbQualifications";
-			this.clbQualifications.Size = new System.Drawing.Size(454, 319);
-			this.clbQualifications.TabIndex = 5;
+			this.clbSpecializations.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.clbSpecializations.FormattingEnabled = true;
+			this.clbSpecializations.Location = new System.Drawing.Point(3, 3);
+			this.clbSpecializations.Name = "clbSpecializations";
+			this.clbSpecializations.Size = new System.Drawing.Size(454, 319);
+			this.clbSpecializations.TabIndex = 5;
 			// 
-			// ctrQualifications
+			// ctrSpecializations
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
-			this.Controls.Add(this.clbQualifications);
-			this.Name = "ctrQualifications";
+			this.Controls.Add(this.clbSpecializations);
+			this.Name = "ctrSpecializations";
 			this.Size = new System.Drawing.Size(459, 324);
 			this.ResumeLayout(false);
 
@@ -54,6 +54,6 @@
 
 		#endregion
 
-		private System.Windows.Forms.CheckedListBox clbQualifications;
+		private System.Windows.Forms.CheckedListBox clbSpecializations;
 	}
 }

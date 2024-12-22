@@ -44,7 +44,7 @@ namespace Karate_Club.Instructors.Controls
 			return qualifications;
 		}
 
-		public void CheckQulifications(List<ClsQualification> qualifications)
+		public void CheckQualifications(List<ClsQualification> qualifications)
 		{
 			if(qualifications.Count > 0)
 			{

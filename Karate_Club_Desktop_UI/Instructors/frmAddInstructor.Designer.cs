@@ -29,6 +29,8 @@
 		private void InitializeComponent()
 		{
 			this.panel1 = new System.Windows.Forms.Panel();
+			this.btnClose = new System.Windows.Forms.Button();
+			this.btnSave = new System.Windows.Forms.Button();
 			this.label2 = new System.Windows.Forms.Label();
 			this.tpExperience = new System.Windows.Forms.TabPage();
 			this.btnBackToSubscriptionInfo = new System.Windows.Forms.Button();
@@ -40,10 +42,8 @@
 			this.tpQualifications = new System.Windows.Forms.TabPage();
 			this.btnGoToEmergencyContactfo = new System.Windows.Forms.Button();
 			this.tpPersonalInfo = new System.Windows.Forms.TabPage();
-			this.tcInstructorInfo = new System.Windows.Forms.TabControl();
-			this.btnClose = new System.Windows.Forms.Button();
-			this.btnSave = new System.Windows.Forms.Button();
 			this.ctrAddEditPerson1 = new Karate_Club.People.Controls.ctrAddEditPerson();
+			this.tcInstructorInfo = new System.Windows.Forms.TabControl();
 			this.ctrQualifications1 = new Karate_Club.Instructors.Controls.ctrQualifications();
 			this.panel1.SuspendLayout();
 			this.tpExperience.SuspendLayout();
@@ -61,6 +61,40 @@
 			this.panel1.Name = "panel1";
 			this.panel1.Size = new System.Drawing.Size(287, 44);
 			this.panel1.TabIndex = 20;
+			// 
+			// btnClose
+			// 
+			this.btnClose.AutoSize = true;
+			this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(70)))), ((int)(((byte)(36)))));
+			this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnClose.ForeColor = System.Drawing.Color.White;
+			this.btnClose.Image = global::Karate_Club.Properties.Resources.close_24;
+			this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnClose.Location = new System.Drawing.Point(12, 0);
+			this.btnClose.Name = "btnClose";
+			this.btnClose.Size = new System.Drawing.Size(117, 44);
+			this.btnClose.TabIndex = 18;
+			this.btnClose.Text = "       Close";
+			this.btnClose.UseVisualStyleBackColor = false;
+			// 
+			// btnSave
+			// 
+			this.btnSave.AutoSize = true;
+			this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
+			this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
+			this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+			this.btnSave.ForeColor = System.Drawing.Color.White;
+			this.btnSave.Image = global::Karate_Club.Properties.Resources.save_24;
+			this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.btnSave.Location = new System.Drawing.Point(158, 0);
+			this.btnSave.Name = "btnSave";
+			this.btnSave.Size = new System.Drawing.Size(117, 44);
+			this.btnSave.TabIndex = 17;
+			this.btnSave.Text = "       Save";
+			this.btnSave.UseVisualStyleBackColor = false;
 			// 
 			// label2
 			// 
@@ -219,6 +253,15 @@
 			this.tpPersonalInfo.TabIndex = 0;
 			this.tpPersonalInfo.Text = "Pernsonal Info";
 			// 
+			// ctrAddEditPerson1
+			// 
+			this.ctrAddEditPerson1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
+			this.ctrAddEditPerson1.BackColor = System.Drawing.Color.White;
+			this.ctrAddEditPerson1.Location = new System.Drawing.Point(16, 19);
+			this.ctrAddEditPerson1.Name = "ctrAddEditPerson1";
+			this.ctrAddEditPerson1.Size = new System.Drawing.Size(983, 340);
+			this.ctrAddEditPerson1.TabIndex = 0;
+			// 
 			// tcInstructorInfo
 			// 
 			this.tcInstructorInfo.Controls.Add(this.tpPersonalInfo);
@@ -235,55 +278,12 @@
 			this.tcInstructorInfo.Size = new System.Drawing.Size(1022, 490);
 			this.tcInstructorInfo.TabIndex = 18;
 			// 
-			// btnClose
-			// 
-			this.btnClose.AutoSize = true;
-			this.btnClose.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(237)))), ((int)(((byte)(70)))), ((int)(((byte)(36)))));
-			this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnClose.ForeColor = System.Drawing.Color.White;
-			this.btnClose.Image = global::Karate_Club.Properties.Resources.close_24;
-			this.btnClose.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnClose.Location = new System.Drawing.Point(12, 0);
-			this.btnClose.Name = "btnClose";
-			this.btnClose.Size = new System.Drawing.Size(117, 44);
-			this.btnClose.TabIndex = 18;
-			this.btnClose.Text = "       Close";
-			this.btnClose.UseVisualStyleBackColor = false;
-			// 
-			// btnSave
-			// 
-			this.btnSave.AutoSize = true;
-			this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(54)))), ((int)(((byte)(79)))));
-			this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-			this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-			this.btnSave.ForeColor = System.Drawing.Color.White;
-			this.btnSave.Image = global::Karate_Club.Properties.Resources.save_24;
-			this.btnSave.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			this.btnSave.Location = new System.Drawing.Point(158, 0);
-			this.btnSave.Name = "btnSave";
-			this.btnSave.Size = new System.Drawing.Size(117, 44);
-			this.btnSave.TabIndex = 17;
-			this.btnSave.Text = "       Save";
-			this.btnSave.UseVisualStyleBackColor = false;
-			// 
-			// ctrAddEditPerson1
-			// 
-			this.ctrAddEditPerson1.AutoValidate = System.Windows.Forms.AutoValidate.EnableAllowFocusChange;
-			this.ctrAddEditPerson1.BackColor = System.Drawing.Color.White;
-			this.ctrAddEditPerson1.Location = new System.Drawing.Point(16, 19);
-			this.ctrAddEditPerson1.Name = "ctrAddEditPerson1";
-			this.ctrAddEditPerson1.Size = new System.Drawing.Size(983, 340);
-			this.ctrAddEditPerson1.TabIndex = 0;
-			// 
 			// ctrQualifications1
 			// 
 			this.ctrQualifications1.BackColor = System.Drawing.Color.White;
-			this.ctrQualifications1.Location = new System.Drawing.Point(30, 32);
+			this.ctrQualifications1.Location = new System.Drawing.Point(34, 37);
 			this.ctrQualifications1.Name = "ctrQualifications1";
-			this.ctrQualifications1.Size = new System.Drawing.Size(538, 323);
+			this.ctrQualifications1.Size = new System.Drawing.Size(459, 324);
 			this.ctrQualifications1.TabIndex = 4;
 			// 
 			// frmAddInstructor

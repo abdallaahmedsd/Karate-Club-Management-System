@@ -31,6 +31,7 @@
 			this.button1 = new System.Windows.Forms.Button();
 			this.ctrQualifications1 = new Karate_Club.Instructors.Controls.ctrQualifications();
 			this.button2 = new System.Windows.Forms.Button();
+			this.ctrSpecializations1 = new Karate_Club.Instructors.Controls.ctrSpecializations();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -49,7 +50,7 @@
 			this.ctrQualifications1.BackColor = System.Drawing.Color.White;
 			this.ctrQualifications1.Location = new System.Drawing.Point(305, 97);
 			this.ctrQualifications1.Name = "ctrQualifications1";
-			this.ctrQualifications1.Size = new System.Drawing.Size(538, 323);
+			this.ctrQualifications1.Size = new System.Drawing.Size(461, 323);
 			this.ctrQualifications1.TabIndex = 1;
 			// 
 			// button2
@@ -63,11 +64,20 @@
 			this.button2.UseVisualStyleBackColor = true;
 			this.button2.Click += new System.EventHandler(this.button2_Click);
 			// 
+			// ctrSpecializations1
+			// 
+			this.ctrSpecializations1.BackColor = System.Drawing.Color.White;
+			this.ctrSpecializations1.Location = new System.Drawing.Point(792, 96);
+			this.ctrSpecializations1.Name = "ctrSpecializations1";
+			this.ctrSpecializations1.Size = new System.Drawing.Size(459, 324);
+			this.ctrSpecializations1.TabIndex = 3;
+			// 
 			// Test
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1425, 683);
+			this.Controls.Add(this.ctrSpecializations1);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.ctrQualifications1);
 			this.Controls.Add(this.button1);
@@ -83,5 +93,6 @@
 		private System.Windows.Forms.Button button1;
 		private Instructors.Controls.ctrQualifications ctrQualifications1;
 		private System.Windows.Forms.Button button2;
+		private Instructors.Controls.ctrSpecializations ctrSpecializations1;
 	}
 }

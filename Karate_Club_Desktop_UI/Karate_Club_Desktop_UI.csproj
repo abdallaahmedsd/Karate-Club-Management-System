@@ -60,6 +60,12 @@
       <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Global Classes\Global.cs" />
+    <Compile Include="Instructors\Controls\ctrSpecialization.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Instructors\Controls\ctrSpecialization.Designer.cs">
+      <DependentUpon>ctrSpecialization.cs</DependentUpon>
+    </Compile>
     <Compile Include="Instructors\Controls\ctrQualifications.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -157,6 +163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Emergency Contacts\frmEditEmergencyContactInfo.resx">
       <DependentUpon>frmEditEmergencyContactInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Instructors\Controls\ctrSpecialization.resx">
+      <DependentUpon>ctrSpecialization.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Instructors\Controls\ctrQualifications.resx">
       <DependentUpon>ctrQualifications.cs</DependentUpon>

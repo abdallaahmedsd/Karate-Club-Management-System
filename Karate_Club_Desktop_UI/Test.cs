@@ -22,6 +22,7 @@ namespace Karate_Club
         private void Test_Load(object sender, EventArgs e)
         {
 			ctrQualifications1.LoadQualifications();
+			ctrSpecializations1.LoadSpecializations();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -36,6 +37,8 @@ namespace Karate_Club
 		private void button1_Click_2(object sender, EventArgs e)
 		{
 			List<ClsQualification> lst = ctrQualifications1.GetSelectedQualifications();
+
+			List<ClsSpecialization> lst2 = ctrSpecializations1.GetSelectedSpecializations();
 
 			foreach (ClsQualification c in lst)
 			{
@@ -122,7 +125,28 @@ namespace Karate_Club
 					},
 				};
 
-			ctrQualifications1.CheckQulifications(lst);
+			ctrQualifications1.CheckQualifications(lst);
+
+			List<ClsSpecialization> lst2 = new List<ClsSpecialization>()
+				{
+					new ClsSpecialization
+					{
+						SpecializationID = 1,
+						Title = "Test",
+					},
+					new ClsSpecialization
+					{
+						SpecializationID = 2,
+						Title = "Test",
+					},
+					new ClsSpecialization
+					{
+						SpecializationID = 3,
+						Title = "Test",
+					},
+				};
+
+			ctrSpecializations1.CheckSpecializations(lst);
 		}
 	}
 }
