@@ -37,7 +37,7 @@
 			this.clbSpecializations.FormattingEnabled = true;
 			this.clbSpecializations.Location = new System.Drawing.Point(3, 3);
 			this.clbSpecializations.Name = "clbSpecializations";
-			this.clbSpecializations.Size = new System.Drawing.Size(454, 319);
+			this.clbSpecializations.Size = new System.Drawing.Size(450, 298);
 			this.clbSpecializations.TabIndex = 5;
 			// 
 			// ctrSpecializations
@@ -47,7 +47,7 @@
 			this.BackColor = System.Drawing.Color.White;
 			this.Controls.Add(this.clbSpecializations);
 			this.Name = "ctrSpecializations";
-			this.Size = new System.Drawing.Size(459, 324);
+			this.Size = new System.Drawing.Size(455, 303);
 			this.ResumeLayout(false);
 
 		}

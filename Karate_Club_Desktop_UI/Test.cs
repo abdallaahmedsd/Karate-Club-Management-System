@@ -146,7 +146,7 @@ namespace Karate_Club
 					},
 				};
 
-			ctrSpecializations1.CheckSpecializations(lst);
+			ctrSpecializations1.CheckSpecializations(lst2);
 		}
 	}
 }

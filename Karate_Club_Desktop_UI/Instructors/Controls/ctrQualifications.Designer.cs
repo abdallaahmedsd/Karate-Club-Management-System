@@ -37,7 +37,7 @@
 			this.clbQualifications.FormattingEnabled = true;
 			this.clbQualifications.Location = new System.Drawing.Point(3, 3);
 			this.clbQualifications.Name = "clbQualifications";
-			this.clbQualifications.Size = new System.Drawing.Size(454, 319);
+			this.clbQualifications.Size = new System.Drawing.Size(450, 298);
 			this.clbQualifications.TabIndex = 5;
 			// 
 			// ctrQualifications
@@ -47,7 +47,7 @@
 			this.BackColor = System.Drawing.Color.White;
 			this.Controls.Add(this.clbQualifications);
 			this.Name = "ctrQualifications";
-			this.Size = new System.Drawing.Size(459, 324);
+			this.Size = new System.Drawing.Size(455, 303);
 			this.ResumeLayout(false);
 
 		}

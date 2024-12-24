@@ -158,7 +158,13 @@ namespace Karate_Club.Instructors
 
 		private void btnAddInstructor_Click(object sender, EventArgs e)
 		{
+			_mode = enMode.add;
 
+			frmAddInstructor frm = new frmAddInstructor();
+
+			// Subscribe to the event in frmAddInstructor Form 
+			//_Subscribe(frm);
+			frm.ShowDialog();
 		}
 		private void txtFilterValue_TextChanged(object sender, EventArgs e)
 		{

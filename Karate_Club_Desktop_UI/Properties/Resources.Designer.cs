@@ -193,6 +193,16 @@ namespace Karate_Club.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap experience_24 {
+            get {
+                object obj = ResourceManager.GetObject("experience_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap fees_24 {
             get {
                 object obj = ResourceManager.GetObject("fees_24", resourceCulture);

@@ -1,5 +1,4 @@
 ﻿using Karate_Club_Business;
-using Karate_Club_Business.Instructors;
 using Karate_Club_Business.Members;
 using System;
 using System.Data;

@@ -15,8 +15,8 @@ namespace Karate_Club
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Test());
-            //Application.Run(new frmMain());
+            //Application.Run(new Test());
+            Application.Run(new frmMain());
             //Application.Run(new frmEditPersonalInfo(1));
             //Application.Run(new frmAddMember());
             //Application.Run(new frmAddEditPeron());
